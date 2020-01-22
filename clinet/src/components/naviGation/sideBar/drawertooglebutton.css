@@ -1,0 +1,24 @@
+ .toogle_button{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+     height: 24px;
+    width: 35px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+.toogle_button :focus{
+    outline:  none;
+
+}
+.toggle-button-line{
+
+    width: 100%;
+    height: 1px;
+    background-color: white;
+}

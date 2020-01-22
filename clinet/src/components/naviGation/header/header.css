@@ -1,0 +1,170 @@
+.toolbar{
+
+    width: 100%;
+    position: fixed;
+    top: 0%;
+    left: 0px;
+    background-color:rgb(2, 13, 117);
+    height: 70px;
+    z-index: 1000 !important;
+}
+
+.toolbar_navigation{
+     display: flex; 
+     height: 100%;
+     align-items: center;
+     padding: 0 1rem;
+}
+.toolbar_navigation_items a{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+
+
+}
+
+.toolbar_navigation_items ul{
+list-style: none;
+padding:0%;
+margin:0%;
+display: flex;   
+
+}
+
+.toolbar_navigation_items li{
+
+    padding: 0 3rem;
+    color:white
+}
+
+.toolbar_navigation_items a:hover{
+
+    
+}
+
+.toolbar_navigation_items a:active{
+color:orange
+
+}
+
+.toolbar_logo{
+    margin-left:0rem; 
+    padding: 10px;
+
+}
+.toolbar_logo a{
+color: white;
+text-decoration: none;
+font-size: 2rem;
+text-shadow: 2px 2px 8px rgb(43, 75, 219)
+}
+
+.spacer{
+    flex:1;
+    /* padding:3px; */
+
+}
+@media(max-width:768px){
+.toolbar_navigation_items{
+    display: none;
+}
+}
+
+
+@media(min-width:769px){
+    .tollbar-togle-button{
+
+        display: none;
+    
+    }
+    .toolbar_logo{
+        margin-left:0; 
+    }
+    
+}
+.cartIcon{
+    color: white;
+    width: 70px;
+    height: 60px;
+}
+
+
+nav .toolbarsecond{
+	padding: 0;
+	margin: 0;
+	float: right;
+    margin-right: 20px;
+    
+}
+nav .toolbarsecond li{
+	background: #020D75;
+	position: relative;
+	list-style: none;
+	display: inline-block;
+}
+nav .toolbarsecond li a{
+	display: block;
+	padding: 0 1px;
+	color: white;
+	text-decoration: none;
+	line-height: 60px;
+	font-size: 20px;
+	transition: .5s;
+}
+
+
+nav .toolbarsecond li a:hover{
+	background:#020D75;
+}
+
+nav .toolbarsecond ul{
+	position: absolute;
+    top: 55px;
+    left: 80px;
+	line-height: 20px !important;
+	display: none;
+}
+
+nav .toolbarsecond li:hover > ul{
+	display: block;
+}
+
+
+nav .toolbarsecond ul li{
+	width: 150px;
+	float: none;
+	display: list-item;
+	position: relative;
+	line-height: 20px !important;
+}
+
+nav .toolbarsecond ul ul li{
+	position: relative;
+	top: -60px;
+	left: 150px;
+}
+.auth ul li{
+  
+   color: white;
+	list-style: none;
+    display: inline-block;
+    background: #020D75;
+	position: relative;
+	list-style: none;
+  padding: 0px;
+}
+.list_show_more{
+    position: absolute;
+    left: 0px;
+    top: 100px;
+}
+
+.effects{
+position: relative;
+top: 5px;
+;
+}
+.effects:hover{
+
+}
+

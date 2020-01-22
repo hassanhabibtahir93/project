@@ -1,0 +1,118 @@
+.container{
+    margin-top: 45px;
+}
+
+/* .sliderContainer {
+    height: 485px;
+    min-width: 1000px
+} */
+
+
+.slide1{
+    height: 80vh;
+    width: 100%;
+    position: relative;
+    background-image: url('../../components/slider/images/img1.jpg');
+    height: 40rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+.slide2{
+    position: relative;
+    background-image: url('../../components/slider/images/img2.jpg');
+    height: 40rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+.slide3{
+    position: relative;
+    background-image: url('../../components/slider/images/img3.jpg');
+    height: 40rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+.slide4{
+    position: relative;
+    background-image: url('../../components/slider/images/img4.jpg');
+    height: 40rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+
+.slide5{
+    position: relative;
+    background-image: url('../../components/slider/images/img4.jpg');
+    height: 40rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+.slide6{
+    position: relative;
+    background-image: url('../../components/slider/images/img1.jpg');
+    height: 40rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+
+ .leftIcon, .rightIcon {
+    font-size: 40px;
+    opacity: 0.7;
+     margin-top: 7px; 
+     margin-left: 6px; 
+    color: rgb(30, 13, 128);
+    width: 50px;
+} 
+.left-arrow {
+    cursor: pointer;
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+background-color: white;
+    z-index: 100;
+    top: 40%;
+    left: 2rem;
+     opacity: 0; 
+    transition: opacity ease-out 1s;
+}
+
+
+.right-arrow {
+    cursor: pointer;
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: white;
+    z-index: 100;
+    top: 40%;
+    right: 2rem;
+   opacity: 0; 
+    transition: opacity ease-out 1s;
+}
+
+
+.slick-dots {
+    position: absolute;
+    bottom: 8px !important;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+
+
+.container:hover .right-arrow { 
+    opacity: 1; 
+
+}
+.container:hover .left-arrow { 
+    opacity: 1; 
+
+}

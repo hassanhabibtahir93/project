@@ -1,0 +1,53 @@
+
+.MuiDialog-paperWidthSm {
+    max-width: 600px;
+    position: absolute !important;
+    top: 57px !important;
+    right: 30px !important;
+}
+
+.auth li {
+    text-align: center;
+    width: 200px;
+
+    list-style: none;
+	display: block;
+}
+.Icon_signUp{
+    text-align: center;
+    color:#020D75 ;
+}
+
+.Icon_signUp{
+    
+}
+.Icon_signUp svg{
+    width: 50px;
+    height: 50px;
+    border-radius:  200px ;
+    background:#020D75
+}
+/* .MuiSvgIcon-root{
+    
+} */
+.Icon_sign svg{
+    position: relative;
+    top: 8px;
+    right:20px;
+    width: 30px;
+    height: 30px;
+    border-radius:  200px ;
+    background:#020D75
+}
+
+.links_auth {
+    text-decoration: none;
+    
+}
+
+.links_auth Button{
+    color: #020D75;
+}
+.aut_svg svg{
+    fill: white !important;
+}
