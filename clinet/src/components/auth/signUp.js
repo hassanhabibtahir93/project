@@ -37,8 +37,8 @@ handleSubmit=(e)=>{
   name:this.state.name,
   email:this.state.email,
   password:this.state.password,
-  product:this.state.product
-  
+  product:this.state.product,
+  errors: {}
   }
   
   this.props.registerUser(newUser,this.props.history)
@@ -66,19 +66,24 @@ handleSubmit=(e)=>{
   }
 
 
-
+  componentWillReceiveProps(nextProps){
+    if(nextProps.errors){
+ this.setState({errors:nextProps.errors})
+    }
+  }
 
 
 
   render() {
     
-    // const { user } = this.state;
+      const {errors} = this.state;
+      console.log(errors)
     return (
 
       <div style={{ marginTop: "20vh" }} >
-
+    
         <Container component="main" maxWidth="xs">
-
+        { errors&&<div>{errors}</div>}
           <div >
             <div className="Icon_signUp" >
               <div className=" aut_svg" >
@@ -190,6 +195,7 @@ handleSubmit=(e)=>{
               </Grid>
             </ValidatorForm>
           </div>
+          
           <Box mt={5}>
           </Box>
         </Container>
@@ -200,7 +206,7 @@ handleSubmit=(e)=>{
 
 
  const mapStateToProps=(state)=>({
-
+  errors:state.erorr
 
 })
 

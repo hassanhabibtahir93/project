@@ -16,26 +16,54 @@ import { render } from '@testing-library/react';
 import { Link } from "react-router-dom";
 import './toobar/toolbar.css'
 import SignUp from '../auth/signUp';
-export default class Login extends Component {
+import loginUser from '../../store/action/loginAction/loginaction'
+import { connect } from 'react-redux'; 
+class Login extends Component {
 
   state = {
-    user: {
+    
       email: '',
       password: '',
-    
-    },
-  };
+     errors:{}
+      };
 
  
 
   handleChange = (event) => {
-    const { user } = this.state;
-    user[event.target.name] = event.target.value;
-    this.setState({ user });
+   
+    this.setState({[event.target.name] :event.target.value});
+  }
+
+
+  onSubmit=(e)=> {
+    e.preventDefault();
+
+    const userData = {
+      email: this.state.email,
+      password: this.state.password
+    };
+
+    this.props.loginUser(userData);
+  }
+
+
+
+  componentWillReceiveProps(nextProps) {
+
+    console.log(nextProps)
+    if (nextProps.auth.isAuthenticated) {
+
+         console.log(nextProps.auth)
+
+      this.props.history.push('/dashboard');
+    }
+
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
   }
 
   render() {
-    const { user } = this.state;
     return (
 
       <div style={{ marginTop: "20vh" }} >
@@ -52,7 +80,7 @@ export default class Login extends Component {
 
             <ValidatorForm
               ref="form"
-              onSubmit={this.handleSubmit}
+              onSubmit={this.onSubmit}
               onError={errors => console.log(errors)}
             >
               <Grid container spacing={2}>
@@ -66,7 +94,7 @@ export default class Login extends Component {
                     variant="outlined"
                     required
                     fullWidth
-                    value={user.email}
+                    value={this.state.email}
                     validators={['required', 'isEmail']}
                     errorMessages={['this field is required', 'email is not valid']}
                   />
@@ -83,7 +111,7 @@ export default class Login extends Component {
 
                     validators={['required']}
                     errorMessages={['this field is required']}
-                    value={user.password}
+                    value={this.state.password}
                   /></Grid>
                
 
@@ -115,3 +143,10 @@ export default class Login extends Component {
   }
 }
 
+
+const mapStateToProps=(state)=>({
+  errors:state.erorr,
+  auth:state.auth
+})
+
+export default connect(mapStateToProps,{loginUser})(Login)

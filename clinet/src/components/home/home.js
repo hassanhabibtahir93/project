@@ -2,6 +2,7 @@ import React, { Component } from 'react'
  import Slidersimple from '../slider/slider';
  import Product from '../products/product';
  import MenuList from '../menueList/menulist';
+ import MainpPage from '../../containers/HomeRouter/mainpage'
  import Aux from '../../hoc/hoc'
 export default class Home extends Component {
   render() {
@@ -9,6 +10,7 @@ export default class Home extends Component {
 
       <Aux>
       <div>
+        <MainpPage/>
         <Slidersimple/>
         <MenuList/>
         {/* <Product/> */}
