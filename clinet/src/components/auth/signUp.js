@@ -12,24 +12,43 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { render } from '@testing-library/react';
+import registerUser from '../../store/action/userProfile/userPAction'
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux'; 
 import './toobar/toolbar.css'
 
-export default class SignUp extends Component {
-
-  state = {
-    user: {
+ class SignUp extends Component {
+constructor(){
+  super();
+  this.state = {
+   
       name: "",
       product:"",
       email: '',
       password: '',
       repeatPassword: '',
-    },
+    
   };
+}
+handleSubmit=(e)=>{
+  e.preventDefault()
+  
+  const newUser = {
+  name:this.state.name,
+  email:this.state.email,
+  password:this.state.password,
+  product:this.state.product
+  
+  }
+  
+  this.props.registerUser(newUser,this.props.history)
+  
+    }
+  
   componentDidMount() {
     // custom rule will have name 'isPasswordMatch'
     ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
-      if (value !== this.state.user.password) {
+      if (value !== this.state.password) {
         return false;
       }
       return true;
@@ -41,13 +60,19 @@ export default class SignUp extends Component {
   }
 
   handleChange = (event) => {
-    const { user } = this.state;
-    user[event.target.name] = event.target.value;
-    this.setState({ user });
+ 
+    this.setState({ [event.target.name]: event.target.value });
+
   }
 
+
+
+
+
+
   render() {
-    const { user } = this.state;
+    
+    // const { user } = this.state;
     return (
 
       <div style={{ marginTop: "20vh" }} >
@@ -80,7 +105,7 @@ export default class SignUp extends Component {
 
                     validators={['required']}
                     errorMessages={['this field is required']}
-                    value={user.name}
+                    value={this.state.name}
                   />
                 </Grid>
 
@@ -93,7 +118,7 @@ export default class SignUp extends Component {
                     variant="outlined"
                     required
                     fullWidth
-                    value={user.email}
+                    value={this.state.email}
                     validators={['required', 'isEmail']}
                     errorMessages={['this field is required', 'email is not valid']}
                   />
@@ -110,7 +135,7 @@ export default class SignUp extends Component {
 
                     validators={['required']}
                     errorMessages={['this field is required']}
-                    value={user.password}
+                    value={this.state.password}
                   />
                 </Grid>
                 <Grid item xs={12}> <TextValidator
@@ -124,7 +149,7 @@ export default class SignUp extends Component {
                   type="password"
                   validators={['isPasswordMatch', 'required']}
                   errorMessages={['password mismatch', 'this field is required']}
-                  value={user.repeatPassword}
+                  value={this.state.repeatPassword}
                 /></Grid>
 
 
@@ -136,12 +161,12 @@ export default class SignUp extends Component {
                     fullWidth
                     label="Product"
                     onChange={this.handleChange}
-                    name="Product"
+                    name="product"
                     type="text"
 
                     validators={['required']}
                     errorMessages={['this field is required']}
-                    value={user.product}
+                    value={this.state.product}
                   />
                 </Grid>
               </Grid>
@@ -172,3 +197,12 @@ export default class SignUp extends Component {
   }
 }
 
+
+
+ const mapStateToProps=(state)=>({
+
+
+})
+
+
+export default connect(mapStateToProps,{registerUser})(SignUp)
