@@ -11,14 +11,18 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import MenuItem from '@material-ui/core/MenuItem';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
+import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import Logout from '../../../store/action/logout/logout'
+import { connect } from 'react-redux'; 
 import Aux from '../../../hoc/hoc'
 import {
    
     Link
   } from "react-router-dom";
-export default class ToolBar extends React.Component {
+class ToolBar extends React.Component {
     state = {
         open: false,
+        name:''
     };
 
     handleClickOpen = () => {
@@ -29,7 +33,65 @@ export default class ToolBar extends React.Component {
         this.setState({ open: false });
     };
 
+
+
+    componentWillReceiveProps(nextProps) {
+
+
+        if (nextProps.auth.isAuthenticated) {
+    
+
+                  this.setState({
+                      name:nextProps.auth.user.name
+                  })
+        
+          
+    
+         
+        }
+    
+      }
+
+
+
+
+      onLogoutClick=(e)=>{
+        e.preventDefault();
+    
+        this.props.Logout();
+      }
+
+
     render() {
+
+        const {isAuthenticated}= this.props.auth
+
+
+
+const Logout=(
+<div>
+
+<span>{this.state.name}</span>
+    <button 
+    onClick={this.onLogoutClick}>logout</button>
+</div>
+)
+
+        const loginFirtst=(
+<div className="auth" >
+          <div className="aut_svg" >      
+      <MenuItem onMouseOver={this.handleToggle} onClick={this.handleClose}>
+          
+    <Link  className="links_auth"  to="/signup"> <span className="Icon_sign" ><SupervisorAccountIcon/></span> <Button  type="button">
+     SignUp
+</Button></Link></MenuItem> 
+      <MenuItem onMouseOver={this.handleToggle} onClick={this.handleClose}> <Link className="links_auth"   to="/login"><span className="Icon_sign" ><LockOpenIcon/></span><Button>Login</Button></Link></MenuItem> 
+    
+ </div>
+          </div>
+
+
+        )
 
         return (
             <Aux>
@@ -47,17 +109,7 @@ export default class ToolBar extends React.Component {
                   
                     <DialogActions>
             
-          <div className="auth" >
-          <div className="aut_svg" >      
-      <MenuItem onMouseOver={this.handleToggle} onClick={this.handleClose}>
-          
-    <Link  className="links_auth"  to="/signup"> <span className="Icon_sign" ><SupervisorAccountIcon/></span> <Button  type="button">
-     SignUp
-</Button></Link></MenuItem> 
-      <MenuItem onMouseOver={this.handleToggle} onClick={this.handleClose}> <Link className="links_auth"   to="/login"><span className="Icon_sign" ><LockOpenIcon/></span><Button>Login</Button></Link></MenuItem> 
-    
- </div>
-          </div>
+          {isAuthenticated?Logout:loginFirtst}
                    
                     </DialogActions>
                 </Dialog>
@@ -67,3 +119,9 @@ export default class ToolBar extends React.Component {
     }
 }
 
+const mapStateToProps=(state)=>({
+    errors:state.erorr,
+    auth:state.auth
+  })
+  
+  export default connect(mapStateToProps,{Logout})(ToolBar)

@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { render } from '@testing-library/react';
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import './toobar/toolbar.css'
 import SignUp from '../auth/signUp';
@@ -24,7 +25,7 @@ class Login extends Component {
     
       email: '',
       password: '',
-     errors:{}
+     errors:''
       };
 
  
@@ -50,32 +51,37 @@ class Login extends Component {
 
   componentWillReceiveProps(nextProps) {
 
-    console.log(nextProps)
+
     if (nextProps.auth.isAuthenticated) {
 
-         console.log(nextProps.auth)
+         console.log(nextProps.auth.user)
 
       this.props.history.push('/dashboard');
     }
 
     if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+      this.setState({errors:nextProps.errors})
+      console.log(this.state.errors)
+
     }
   }
 
   render() {
+{console.log(this.state.errors)}
     return (
 
       <div style={{ marginTop: "20vh" }} >
-
+                    
+    
         <Container component="main" maxWidth="xs">
-
+       
           <div >
             <div className="Icon_signUp" >
               <div className="aut_svg"><LockOutlinedIcon /></div>  
               
               
               <h1>Log In</h1>
+              <h4 style={{color:"red"}} >{this.state.errors.message}</h4>
             </div>
 
             <ValidatorForm
@@ -143,6 +149,13 @@ class Login extends Component {
   }
 }
 
+
+
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
 
 const mapStateToProps=(state)=>({
   errors:state.erorr,

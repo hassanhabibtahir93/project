@@ -13,7 +13,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { render } from '@testing-library/react';
 import registerUser from '../../store/action/userProfile/userPAction'
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
+
 import { connect } from 'react-redux'; 
 import './toobar/toolbar.css'
 
@@ -203,7 +205,11 @@ handleSubmit=(e)=>{
   }
 }
 
-
+SignUp.propTypes = {
+  registerUser: PropTypes.func.isRequired,
+  // auth: PropTypes.object.isRequired,
+    errors:PropTypes.object.isRequired
+};
 
  const mapStateToProps=(state)=>({
   errors:state.erorr

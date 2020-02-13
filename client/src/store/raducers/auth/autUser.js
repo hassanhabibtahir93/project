@@ -3,7 +3,7 @@ import {SET_USERS} from '../../action/types/types'
 const intialState={
 
     isAuthenticated: false,
-    user:{}
+    user:[]
 
 };
 

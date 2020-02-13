@@ -5,7 +5,7 @@ import BackDrop from '../../components/naviGation/backdrop/backdrop';
 
 
 
-class MainpPage extends Component {
+class MainHeader extends Component {
 state={
   sideDrawerOpen:false
 };
@@ -39,4 +39,4 @@ this.setState({sideDrawerOpen:false})
     
         )}
 }
-export default MainpPage;
+export default MainHeader;

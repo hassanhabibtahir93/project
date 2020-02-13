@@ -21,14 +21,22 @@ const loginUser = userData => dispatch => {
           //set Current user
           dispatch(SetCurrentUser(decoded))
 
+
+
+       
+
         }).catch((err) =>{
+
+            console.log(err)
+            if (err.response && err.response.data){
             
             dispatch({
-            
-            
+               
+                        
                 type: GET_ERRORS,
                 payload: err.response.data
             })
+        }
 
         } )
 
