@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 
 const user = require('./src/routes/api/user');
-
+const product = require('./src/routes/api/products/produts')
 
 
 
@@ -31,6 +31,8 @@ require('./src/config/passport')(passport)
 
 //use Api routes
 app.use('/api/users', user)
+//porducts
+app.use('/api/product',product)
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
