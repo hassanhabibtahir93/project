@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 //passport
 const passport = require('passport');
 
-const user = require('./src/routes/api/user');
+const user = require('./src/routes/api/user/user');
 const product = require('./src/routes/api/products/produts')
 
 

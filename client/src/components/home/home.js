@@ -12,7 +12,7 @@ export default class Home extends Component {
       <div>
         {/* <MainpPage/> */}
         <Slidersimple/>
-        <MenuList/>
+        {/* <MenuList/> */}
         {/* <Product/> */}
       </div>
       </Aux>

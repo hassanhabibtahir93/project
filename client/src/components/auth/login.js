@@ -19,6 +19,7 @@ import './toobar/toolbar.css'
 import SignUp from '../auth/signUp';
 import loginUser from '../../store/action/loginAction/loginaction'
 import { connect } from 'react-redux'; 
+import resetEmail from '../auth/reset/resetemail'
 class Login extends Component {
 
   state = {
@@ -135,7 +136,11 @@ class Login extends Component {
           </Button>
               <Grid container justify="flex-end">
                 <Grid item>
-                  <Link to='/signup' variant="body2">
+                  <Link to="/login/forgot">Forgot your password?
+              </Link>
+              </Grid>
+              <Grid item>
+              <Link to='/signup' variant="body2">
                     if you have no account First SignUp
               </Link>
                 </Grid>
