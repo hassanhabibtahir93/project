@@ -23,7 +23,7 @@ const passport = require('passport');
 
 
 //get Token form ./user/token
-// const { Token } = require("../user/token");
+const Tokenprofile = require("../../../module/token/token");
 
 //errosrs
 let errors;
@@ -153,10 +153,14 @@ router.post('/forgetpassword', (req, res) => {
 
       else {
         const token = crypto.randomBytes(20).toString('hex')
-        Userprofile.resetToken = token;
-        Userprofile.resetTokenExpiration = Date.now() + 3600000
-        // Userprofile.save();
-        console.log(token)
+         var TokenProfile=new Tokenprofile();
+         TokenProfile.resetToken = token;
+         TokenProfile.email = user.email;
+         TokenProfile.resetTokenExpiration = Date.now() + 3600000
+         TokenProfile.save((err, token)=>{
+console.log(token)
+         });
+        // console.log(token)
 
 
         transporter = nodemailer.createTransport({
@@ -187,13 +191,13 @@ router.post('/forgetpassword', (req, res) => {
 
         }
 
-        transporter.sendMail(mailOptions, (err, res) => {
+        transporter.sendMail(mailOptions, (err, resonce) => {
           if (err) {
             console.error('ther was an error', err)
           }
           else {
-            console.log('here is the responce', res)
-            return res.status(200).json('recovery email is sent')
+           
+           res.status(200).json('recovery email is sent')
           }
         })
 
@@ -211,40 +215,48 @@ router.post('/forgetpassword', (req, res) => {
 
 router.post('/reset/:token', (req, res) => {
 
-  Userprofile.findOne({
+  Tokenprofile.findOne({
     resetToken: req.params.token,
-    resetPasswordExpires: { $gt: Date.now() }
+    resetTokenExpiration: { $gt: Date.now() }
   })
     .then((user) => {
       if (user == null) {
         res.json('password reset link is invalid or expired')
       }
       else {
-
-        var password = req.body.password;
-        bcrypt.hash(password, (err, hash) => {
-          user.password = hash;
+        // Userprofile.findOneAndUpdate({ email: user.email }, )
+        // .then((user)=>{
 
 
-          user.save((req)=>{
-            console
-          });
+          var password = req.body.password;
+          bcrypt.genSalt(10, (err, salt) => {
+  
+            bcrypt.hash(password, salt, (err, hash) => {
+              if (err) throw err
+              // user.password = hash
+              //save and send to client
+            //  user.save().then((user) => { 
+                // console.log("paswordnew",user.password)
+               // res.json(passwordnew=>{
 
-          // Userpr.ofile.findOneAndUpdate({ email: user.email }, req.body, function (err, user) {
+                  Userprofile.findOneAndUpdate({ email: user.email },{password:hash},{ new: true} )
+                  .then((err, data)=>{
+                    res.json(data)
+                  console.log("password is updata",res)
+                  })
 
-          //   if (user) {
+                //}) })
+                .catch(err => { console.log(err) })
+  
+           // })
+          })
 
-          //     res.json(user);
-
-          //   }
-          //   else {
-          //     res.json(err)
-          //   }
-
-          // })
 
 
         })
+     
+
+      
       }
     })
 
@@ -252,6 +264,69 @@ router.post('/reset/:token', (req, res) => {
 
 
 module.exports = router
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -415,3 +490,65 @@ module.exports = router
 // .........................................thired...................
 
 
+
+
+
+// const express = require('express');
+// const router = express.Router();
+// var nodemailer = require('nodemailer');
+// var async = require('async');
+// var crypto = require('crypto');
+// const  UserForgot = require('../models/forgotSceema');
+
+
+// router.post('/forgot', function (req, res, next) {
+//     async.waterfall([
+//       function (done) {
+//         crypto.randomBytes(20, function (err, buf) {
+//           var token = buf.toString('hex');
+//           done(err, token);
+//         });
+//       },
+//       function (token, done) {
+//         var userForgot = new UserForgot();
+  
+//         userForgot.resetPasswordToken = token;
+//         userForgot.resetPasswordExpires = Date.now() + 3600000;
+//         userForgot.email = req.body.email;
+  
+//         userForgot.save(function (err) {
+//           done(err, token, userForgot);
+//         });
+  
+//       },
+//       function (token, userForgot, done) {
+//         var smtpTransport = nodemailer.createTransport({
+//           host: "smtp.gmail.com",
+//           port: 587,
+//           secure: false,
+//           auth: {
+//             user: "shopmatechallenge@gmail.com",
+//             pass: "12345hamad"
+//           }
+//         });
+  
+//         var mailOptions = {
+//           to: userForgot.email,
+//           from: 'shopmatechallenge@gmail.com',
+//           subject: 'Shop Mate  (Turning)',
+//           text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+//             'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+//             'http://localhost:3000/reset/' + token + '\n\n' +
+//             'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+//         };
+//         smtpTransport.sendMail(mailOptions, function (err) {
+//           res.json('Your e-mail Successfully  has been  sent to ' + userForgot.email + '');
+//           done(err, 'done');
+//         });
+//       }
+//     ], function (err) {
+//       if (err) return next(err);
+//       res.redirect('/forgot');
+//     });
+//   });
+//   module.exports=router

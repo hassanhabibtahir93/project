@@ -8,18 +8,27 @@ import resetEmailUser from '../../../store/action/resetAction/resetaction'
 import axios from 'axios';
 import { connect } from 'react-redux';
 import ResetpasswordUser from '../../../store/action/resetAction/resetpasswordaction'
-
+import history from '../../history/history'
 class Resetpassword extends Component {
 
 
 
 
     state = {
-
+        username:'',
         password: '',
         repeatPassword: '',
-        errors:''
+        errors:'',
+        updata:false,
+        isloading:true,
     };
+
+
+// async componentDidMount(){
+   
+// }
+
+
 
     componentDidMount() {
         // custom rule will have name 'isPasswordMatch'
@@ -29,11 +38,28 @@ class Resetpassword extends Component {
           }
           return true;
         });
+
+
+      
+      
+
+
       }
       componentWillUnmount() {
         // remove rule when it is not needed
         ValidatorForm.removeValidationRule('isPasswordMatch');
       }
+
+
+
+
+
+
+
+
+
+
+
 
     handleChanged = (event) => {
 
@@ -43,13 +69,18 @@ class Resetpassword extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        const token = this.props.match.params.token;
-console.log('token',token)
         const userData = {
             password:this.state.password,
-
+            
         };
-      ResetpasswordUser({...userData,token})
+        const token = this.props.match.params.token;
+        axios.post('/api/users/reset/'+token,userData).then((res)=>{
+            console.log("backend",res)
+            history.push('/login');
+        })
+        
+    
+    //   this.props.ResetpasswordUser(userData)
 
     }
 
@@ -73,7 +104,7 @@ console.log('token',token)
 
     render() {
 
-        console.log("token is",this.props)
+        // console.log("token is",this.props)
         return (
             <div style={{ marginTop: "20vh" }} >
                 <Container component="main" maxWidth="xs" >
@@ -139,6 +170,6 @@ console.log('token',token)
 const mapStateToProps = (state) => ({
     errors: state.erorr,
 })
-export default connect(mapStateToProps,ResetpasswordUser )(Resetpassword)
+export default connect(mapStateToProps )(Resetpassword)
 
 // { ResetpasswordUser }
