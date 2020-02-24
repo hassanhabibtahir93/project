@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux'; 
 import './toobar/toolbar.css'
 
+
  class SignUp extends Component {
 constructor(){
   super();
@@ -29,6 +30,8 @@ constructor(){
       email: '',
       password: '',
       repeatPassword: '',
+      PhoneNumber:'',
+      phone:''
     
   };
 }
@@ -40,7 +43,9 @@ handleSubmit=(e)=>{
   email:this.state.email,
   password:this.state.password,
   product:this.state.product,
-  errors: {}
+  PhoneNumber:this.state.PhoneNumber,
+  
+  errors: null
   }
   
   this.props.registerUser(newUser,this.props.history)
@@ -77,7 +82,7 @@ handleSubmit=(e)=>{
 
 
   render() {
-    
+    console.log(this.state.name)
       const {errors} = this.state;
       console.log(errors)
     return (
@@ -85,13 +90,15 @@ handleSubmit=(e)=>{
       <div style={{ marginTop: "20vh" }} >
     
         <Container component="main" maxWidth="xs">
-        { errors&&<div>{errors}</div>}
+     
           <div >
             <div className="Icon_signUp" >
               <div className=" aut_svg" >
                 <LockOutlinedIcon />
               </div>
+              
               <h1>Sign up</h1>
+              <h3 style={{color:"red"}} >  { errors&&<div>{errors.message}</div>}</h3>
             </div>
 
             <ValidatorForm
@@ -176,6 +183,25 @@ handleSubmit=(e)=>{
                     value={this.state.product}
                   />
                 </Grid>
+                <Grid item xs={12} sm={12}>
+                  
+                  <TextValidator
+                    variant="outlined"
+                    required
+                    fullWidth
+                    label="Number"
+                    onChange={this.handleChange}
+                    name="PhoneNumber"
+                    type="number"
+
+                    validators={['required']}
+                    errorMessages={['this field is required']}
+                    value={this.state.PhoneNumber}
+                  />
+                </Grid>
+
+
+
               </Grid>
 
 

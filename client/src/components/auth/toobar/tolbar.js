@@ -12,6 +12,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
+import ArtTrackOutlinedIcon from '@material-ui/icons/ArtTrackOutlined';
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import Logout from '../../../store/action/logout/logout'
 import { connect } from 'react-redux'; 
 import Aux from '../../../hoc/hoc'
@@ -20,10 +22,13 @@ import {
     Link
   } from "react-router-dom";
 class ToolBar extends React.Component {
-    state = {
+   constructor(props){
+       super(props)
+      this.state = {
         open: false,
         name:''
     };
+   }
 
     handleClickOpen = () => {
         this.setState({ open: true });
@@ -40,7 +45,7 @@ class ToolBar extends React.Component {
 
         if (nextProps.auth.isAuthenticated) {
     
-
+                    
                   this.setState({
                       name:nextProps.auth.user.name
                   })
@@ -71,9 +76,14 @@ class ToolBar extends React.Component {
 const Logout=(
 <div>
 
-<span>{this.state.name}</span>
-    <button 
-    onClick={this.onLogoutClick}>logout</button>
+<div><img src="https://img.icons8.com/nolan/64/user.png"/><span style={{marginTop:"100px"}} >{this.props.auth.user.name}</span></div>
+   
+
+<Button><Link to="/addProduct" ><img src="https://img.icons8.com/nolan/64/edit-property.png"/> InsertProduct</Link></Button>
+<p><Button 
+    onClick={this.onLogoutClick}>
+       <img src="https://img.icons8.com/nolan/64/logout-rounded.png"/>
+        logout</Button></p>
 </div>
 )
 
@@ -97,7 +107,7 @@ const Logout=(
             <Aux>
             <div>
                 <Button onClick={this.handleClickOpen}>
-                   <div><img src="https://img.icons8.com/ultraviolet/40/000000/lock.png"/></div>
+                   <div>{isAuthenticated?<img src="https://img.icons8.com/ultraviolet/40/000000/settings.png"/>:<img src="https://img.icons8.com/ultraviolet/40/000000/lock.png"/>}</div>
         </Button>
                 <Dialog  
                     open={this.state.open}

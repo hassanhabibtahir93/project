@@ -33,7 +33,7 @@ let errors;
 // /api/users
 
 router.post('/rejister', (req, res) => {
-  Userprofile.findOne({ email: req.body.email })
+  Userprofile.findOne({ email: req.body.email,PhoneNumber:req.body.PhoneNumber })
     .then((user) => {
       if (user) {
         const errors = "user already exist"
@@ -44,7 +44,8 @@ router.post('/rejister', (req, res) => {
           name: req.body.name,
           email: req.body.email,
           password: req.body.password,
-          product: req.body.product
+          product: req.body.product,
+          PhoneNumber:req.body.PhoneNumber
         })
 
 

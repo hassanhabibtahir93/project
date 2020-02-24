@@ -18,6 +18,14 @@ const UserSchema = new Schema({
         type: String, 
         required: true
     },
+    PhoneNumber: {
+        type: Number, 
+        required: true
+    },
+     isVarified:{
+         type:false
+     },
+
     resetToken: String,
     resetTokenExpiration:Date
 
