@@ -22,9 +22,17 @@ const UserSchema = new Schema({
         type: Number, 
         required: true
     },
-     isVarified:{
-         type:false
+
+     isVarified:false,
+     
+     typeAdmin:{
+         type:Boolean,
+         default:false
      },
+
+
+
+     
 
     resetToken: String,
     resetTokenExpiration:Date

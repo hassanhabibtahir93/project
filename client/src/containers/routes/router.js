@@ -16,6 +16,7 @@ import Resetpassword from '../../components/auth/reset/resetpassword'
   } from "react-router-dom";
 import history from '../../components/history/history'
 import ProvatieRoutes from '../../components/privavte/private'
+import Admin from '../../components/adminpanal/admin'
   
   export default class Routes extends Component {
     render() {
@@ -31,6 +32,7 @@ import ProvatieRoutes from '../../components/privavte/private'
                 />
       <Switch>
       <ProvatieRoutes  exact path="/dashboard"  component={Dashboard} />
+      <ProvatieRoutes  exact path="/Admin"  component={Admin} />
       </Switch>
 
      </Router>

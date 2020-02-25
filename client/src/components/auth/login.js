@@ -20,6 +20,7 @@ import SignUp from '../auth/signUp';
 import loginUser from '../../store/action/loginAction/loginaction'
 import { connect } from 'react-redux'; 
 import resetEmail from '../auth/reset/resetemail'
+import Admin from '../adminpanal/admin';
 class Login extends Component {
 
   state = {
@@ -54,10 +55,15 @@ class Login extends Component {
 
 
     if (nextProps.auth.isAuthenticated) {
+           
+         if(nextProps.auth.user.Admin){
+          this.props.history.push('/Admin');
 
-         console.log(nextProps.auth.user)
+         }else{
+          this.props.history.push('/dashboard');
+         }
 
-      this.props.history.push('/dashboard');
+     
     }
 
     if (nextProps.errors) {

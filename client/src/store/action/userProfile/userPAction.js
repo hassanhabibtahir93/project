@@ -5,7 +5,17 @@ const registerUser = (userData, history) => (dispatch) => {
 
     axios.post('/api/users/rejister', userData)
 
-        .then(res => history.push('/login'))
+        .then(res => 
+            // if( res.data.email="")
+            // {
+
+            //     history.push('/admin')
+
+            // }
+            //  else{
+            history.push('/login')
+            //  }
+             )
         .catch((err) => {
             
           dispatch({

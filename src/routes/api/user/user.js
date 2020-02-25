@@ -25,6 +25,8 @@ const passport = require('passport');
 //get Token form ./user/token
 const Tokenprofile = require("../../../module/token/token");
 
+//valiidataier
+const validatePhoneNumber = require('validate-phone-number-node-js');
 //errosrs
 let errors;
 
@@ -33,6 +35,13 @@ let errors;
 // /api/users
 
 router.post('/rejister', (req, res) => {
+
+//   const result = validatePhoneNumber.validate(+4333334123);
+//   console.log(result)
+//  if(result){
+//   const errors = "incoreect phonenumber"
+//   return res.status(400).json(errors)
+//  }
   Userprofile.findOne({ email: req.body.email,PhoneNumber:req.body.PhoneNumber })
     .then((user) => {
       if (user) {
@@ -45,7 +54,9 @@ router.post('/rejister', (req, res) => {
           email: req.body.email,
           password: req.body.password,
           product: req.body.product,
-          PhoneNumber:req.body.PhoneNumber
+          PhoneNumber:req.body.PhoneNumber,
+          typeAdmin:false,
+          
         })
 
 
@@ -89,7 +100,7 @@ router.post('/login', (req, res) => {
       .then((isMatch) => {
         if (isMatch) {
 
-          const payload = { id: user.id, name: user.name }
+          const payload = { id: user.id, name: user.name ,Admin:user.typeAdmin }
           //using token
           jwt.sign(payload,
             keys.secretOrkey,
@@ -206,11 +217,6 @@ console.log(token)
 
 
     })
-
-
-
-
-
 
 })
 

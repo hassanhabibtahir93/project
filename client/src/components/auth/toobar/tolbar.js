@@ -64,22 +64,37 @@ class ToolBar extends React.Component {
         e.preventDefault();
     
         this.props.Logout();
+        this.handleClose();
       }
 
 
     render() {
 
         const {isAuthenticated}= this.props.auth
+           console.log("Admain",this.props.auth.user.Admin)
 
+ 
+
+        const LogoutAdmain=(
+            <div>
+            
+            <div><img  src="https://img.icons8.com/nolan/64/user.png"/><span style={{marginTop:"100px"}} >{this.props.auth.user.name}</span></div>
+                <p><Button 
+                onClick={this.onLogoutClick}>
+                   <img src="https://img.icons8.com/nolan/64/logout-rounded.png"/>
+                    logout</Button></p>
+            </div>
+            )
+            
 
 
 const Logout=(
 <div>
 
-<div><img src="https://img.icons8.com/nolan/64/user.png"/><span style={{marginTop:"100px"}} >{this.props.auth.user.name}</span></div>
+<div><img  src="https://img.icons8.com/nolan/64/user.png"/><span style={{marginTop:"100px"}} >{this.props.auth.user.name}</span></div>
    
+{this.props.auth.user.Admin===false?<Button onClick={this.handleClose} ><Link to="/addProduct" ><img src="https://img.icons8.com/nolan/64/edit-property.png"/> InsertProduct</Link></Button>:null}
 
-<Button><Link to="/addProduct" ><img src="https://img.icons8.com/nolan/64/edit-property.png"/> InsertProduct</Link></Button>
 <p><Button 
     onClick={this.onLogoutClick}>
        <img src="https://img.icons8.com/nolan/64/logout-rounded.png"/>
@@ -90,12 +105,12 @@ const Logout=(
         const loginFirtst=(
 <div className="auth" >
           <div className="aut_svg" >      
-      <MenuItem onMouseOver={this.handleToggle} onClick={this.handleClose}>
+      <MenuItem  onClick={this.handleClose}>
           
     <Link  className="links_auth"  to="/signup"> <span className="Icon_sign" ><SupervisorAccountIcon/></span> <Button  type="button">
      SignUp
 </Button></Link></MenuItem> 
-      <MenuItem onMouseOver={this.handleToggle} onClick={this.handleClose}> <Link className="links_auth"   to="/login"><span className="Icon_sign" ><LockOpenIcon/></span><Button>Login</Button></Link></MenuItem> 
+      <MenuItem  onClick={this.handleClose}> <Link className="links_auth"   to="/login"><span className="Icon_sign" ><LockOpenIcon/></span><Button>Login</Button></Link></MenuItem> 
     
  </div>
           </div>
@@ -119,7 +134,7 @@ const Logout=(
                   
                     <DialogActions>
             
-          {isAuthenticated?Logout:loginFirtst}
+               {isAuthenticated?Logout:loginFirtst}
                    
                     </DialogActions>
                 </Dialog>
