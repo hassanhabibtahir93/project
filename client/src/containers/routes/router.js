@@ -17,7 +17,7 @@ import Resetpassword from '../../components/auth/reset/resetpassword'
 import history from '../../components/history/history'
 import ProvatieRoutes from '../../components/privavte/private'
 import Admin from '../../components/adminpanal/admin'
-  
+ 
   export default class Routes extends Component {
     render() {
       return (
@@ -34,7 +34,7 @@ import Admin from '../../components/adminpanal/admin'
       <ProvatieRoutes  exact path="/dashboard"  component={Dashboard} />
       <ProvatieRoutes   path="/Admin"  exact component={Admin} />
       </Switch>
-
+{/* <Route path="/users" component={Users} /> */}
      </Router>
           
     

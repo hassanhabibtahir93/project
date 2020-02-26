@@ -1,0 +1,25 @@
+.admin_page{
+    display: flex;
+    /* background-color: red; */
+    margin-top: 60px;
+    /* width: 400px; */
+}
+.links {
+   color:#020D75 !important;
+   text-decoration: none;
+   padding: 20px;
+}
+.admin_icon svg{
+
+    fill: #020D75  ;
+    
+}
+.MuiList-root {
+    background-color: rgb(248, 248, 248) !important;
+}
+.list{
+  
+}
+.contens{
+    margin-left: 91px;
+}
