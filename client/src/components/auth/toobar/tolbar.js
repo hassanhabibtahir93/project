@@ -71,7 +71,7 @@ class ToolBar extends React.Component {
     render() {
 
         const {isAuthenticated}= this.props.auth
-           console.log("Admain",this.props.auth.user.Admin)
+        
 
  
 

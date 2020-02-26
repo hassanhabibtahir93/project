@@ -32,7 +32,7 @@ import Admin from '../../components/adminpanal/admin'
                 />
       <Switch>
       <ProvatieRoutes  exact path="/dashboard"  component={Dashboard} />
-      <ProvatieRoutes  exact path="/Admin"  component={Admin} />
+      <ProvatieRoutes   path="/Admin"  exact component={Admin} />
       </Switch>
 
      </Router>

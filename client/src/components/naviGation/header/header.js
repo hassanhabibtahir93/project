@@ -4,23 +4,16 @@ import './header.css';
 import DrawerToggle from '../sideBar/drawerToggleButon'
 import { Link } from "react-router-dom";
 import Serch from '../../serchNave/search/searchbar';
-import Cart from '../../serchNave/cart/cart'
+import Cart from '../../serchNave/cart/cart';
 // import SimpleMenu from '../../auth/toolbar'
-import ToolBar from '../../auth/toobar/tolbar'
-import Aux from '../../../hoc/hoc'
+import ToolBar from '../../auth/toobar/tolbar';
+import Aux from '../../../hoc/hoc';
+import { connect } from 'react-redux'; 
 class Header extends Component {
     render() {
-        return (
-            <Aux>
-<header className="toolbar" >
-<nav className="toolbar_navigation" >
-    <div  className="tollbar-togle-button" ><DrawerToggle click={this.props.drawerClickHandler} /></div>
-<div  className="toolbar_logo" ><a href="/">GOBACHI</a></div>
-
-<div className="spacer"></div>
-
-<div className="toolbar_navigation_items" >
-<ul  className="toolbarsecond" >
+        console.log("Admain in home ",this.props.auth.user.Admin)
+            const list=(
+            <ul  className="toolbarsecond" >
 
 <li className="header_nav" ><a href="#"   >MENs</a>
 <ul className="list_show" >
@@ -54,13 +47,37 @@ class Header extends Component {
 
 
 </ul>
+        )
+
+
+const adminLinks=(
+    <div  > 
+    <Link to="/admin" ><img src="https://img.icons8.com/ultraviolet/40/000000/data-configuration.png"/></Link>
+
+    </div>
+
+    )
+
+
+        return (
+            <Aux>
+<header className="toolbar" >
+<nav className="toolbar_navigation" >
+{this.props.auth.user.Admin?null:<div  className="tollbar-togle-button" ><DrawerToggle click={this.props.drawerClickHandler} /></div>}
+<div  className="toolbar_logo" ><a href="/">GOBACHI</a></div>
+
+<div className="spacer"></div>
+
+<div className="toolbar_navigation_items" >
+{this.props.auth.user.Admin?adminLinks:list}
 
 </div>
 
-<Serch/>
-{/* <SimpleMenu/> */}
+{this.props.auth.user.Admin?null:<Serch/>}
 
-<div><Cart/></div>
+
+{this.props.auth.user.Admin?null:<div><Cart/></div>}
+
 <div><ToolBar/></div>
 </nav>
 
@@ -69,5 +86,11 @@ class Header extends Component {
 
         )}
 }
-export default Header;
+
+const mapStateToProps=(state)=>({
+    errors:state.erorr,
+    auth:state.auth
+  })
+
+export default connect(mapStateToProps)(Header)
 
