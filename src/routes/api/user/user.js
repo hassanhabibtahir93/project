@@ -42,8 +42,11 @@ router.post('/rejister', (req, res) => {
 //   const errors = "incoreect phonenumber"
 //   return res.status(400).json(errors)
 //  }
-  Userprofile.findOne({ email: req.body.email,PhoneNumber:req.body.PhoneNumber })
-    .then((user) => {
+  // Userprofile.findOne({ email: req.body.email,PhoneNumber:req.body.PhoneNumber })
+  Userprofile.findOne({$or:[ {'email':req.body.email}, {'PhoneNumber':req.body.PhoneNumber}]})
+  
+  // $or:[ {'_id':objId}, {'name':param}
+  .then((user) => {
       if (user) {
         const errors = "user already exist"
         return res.status(400).json(errors)
@@ -56,6 +59,7 @@ router.post('/rejister', (req, res) => {
           product: req.body.product,
           PhoneNumber:req.body.PhoneNumber,
           typeAdmin:false,
+          isVarified:false,
           
         })
 
@@ -129,6 +133,22 @@ router.post('/login', (req, res) => {
 
 })
 
+
+//get all users
+///api/users
+router.get('/all', (req, res) => {
+
+
+  Userprofile.find().then(allusers => {
+      if (!allusers) {
+        errors = "there are no profile";
+        return res.status(400).json(errors)
+      }
+console.log(allusers)
+      res.json(allusers);
+    })
+    .catch(err => res.status(404).json({ profile: 'There are no profiles' }));
+});
 
 
 
