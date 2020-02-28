@@ -18,8 +18,8 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import ShopIcon from '@material-ui/icons/Shop';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import history from '../history/history'
-import Users from './users/Allusres' ;
-import Products from './product/product'
+import AllUser from './users/Allusres' ;
+
 import './admin.css';
 import { findByLabelText } from '@testing-library/react';
 const useStyles = makeStyles(theme => ({
@@ -53,11 +53,11 @@ export default function Admin() {
     
       className={classes.root}
     >
-        <h3  style={{color:'#020D75'}}>admin Name get from database</h3>
+        <h3  style={{color:'#020D75'}}>admin Name </h3>
       <ListItem button>
      <div> <div className="admin_icon" ><GroupIcon fontSize='large'/></div></div>
     
-     <Link to="/users" className="links" >users</Link>
+     <Link to="/AllUser" className="links" >users</Link>
         
         
      
@@ -67,7 +67,7 @@ export default function Admin() {
       <ShoppingBasketIcon fontSize='large'  />
       </div>
      
-      <Link to="/Products" className="links" >Products</Link>
+      <Link to="/" className="links" >Products</Link>
          
        </ListItem>
        <ListItem button>
@@ -118,8 +118,8 @@ export default function Admin() {
 
     <div className="contens" >
        
-        <Route exact path="/users" component={Users} />
-        <Route exact path="/Products" component={Products}/>
+        <Route exact path="/AllUser" component={AllUser} />
+        {/* <Route exact path="/Products" component={Products}/> */}
     </div>
     </div>
     
