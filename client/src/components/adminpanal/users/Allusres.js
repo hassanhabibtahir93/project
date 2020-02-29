@@ -57,7 +57,7 @@ console.log(item)
             <div  style={{marginTop:'30px'}}>
                <table>
                     <tr>
-                      <th>id</th>
+                      <th>Sr.NO</th>
                       <th>Name</th>
                       <th>Email</th>
                       <th>Phone number</th>

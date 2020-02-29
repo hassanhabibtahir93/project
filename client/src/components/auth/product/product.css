@@ -1,0 +1,35 @@
+/* .MuiGrid-root{
+width: 50vh !important;
+}
+.MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12{
+
+}
+
+.css-2b097c-container{
+
+}
+.xcss-yk16xz-control{
+
+} */
+
+.selectBox{
+    width: 52vh;
+  margin-left: 8px;
+    height: 40px;
+
+}
+
+
+@media(max-width:768px){
+    .selectBox{
+        width: 51vh;
+    }
+    }
+    
+
+    @media(min-width:1000px){
+        .selectBox{
+            width: 49vh;
+        }
+        
+    }

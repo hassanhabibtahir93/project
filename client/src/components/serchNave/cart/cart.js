@@ -25,7 +25,7 @@ export default class Cart extends React.Component {
         return (
             <div>
                 <Button onClick={this.handleClickOpen}>
-                    <AddShoppingCartIcon  style={{color:'white'}} />
+                    <AddShoppingCartIcon  fontSize="large"  style={{color:'white'}} />
                     
         </Button>
                 <Dialog

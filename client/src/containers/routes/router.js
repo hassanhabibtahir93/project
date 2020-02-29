@@ -6,7 +6,8 @@ import Login from '../../components/auth/login';
 import Dashboard from '../../components/Dashboard/dashboard'
 import MainHeader from '../../containers/Header/header';
 import resetEmail from '../../components/auth/reset/resetemail'
-import Resetpassword from '../../components/auth/reset/resetpassword'
+import Resetpassword from '../../components/auth/reset/resetpassword';
+import Product from '../../components/auth/product/product'
   import {
      Router,
   
@@ -32,6 +33,9 @@ import Admin from '../../components/adminpanal/admin'
                 />
       <Switch>
       <ProvatieRoutes  exact path="/dashboard"  component={Dashboard} />
+      </Switch>
+      <Switch> <ProvatieRoutes exact path="/addProduct" component={Product}/></Switch>
+      <Switch>
       <ProvatieRoutes   path="/Admin"  exact component={Admin} />
       </Switch>
 {/* <Route path="/users" component={Users} /> */}
