@@ -14,7 +14,12 @@ import FormControl from '@material-ui/core/FormControl';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import InputLabel from '@material-ui/core/InputLabel';
 import Container from '@material-ui/core/Container';
-import {DropzoneArea} from 'material-ui-dropzone'
+import { DropzoneArea } from 'material-ui-dropzone'
+
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+
+
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import '../product/product.css'
@@ -24,13 +29,14 @@ class Product extends Component {
     constructor() {
         super();
         this.state = {
-
-            productname: "",
-            description: "",
-            category: "",
             price: "",
             discount: "",
-            images: "",
+            productname: "",
+            discription: "",
+            category: "",
+           
+          
+
             files: []
 
         };
@@ -54,21 +60,28 @@ class Product extends Component {
 
     }
 
-    ImageshandleChange=(files)=>{
+    ImageshandleChange = (files) => {
         this.setState({
-          files: files
+            files: files
         });
-      }
+    }
+
+    handleSelectChange=(event)=>{
+        this.setState({
+            category:event.target.value
+        })
+    }
+
     componentDidMount() {
         ValidatorForm.addValidationRule('isTruthy', value => value);
     }
 
-  
+
 
     render() {
 
 
-
+console.log(this.state)
         //  const { errorMessages,validators } = this.props;
 
         return (
@@ -119,7 +132,7 @@ class Product extends Component {
 
                                         validators={['isTruthy']}
                                         errorMessages={['this field is required']}
-                                        value={this.state.price}
+                                        value={this.state.discount}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={12}>
@@ -141,66 +154,57 @@ class Product extends Component {
 
 
                                 <Grid item xs={12} sm={12}>
-                                    <TextValidator
+                                <TextValidator
+                                        variant="outlined"
 
-                                        label="Discription"
-                                        type="text"
-                                        placeholder="Discription"
 
                                         fullWidth
+                                        label="Discription"
+                                        onChange={this.handleChange}
+                                        name="discription"
+                                        type="text"
+
                                         validators={['isTruthy']}
                                         errorMessages={['this field is required']}
-                                        variant="outlined"
                                         value={this.state.discription}
                                     />
                                 </Grid>
-                              
-
-                                    <Grid item xs={12} sm={12}>
 
 
-                                    <div className="slecConteinre">
-          <select  className = 'selectBox'  >
-                                <option value="punjab">Punjab</option>
-                                <option value="sindh">Sindh</option>
-                                <option value="kpk">KPK</option>
-                                <option value="gilgit baltistan">Gilgit Baltistan</option>
-                                <option value="ajk">AJK</option>
-                            </select>
-                        </div>
+                                <Grid item xs={12} sm={12}>
+
+
+                                    <Select
+                                    fullWidth
+                                    required
+                                    placeholder="selectcategory"
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={this.state.category}
+                                        onChange={this.handleSelectChange}
+                                    >
+                                        
+                                        <MenuItem value={10}>Ten</MenuItem>
+                                        <MenuItem value={20}>Twenty</MenuItem>
+                                        <MenuItem value={30}>Thirty</MenuItem>
+                                    </Select>
 
 
 
-                               
-                                    </Grid>
-
-<Grid>
-
-<DropzoneArea 
-        onChange={this.ImageshandleChange}
-        />
-</Grid>
-
-                            
 
 
-                                {/*               
-                <Grid item xs={12} sm={12}>
-                  
-                  <TextValidator
-                    variant="outlined"
-                    required
-                    fullWidth
-                    label="Number"
-                    onChange={this.handleChange}
-                    name="PhoneNumber"
-                    type="number"
+                                </Grid>
 
-                    validators={['required']}
-                    errorMessages={['this field is required']}
-                    value={this.state.PhoneNumber}
-                  />
-                </Grid> */}
+                                <Grid>
+
+                                    <DropzoneArea
+                                        onChange={this.ImageshandleChange}
+                                    />
+                                </Grid>
+
+
+
+
 
 
 
