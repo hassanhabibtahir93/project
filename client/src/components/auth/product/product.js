@@ -178,15 +178,15 @@ console.log(this.state)
                                     fullWidth
                                     required
                                     placeholder="selectcategory"
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
+                                        // labelId="demo-simple-select-label"
+                                        // id="demo-simple-select"
                                         value={this.state.category}
                                         onChange={this.handleSelectChange}
                                     >
                                         
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
+                                        <MenuItem value={10}>gents</MenuItem>
+                                        <MenuItem value={20}>WOMEN</MenuItem>
+                                        <MenuItem value={30}>CHILD</MenuItem>
                                     </Select>
 
 

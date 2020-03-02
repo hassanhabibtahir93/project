@@ -69,7 +69,64 @@ router.post('/rejister', (req, res) => {
             if (err) throw err
             newUser.password = hash
             //save and send to client
-            newUser.save().then((user) => { res.json(user) })
+            newUser.save().then((user) => {
+              
+              
+              // res.json(user)
+            
+            
+              const token = crypto.randomBytes(20).toString('hex')
+         var TokenProfile=new Tokenprofile();
+         TokenProfile.resetToken = token;
+         TokenProfile.email = user.email;
+         TokenProfile.resetTokenExpiration = Date.now() + 3600000
+         TokenProfile.save((err, token)=>{
+console.log(token)
+         });
+        // console.log(token)
+
+
+        transporter = nodemailer.createTransport({
+          host: 'smtp.gmail.com',
+          port: 587,
+          secure: false, // true for 465, false for other ports
+          auth: {
+            user: 'productsgobachi@gmail.com', //   company generated ethereal user
+            pass: 'gobachi123'  // generated ethereal password
+          }
+        });
+
+        // const transporter= nodemailer.createTransport({
+        // service:'gmail',
+        // auth:{
+        //   user:`${process.env.EMAIL_ADDRESS}`,
+        //   pass:`${process.env.EMAIL_PASSWORD}`,
+        // }
+        // })
+
+        const mailOptions = {
+          from: 'hassanhabibtahir@gmail.com',
+          to: user.email,
+          subject: 'verify your email',
+          text: 'you are receiving this because you have requested to reset password for your account.\n'
+            + 'please cliks on the following links\n'
+            + `http://localhost:3000/login/${token}`
+
+        }
+
+        transporter.sendMail(mailOptions, (err, resonce) => {
+          if (err) {
+            res.status(404).json('emai is invalid')
+          }
+          else {
+           
+           res.status(200).json('recovery email is sent')
+          }
+        })
+
+      //}
+            
+            })
               .catch(err => { console.log(err) })
 
           })
@@ -88,7 +145,7 @@ router.post('/rejister', (req, res) => {
 
 
 
-router.post('/login', (req, res) => {
+router.post('/login/:token', (req, res) => {
 
 
   const email = req.body.email;
@@ -144,7 +201,7 @@ router.get('/all', (req, res) => {
         errors = "there are no profile";
         return res.status(400).json(errors)
       }
-console.log(allusers)
+// console.log(allusers)
       res.json(allusers);
     })
     .catch(err => res.status(404).json({ profile: 'There are no profiles' }));
@@ -170,7 +227,7 @@ router.get(
 
 router.post('/forgetpassword', (req, res) => {
 
-  if (req.body.email === '') {
+  if (req.body.email ==='') {
     errors = " email is required"
     return res.status(400).json(errors)
   }
@@ -225,7 +282,7 @@ console.log(token)
 
         transporter.sendMail(mailOptions, (err, resonce) => {
           if (err) {
-            console.error('ther was an error', err)
+            res.status(404).json('emai is invalid')
           }
           else {
            
@@ -303,7 +360,46 @@ module.exports = router
 
 
 
-
+// exports.signupPost = function(req, res, next) {
+//   req.assert('name', 'Name cannot be blank').notEmpty();
+//   req.assert('email', 'Email is not valid').isEmail();
+//   req.assert('email', 'Email cannot be blank').notEmpty();
+//   req.assert('password', 'Password must be at least 4 characters long').len(4);
+//   req.sanitize('email').normalizeEmail({ remove_dots: false });
+ 
+//   // Check for validation errors    
+//   var errors = req.validationErrors();
+//   if (errors) { return res.status(400).send(errors); }
+ 
+//   // Make sure this account doesn't already exist
+//   User.findOne({ email: req.body.email }, function (err, user) {
+ 
+//     // Make sure user doesn't already exist
+//     if (user) return res.status(400).send({ msg: 'The email address you have entered is already associated with another account.' });
+ 
+//     // Create and save the user
+//     user = new User({ name: req.body.name, email: req.body.email, password: req.body.password });
+//     user.save(function (err) {
+//         if (err) { return res.status(500).send({ msg: err.message }); }
+ 
+//         // Create a verification token for this user
+//         var token = new Token({ _userId: user._id, token: crypto.randomBytes(16).toString('hex') });
+ 
+//         // Save the verification token
+//         token.save(function (err) {
+//             if (err) { return res.status(500).send({ msg: err.message }); }
+ 
+//             // Send the email
+//             var transporter = nodemailer.createTransport({ service: 'Sendgrid', auth: { user: process.env.SENDGRID_USERNAME, pass: process.env.SENDGRID_PASSWORD } });
+//             var mailOptions = { from: 'no-reply@yourwebapplication.com', to: user.email, subject: 'Account Verification Token', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '.\n' };
+//             transporter.sendMail(mailOptions, function (err) {
+//                 if (err) { return res.status(500).send({ msg: err.message }); }
+//                 res.status(200).send('A verification email has been sent to ' + user.email + '.');
+//             });
+//         });
+//     });
+//   });
+// };
 
 
 

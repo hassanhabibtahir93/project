@@ -5,16 +5,15 @@ const registerUser = (userData, history) => (dispatch) => {
 
     axios.post('/api/users/rejister', userData)
 
-        .then(res => 
-            // if( res.data.email="")
-            // {
+        .then((res) => {
 
-            //     history.push('/admin')
+            // const token = this.props.match.params.token;
+            // console.log(token)
+            // // history.push('/login')
 
-            // }
-            //  else{
-            history.push('/login')
-            //  }
+        }
+           
+          
              )
         .catch((err) => {
             

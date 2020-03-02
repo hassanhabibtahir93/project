@@ -19,7 +19,8 @@ import './toobar/toolbar.css'
 import SignUp from '../auth/signUp';
 import loginUser from '../../store/action/loginAction/loginaction'
 import { connect } from 'react-redux'; 
-import resetEmail from '../auth/reset/resetemail'
+import resetEmail from '../auth/reset/resetemail';
+// import axios from 'axios';
 import Admin from '../adminpanal/admin';
 class Login extends Component {
 
@@ -37,16 +38,31 @@ class Login extends Component {
     this.setState({[event.target.name] :event.target.value});
   }
 
-
+ 
   onSubmit=(e)=> {
     e.preventDefault();
 
     const userData = {
       email: this.state.email,
-      password: this.state.password
-    };
+      password: this.state.password,
 
+       token : this.props.match.params.token
+    
+      };
+console.log(userData)
     this.props.loginUser(userData);
+
+    
+
+
+//  const token = this.props.match.params.token;
+        // axios.post('/api/users/login/'+token,userData).then((res)=>{
+        //     console.log("backend",res)
+        //     history.push('/login');
+        // })
+      
+
+
   }
 
 
@@ -74,6 +90,8 @@ class Login extends Component {
   }
 
   render() {
+
+  
 {console.log(this.state.errors)}
     return (
 
