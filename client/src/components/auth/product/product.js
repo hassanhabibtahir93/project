@@ -34,8 +34,8 @@ class Product extends Component {
             productname: "",
             discription: "",
             category: "",
-           
-          
+
+
 
             files: []
 
@@ -66,9 +66,9 @@ class Product extends Component {
         });
     }
 
-    handleSelectChange=(event)=>{
+    handleSelectChange = (event) => {
         this.setState({
-            category:event.target.value
+            category: event.target.value
         })
     }
 
@@ -81,7 +81,7 @@ class Product extends Component {
     render() {
 
 
-console.log(this.state)
+        console.log(this.state)
         //  const { errorMessages,validators } = this.props;
 
         return (
@@ -154,7 +154,7 @@ console.log(this.state)
 
 
                                 <Grid item xs={12} sm={12}>
-                                <TextValidator
+                                    <TextValidator
                                         variant="outlined"
 
 
@@ -175,15 +175,15 @@ console.log(this.state)
 
 
                                     <Select
-                                    fullWidth
-                                    required
-                                    placeholder="selectcategory"
+                                        fullWidth
+                                        required
+                                        placeholder="selectcategory"
                                         // labelId="demo-simple-select-label"
                                         // id="demo-simple-select"
                                         value={this.state.category}
                                         onChange={this.handleSelectChange}
                                     >
-                                        
+
                                         <MenuItem value={10}>gents</MenuItem>
                                         <MenuItem value={20}>WOMEN</MenuItem>
                                         <MenuItem value={30}>CHILD</MenuItem>

@@ -27,6 +27,7 @@ import Admin from '../../components/adminpanal/admin'
       <Route  exact path="/"    component={Home} />
       <Route  exact  path="/signup"    component={Register}/>
       <Route   exact path="/login/:token"    component={Login}/>
+      <Route   exact path="/login"    component={Login}/>
       <Route   exact path="/login/forgot"   component={resetEmail} />
       <Route exact  path="/reset/:token" component={Resetpassword}
       // /:token

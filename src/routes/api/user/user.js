@@ -120,7 +120,7 @@ console.log(token)
           }
           else {
            
-           res.status(200).json('recovery email is sent')
+           res.status(200).json('recovery email is sent on your emial')
           }
         })
 
@@ -144,10 +144,13 @@ console.log(token)
 ///api/users
 
 
-
-router.post('/login/:token', (req, res) => {
-
-
+// /login?tkoken=3232
+router.post('/login', (req, res) => {
+// req.query.tkoken
+Tokenprofile.findOne({
+  resetToken: req.query.token,
+  resetTokenExpiration: { $gt: Date.now() }
+}).then((user)=>{
   const email = req.body.email;
   const password = req.body.password;
   Userprofile.findOne({ email }).then((user) => {
@@ -185,6 +188,8 @@ router.post('/login/:token', (req, res) => {
 
 
   })
+
+})
 
 
 

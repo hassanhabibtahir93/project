@@ -7,6 +7,7 @@ const registerUser = (userData, history) => (dispatch) => {
 
         .then((res) => {
 
+            console.log(res.data)
             // const token = this.props.match.params.token;
             // console.log(token)
             // // history.push('/login')

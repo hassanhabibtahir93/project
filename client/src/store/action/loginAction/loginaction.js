@@ -4,7 +4,7 @@ import SetAuthToken from '../utility/setAuthToken';
 import jwt_decode from 'jwt-decode';
 import SetCurrentUser from '../loginAction/setUser';
 const loginUser = userData => dispatch => {
-axios.post('/api/users/login/'+userData.token, userData)
+axios.post(`/api/users/login?token=${userData.token}`, userData)
         .then(res => {
 
             //Save to localStorage

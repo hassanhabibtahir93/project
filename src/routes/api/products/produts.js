@@ -26,8 +26,6 @@ router.post('/upload', upload.array('files'), (req, res) => {
 
 })
 
-
-
 router.delete('/deleteProduct/:id', (req, res) => {
 
     Product.findByIdAndDelete({ _id: req.params.id }).then((profile) => {
