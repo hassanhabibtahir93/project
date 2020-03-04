@@ -2,18 +2,18 @@ const Product = require('../module/products/product');
 const productControler = {
     submitProduct:function(data,callback){
         let producatData = new Product();
-
+     producatData.price = data.body.price;
+     producatData.discount = data.body.discount;
      producatData.productname = data.body.productname;
-    //  producatData.description = data.body.description;
-     producatData.name = data.body.name;
-    //  producatData.category = data.body.category;
-     producatData.imgSrc = data.file.path;
-    //  producatData.fav = false
-
-     producatData.user = data.user 
+     producatData.discription = data.body.discription;
+     producatData.category = data.body.category;
+    //  producatData.imgSrc = []
      
+    data.files.forEach((file)=>{
+        producatData.imgSrc.push('/files/'+file.originalname);
+     });
      producatData.save(function(err,product){
-            if(product._id){
+            if(product){
                 callback(err,product)
             }
         })

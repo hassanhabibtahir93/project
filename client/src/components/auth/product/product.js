@@ -18,7 +18,7 @@ import { DropzoneArea } from 'material-ui-dropzone'
 
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-
+import addproducts from '../../../store/action/products/productaction'
 
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
@@ -44,13 +44,29 @@ class Product extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const newUser = {
-
+        const productData = {
+            price:this.state.price,
+            discount:this.state.discount,
+            productname:this.state.productname,
+            discription:this.state.discription,
+            category:this.state.category,
+            // files:this.state.files
 
             //   errors: null
         }
 
-        //   this.props.registerUser(newUser,this.props.history)
+        let fd = new FormData();
+
+        for(let item in productData){
+            fd.append(item, productData[item]);
+        }
+        
+        this.state.files.forEach((file)=>{
+            fd.append('files', file)
+        })
+
+
+          this.props.addproducts(fd,this.props.history)
 
     }
 
@@ -81,7 +97,7 @@ class Product extends Component {
     render() {
 
 
-        console.log(this.state)
+    
         //  const { errorMessages,validators } = this.props;
 
         return (
@@ -184,9 +200,9 @@ class Product extends Component {
                                         onChange={this.handleSelectChange}
                                     >
 
-                                        <MenuItem value={10}>gents</MenuItem>
-                                        <MenuItem value={20}>WOMEN</MenuItem>
-                                        <MenuItem value={30}>CHILD</MenuItem>
+                                        <MenuItem value="gents">gents</MenuItem>
+                                        <MenuItem value="WOMEN">WOMEN</MenuItem>
+                                        <MenuItem value="CHILD">CHILD</MenuItem>
                                     </Select>
 
 
@@ -210,7 +226,8 @@ class Product extends Component {
 
                             </Grid>
 
-
+<br/>
+<br/>
                             <Button
                                 style={{ marginTop: "20px" }}
                                 type="submit"
@@ -237,10 +254,10 @@ Product.propTypes = {
     // errors:PropTypes.object.isRequired
 };
 
-//  const mapStateToProps=(state)=>({
-//   errors:state.erorr
+ const mapStateToProps=(state)=>({
+  
 
-// })
+})
 
 
-export default connect()(Product)
+export default connect(mapStateToProps,{addproducts})(Product)

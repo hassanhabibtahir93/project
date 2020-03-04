@@ -6,34 +6,52 @@ const Productcontroler = require('../../../controler/product')
 
 var storage = multer.diskStorage({
     destination: function (req, file, callback) {
-        callback(null, './images');
+        callback(null, 'static/');
     },
     filename: function (req, file, callback) {
-        callback(null, file.fieldname + '-' + Date.now());
+        callback(null, Date.now()+''+file.originalname);
     }
 });
 
+const imageFilter = function (req, file, cb) {
+    //accept image files only
+    if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+};
+
 //upload
-var upload = multer({ storage: storage })
+// fileFilter: imageFilter
+var upload = multer({ storage: storage,  })
 ///api/product/upload
-router.post('/upload', upload.array('files'), (req, res) => {
+router.post('/upload', upload.array('files',7), (req, res) => {
+      
+    // if (!req.files) {
+    //     return res.send('Please upload File')
 
-    Productcontroler.submitProduct(req, (err, product) => {
-        res.json(product)
-    })
+    // }
+    //else if(req.files){
+
+        Productcontroler.submitProduct(req, (err, product) => {
+            res.json(product)
+        })
+    //}
+
+
 
 
 
 })
 
-router.delete('/deleteProduct/:id', (req, res) => {
+// router.delete('/deleteProduct/:id', (req, res) => {
 
-    Product.findByIdAndDelete({ _id: req.params.id }).then((profile) => {
+//     Product.findByIdAndDelete({ _id: req.params.id }).then((profile) => {
 
-        res.json("product delete succefully")
-    })
+//         res.json("product delete succefully")
+//     })
 
-})
+// })
 
 // router.delete('/deleteproduct',(req,res)=>{
 //     Productcontroler.deleteProduct(req,()=>{

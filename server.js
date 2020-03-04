@@ -10,16 +10,16 @@ const passport = require('passport');
 
 const user = require('./src/routes/api/user/user');
 const product = require('./src/routes/api/products/produts')
-
-
+//cors is use to data send
+var cors = require('cors')
 
 //bodyParsre
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
-
+//use cors
+app.use(cors())
 //passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -35,6 +35,9 @@ app.use('/api/users', user)
 app.use('/api/product',product)
 
 const port = process.env.PORT || 8080;
+
+app.use(express.static('./'));
+app.use(express.static('./client/build/'))
 app.listen(port, () => {
 
     console.log(`servsr is running ${port}`)
