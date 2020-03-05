@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const Product = require('../../../module/products/product');
 const Productcontroler = require('../../../controler/product')
-
+const passport = require('passport');
 var storage = multer.diskStorage({
     destination: function (req, file, callback) {
         callback(null, 'static/');
@@ -25,8 +25,10 @@ const imageFilter = function (req, file, cb) {
 // fileFilter: imageFilter
 var upload = multer({ storage: storage,  })
 ///api/product/upload
-router.post('/upload', upload.array('files',7), (req, res) => {
-      
+router.post('/upload',
+passport.authenticate('jwt', { session: false }),
+upload.array('files',7), (req, res) => {
+      console.log(req.user)
     // if (!req.files) {
     //     return res.send('Please upload File')
 

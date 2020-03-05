@@ -2,15 +2,17 @@ const Product = require('../module/products/product');
 const productControler = {
     submitProduct:function(data,callback){
         let producatData = new Product();
+   
+     producatData.user = data.user.id;
      producatData.price = data.body.price;
      producatData.discount = data.body.discount;
      producatData.productname = data.body.productname;
      producatData.discription = data.body.discription;
      producatData.category = data.body.category;
     //  producatData.imgSrc = []
-     
+
     data.files.forEach((file)=>{
-        producatData.imgSrc.push('/files/'+file.originalname);
+        producatData.imgSrc.push('./files/'+file.originalname);
      });
      producatData.save(function(err,product){
             if(product){

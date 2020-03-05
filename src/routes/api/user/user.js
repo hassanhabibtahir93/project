@@ -198,7 +198,9 @@ Tokenprofile.findOne({
 
 //get all users
 ///api/users
-router.get('/all', (req, res) => {
+router.get('/all',
+passport.authenticate('jwt', { session: false }),
+(req, res) => {
 
 
   Userprofile.find().then(allusers => {
