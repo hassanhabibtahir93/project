@@ -120,7 +120,7 @@ console.log(token)
           }
           else {
            
-           res.status(200).json('recovery email is sent on your emial')
+           res.status(200).json('recovery email is sent on your Gmail check first your mail for athentication')
           }
         })
 

@@ -45,7 +45,8 @@ handleSubmit=(e)=>{
   product:this.state.product,
   PhoneNumber:this.state.PhoneNumber,
   
-  errors: null
+  errors: null,
+  setUser:null
   }
   
   this.props.registerUser(newUser,this.props.history)
@@ -77,12 +78,17 @@ handleSubmit=(e)=>{
     if(nextProps.errors){
  this.setState({errors:nextProps.errors})
     }
+    if(nextProps.auth){
+      this.setState({
+        setUser:nextProps.auth.user
+      })
+    }
   }
 
 
 
   render() {
-    console.log(this.state.name)
+    console.log(this.state.setUser)
       const {errors} = this.state;
       console.log(errors)
     return (
@@ -98,6 +104,7 @@ handleSubmit=(e)=>{
               </div>
               
               <h1>Sign up</h1>
+    <h3 style={{color:"red"}} >{this.state&&<div>{this.state.setUser}</div>}</h3>
               <h3 style={{color:"red"}} >  { errors&&<div>{errors.message}</div>}</h3>
             </div>
 
@@ -238,7 +245,8 @@ SignUp.propTypes = {
 };
 
  const mapStateToProps=(state)=>({
-  errors:state.erorr
+  errors:state.erorr,
+  auth:state.auth
 
 })
 

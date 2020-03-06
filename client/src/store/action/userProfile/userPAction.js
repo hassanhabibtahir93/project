@@ -1,13 +1,18 @@
 import axios from 'axios';
 import types from '../types/types';
-import { GET_ERRORS, SET_USERS } from '../types/types';
+import { GET_ERRORS, SET_USERS,TokenSetToUser } from '../types/types';
 const registerUser = (userData, history) => (dispatch) => {
 
     axios.post('/api/users/rejister', userData)
 
         .then((res) => {
 
-            console.log(res.data)
+            // console.log(res.data)
+
+            dispatch({
+                type:TokenSetToUser,
+                payload:res.data
+            })
             // const token = this.props.match.params.token;
             // console.log(token)
             // // history.push('/login')
