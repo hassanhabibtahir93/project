@@ -22,4 +22,6 @@
 }
 .contens{
     margin-left: 91px;
+display: flex;
+flex-wrap: wrap;
 }

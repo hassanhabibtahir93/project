@@ -25,3 +25,12 @@ export  const ProfileLoading=()=>{
     };
 }; 
 
+export  const UserAutentication=userdata=>dispatch=>{
+
+    console.log(userdata)
+    return{
+
+    }
+
+}; 
+

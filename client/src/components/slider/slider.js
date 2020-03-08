@@ -20,7 +20,7 @@ class Slidersimple extends Component {
       var settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
@@ -37,7 +37,8 @@ class Slidersimple extends Component {
         
           <div>
             <div className="slide1" >
-       
+              <br/>
+       <h1>hassan habib tahir</h1>
             </div>
           </div>
           <div>
