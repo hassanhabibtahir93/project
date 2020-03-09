@@ -89,6 +89,12 @@ console.log(userData)
     }
   }
 
+
+  componentDidMount() {
+    ValidatorForm.addValidationRule('isTruthy', value => value);
+}
+
+
   render() {
 
   
@@ -123,7 +129,7 @@ console.log(userData)
                     onChange={this.handleChange}
                     name="email"
                     variant="outlined"
-                    required
+                    // required
                     fullWidth
                     value={this.state.email}
                     validators={['required', 'isEmail']}
@@ -133,14 +139,14 @@ console.log(userData)
                 <Grid item xs={12}>
                   <TextValidator
                     variant="outlined"
-                    required
+                    // required
                     fullWidth
                     label="Password"
                     onChange={this.handleChange}
                     name="password"
                     type="password"
 
-                    validators={['required']}
+                    validators={['isTruthy']}
                     errorMessages={['this field is required']}
                     value={this.state.password}
                   /></Grid>

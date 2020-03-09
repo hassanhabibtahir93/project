@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { getUsersProfiles, UserAutentication } from '../../../store/action/adminActions/users/Allusers';
+import { getUsersProfiles, DeleteUserprofile } from '../../../store/action/adminActions/users/Allusers';
 import './users.css'
 import { Checkbox, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-// import  from '../../../store/action/adminActions/users/Allusers'
+
 class AllUser extends Component {
     constructor(props) {
         super(props)
@@ -42,16 +42,21 @@ class AllUser extends Component {
                 })
             }
 
-            // let auth = {
-            //     isVarified: this.state.isVarified
-            // }
-            // this.props.UserAutentication({ ...auth })
 
         }
 
 
     }
 
+    UpdatadataElemt=(id)=>{
+        console.log(id)
+    }
+
+
+    DeleteUser=(id)=>{
+        this.props.DeleteUserprofile(id)
+       
+    }
 
 
     render() {
@@ -77,7 +82,7 @@ class AllUser extends Component {
                 profileItems = profile.map((item, i) => {
 
 
-
+console.log(item)
 
                     return (
 
@@ -89,24 +94,23 @@ class AllUser extends Component {
                             <td>{item.product}</td>
 
                             <td>
-                                <input type="checkbox" onChange={this.changedElement} value={item.isVarified} />
-                                {/* <Checkbox 
+                               
+                                <Checkbox 
                             
-                               onChange={this.ToggleItemas}
-                               value={this.state.isVarified} 
+                               onChange={this.changedElement} value={item.isVarified}
                                
                                />
-                                */}
+                               
                             </td>
                             <td>   <Button
                                 variant="contained"
                                 color="secondary"
-                                // className={classes.button}
+                               onClick={()=>{this.DeleteUser(item._id)}}
                                 startIcon={<DeleteIcon />}
                             >
                                 Delete
                             </Button></td>
-                            <td><Button   color="primary" >SAVE</Button></td>
+                            <td><Button   onClick={()=>{this.UpdatadataElemt(item._id)}}  color="primary" >SAVE</Button></td>
                         </tr>
 
 
@@ -147,4 +151,4 @@ const mapStateToProps = (state) => ({
     profile: state.profile
 })
 
-export default connect(mapStateToProps, { UserAutentication, getUsersProfiles })(AllUser)
+export default connect(mapStateToProps, { DeleteUserprofile, getUsersProfiles })(AllUser)

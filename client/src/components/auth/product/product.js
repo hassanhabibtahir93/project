@@ -214,6 +214,9 @@ class Product extends Component {
                                 <Grid>
 
                                     <DropzoneArea
+                                            maxFileSize={5000000}
+                                          acceptedFiles={['image/jpeg', 'image/png', 'image/bmp']}
+                                      filesLimit={5}
                                         onChange={this.ImageshandleChange}
                                     />
                                 </Grid>

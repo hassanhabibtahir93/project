@@ -230,6 +230,18 @@ router.get(
 
 
 
+
+router.delete('/deleteUser/:user_id',
+passport.authenticate('jwt', { session: false })
+,(req,res)=>{
+  Userprofile.findByIdAndDelete(req.params.user_id).then((user)=>{
+    console.log(user)
+  })
+
+})
+
+
+
 //reset pawword
 
 router.post('/forgetpassword', (req, res) => {

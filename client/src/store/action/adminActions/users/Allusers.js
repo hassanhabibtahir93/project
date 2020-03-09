@@ -25,12 +25,10 @@ export  const ProfileLoading=()=>{
     };
 }; 
 
-export  const UserAutentication=userdata=>dispatch=>{
+export  const DeleteUserprofile=id=>dispatch=>{
 
-    console.log(userdata)
-    return{
-
-    }
+    console.log(id)
+   
 
 }; 
 

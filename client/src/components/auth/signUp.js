@@ -65,6 +65,7 @@ handleSubmit=(e)=>{
   componentWillUnmount() {
     // remove rule when it is not needed
     ValidatorForm.removeValidationRule('isPasswordMatch');
+    
   }
 
   handleChange = (event) => {
@@ -86,6 +87,9 @@ handleSubmit=(e)=>{
   }
 
 
+//   componentDidMount() {
+//     ValidatorForm.addValidationRule('isTruthy', value => value);
+// }
 
   render() {
     console.log(this.state.setUser)
@@ -117,7 +121,7 @@ handleSubmit=(e)=>{
                 <Grid item xs={12} sm={12}>
                   <TextValidator
                     variant="outlined"
-                    required
+                    // required
                     fullWidth
                     label="Name"
                     onChange={this.handleChange}
@@ -137,7 +141,7 @@ handleSubmit=(e)=>{
                     onChange={this.handleChange}
                     name="email"
                     variant="outlined"
-                    required
+                    // required
                     fullWidth
                     value={this.state.email}
                     validators={['required', 'isEmail']}
@@ -147,7 +151,7 @@ handleSubmit=(e)=>{
                 <Grid item xs={12}>
                   <TextValidator
                     variant="outlined"
-                    required
+                    // required
                     fullWidth
                     label="Password"
                     onChange={this.handleChange}
@@ -162,23 +166,26 @@ handleSubmit=(e)=>{
                 <Grid item xs={12}> <TextValidator
 
                   variant="outlined"
-                  required
+                  // required
                   fullWidth
                   label="Repeat password"
                   onChange={this.handleChange}
                   name="repeatPassword"
                   type="password"
+                  // validators={['required']}
                   validators={['isPasswordMatch', 'required']}
                   errorMessages={['password mismatch', 'this field is required']}
                   value={this.state.repeatPassword}
-                /></Grid>
-
+                />
+                    {/* {this.state.password!==this.state.repeatPassword&&<p style={{color:'red'}}>password did not match </p>} */}
+                </Grid>
+         
 
 
                 <Grid item xs={12} sm={12}>
                   <TextValidator
                     variant="outlined"
-                    required
+                    // required
                     fullWidth
                     label="Product"
                     onChange={this.handleChange}
@@ -194,7 +201,7 @@ handleSubmit=(e)=>{
                   
                   <TextValidator
                     variant="outlined"
-                    required
+                    // required
                     fullWidth
                     label="Number"
                     onChange={this.handleChange}
