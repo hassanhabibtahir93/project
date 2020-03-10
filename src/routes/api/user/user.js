@@ -231,16 +231,40 @@ router.get(
 
 
 
+
+
+//Delete USER
+
+
 router.delete('/deleteUser/:user_id',
 passport.authenticate('jwt', { session: false })
-,(req,res)=>{
-  Userprofile.findByIdAndDelete(req.params.user_id).then((user)=>{
-    console.log(user)
-  })
+,(req,res,next)=>{
+  Userprofile.findByIdAndRemove(req.params.user_id, req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+ 
 
 })
 
+//MODIFICATION USRES
 
+router.put("/updateUser/:user_id", function(req,res){
+  
+  Userprofile.findByIdAndUpdate(req.params.user_id,{$set:{
+  isVarified:req.body.isVarified
+    }},
+    (err,user)=>{
+        if(err){
+          console.log(err)
+          
+        }else{
+          console.log(user)
+          res.json(user)
+      
+     }
+    });
+});
 
 //reset pawword
 
@@ -693,4 +717,4 @@ module.exports = router
 //       res.redirect('/forgot');
 //     });
 //   });
-//   module.exports=router
+  // module.exports=router

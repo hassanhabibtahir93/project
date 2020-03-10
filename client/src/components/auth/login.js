@@ -166,7 +166,7 @@ console.log(userData)
           </Button>
               <Grid container justify="flex-end">
                 <Grid item>
-                  <Link to="/login/forgot">Forgot your password?
+                  <Link to="/getEmail/forgot">Forgot your password?
               </Link>
               </Grid>
               <Grid item>

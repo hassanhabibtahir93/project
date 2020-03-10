@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { getUsersProfiles, DeleteUserprofile } from '../../../store/action/adminActions/users/Allusers';
+import { getUsersProfiles, DeleteUserprofile ,updataElement} from '../../../store/action/adminActions/users/Allusers';
 import './users.css'
 import { Checkbox, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -12,6 +12,7 @@ class AllUser extends Component {
         this.state = {
             typeAdmin: null,
             isVarified: false,
+            array:[]
 
         }
 
@@ -49,18 +50,28 @@ class AllUser extends Component {
     }
 
     UpdatadataElemt=(id)=>{
-        console.log(id)
+
+       const updatation={
+           id:id,
+           isVarified:this.state.isVarified
+       }
+
+        this.props.updataElement(updatation)
     }
 
 
     DeleteUser=(id)=>{
+
+
+
         this.props.DeleteUserprofile(id)
        
     }
 
 
     render() {
-             console.log(this.state.isVarified)
+                          
+             console.log(this.props.profile)
         const { profile, loading } = this.props.profile;
         // console.log(profile,loading)
         let profileItems;
@@ -86,7 +97,7 @@ console.log(item)
 
                     return (
 
-                        <tr>
+                        <tr key={item._id}>
                             <td>{i}</td>
                             <td>{item.name}</td>
                             <td>{item.email}</td>
@@ -96,10 +107,10 @@ console.log(item)
                             <td>
                                
                                 <Checkbox 
-                            
-                               onChange={this.changedElement} value={item.isVarified}
+                            //    checked={this.state.isVarified==false?"checked":false}
+                               onChange={this.changedElement} value={this.state.isVarified}
                                
-                               />
+                    /><span>{this.state.isVarified}</span>
                                
                             </td>
                             <td>   <Button
@@ -151,4 +162,4 @@ const mapStateToProps = (state) => ({
     profile: state.profile
 })
 
-export default connect(mapStateToProps, { DeleteUserprofile, getUsersProfiles })(AllUser)
+export default connect(mapStateToProps, { DeleteUserprofile, getUsersProfiles,updataElement })(AllUser)

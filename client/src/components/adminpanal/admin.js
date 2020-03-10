@@ -119,6 +119,7 @@ export default function Admin() {
     <div className="contens" >
        
         <Route exact path="/AllUser" component={AllUser} />
+        
         {/* <Route exact path="/Products" component={Products}/> */}
     </div>
     </div>

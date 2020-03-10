@@ -26,9 +26,21 @@ export  const ProfileLoading=()=>{
 }; 
 
 export  const DeleteUserprofile=id=>dispatch=>{
-
-    console.log(id)
-   
+ const user= window.confirm("are you sure you want to delete  user")
+ if(user){
+    axios.delete(`/api/users/deleteUser/${id}`).then((user)=>{
+    console.log(user)
+})
+ 
+ }
 
 }; 
 
+export const updataElement=data=>dispatch=>{
+    console.log(data)
+    axios.put(`/api/users/updateUser/${data.id}`,data)
+    .then(res=>console.log(res.data))
+
+
+
+} 

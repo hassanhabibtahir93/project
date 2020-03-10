@@ -2,7 +2,8 @@ import {GETUSER_PROFILE,USERPROFILE_LOADING} from '../../../action/types/types'
 
 const initialState={
     loading:false,
-    profiles:null
+    profiles:null,
+    users:[]
 }
 
 export default function(state=initialState,action){
@@ -11,10 +12,11 @@ export default function(state=initialState,action){
     switch(action.type){
      
 
-        case GETUSER_PROFILE:
+     case GETUSER_PROFILE:
             return{
                 ...newState,
-                profile:action.payload,
+                   
+                profile:initialState.users.concat(action.payload),
                 loading:false
             }
 
