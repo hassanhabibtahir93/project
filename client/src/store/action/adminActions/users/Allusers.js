@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GETUSER_PROFILE,USERPROFILE_LOADING} from '../../types/types';
+import {GETUSER_PROFILE,USERPROFILE_LOADING,RemoveElemets} from '../../types/types';
 
 
 export const getUsersProfiles = ()=>dispatch=>{
@@ -25,10 +25,40 @@ export  const ProfileLoading=()=>{
     };
 }; 
 
-export  const DeleteUserprofile=id=>dispatch=>{
+export  const DeleteUserprofile=data=>dispatch=>{
+
+  console.log(data)
  const user= window.confirm("are you sure you want to delete  user")
+
  if(user){
-    axios.delete(`/api/users/deleteUser/${id}`).then((user)=>{
+
+    dispatch({
+        type:RemoveElemets,
+        payload:data.index
+            })
+    axios.delete(`/api/users/deleteUser/${data.id}`).then((user)=>{
+
+
+
+
+
+
+        // axios.get('/api/users/all')
+        // .then(res=>
+        
+        //     dispatch({
+        
+                
+        //         type:GETUSER_PROFILE,
+        //         payload: res.data
+                
+        // })
+        // )
+
+
+
+
+        
     console.log(user)
 })
  

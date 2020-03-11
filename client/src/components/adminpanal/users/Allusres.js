@@ -60,40 +60,52 @@ class AllUser extends Component {
     }
 
 
-    DeleteUser=(id)=>{
+    DeleteUser=(i,id)=>{
 
+           console.log(i,id)
+           const data = {
+               index:i,
+               id:id
+           }
 
-
-        this.props.DeleteUserprofile(id)
+        this.props.DeleteUserprofile(data)
        
     }
 
 
     render() {
-                          
-             console.log(this.props.profile)
+   
+
+    // console.log(this.props.profile.users)    
+            // this.props.profile.users.map((i)=>{
+            //     console.log("this is users",i)
+            //  })
         const { profile, loading } = this.props.profile;
+
+        console.log("users",profile.users)
         // console.log(profile,loading)
         let profileItems;
-        if (profile === null || loading) {
+        if (profile.users === null || loading) {
             profileItems = <h1>loading.............</h1>;
         }
         else {
-            if (profile === undefined) {
+            if (profile.users === undefined) {
                 profileItems = <h1>loading...........agin..</h1>;
             }
             else {
 
 
+console.log(profile.users)
 
 
 
 
+                profileItems = profile.users.map((item, i) => {
+                    console.log(item)
+             
 
-                profileItems = profile.map((item, i) => {
 
-
-console.log(item)
+// // console.log(item)
 
                     return (
 
@@ -116,7 +128,7 @@ console.log(item)
                             <td>   <Button
                                 variant="contained"
                                 color="secondary"
-                               onClick={()=>{this.DeleteUser(item._id)}}
+                               onClick={()=>{this.DeleteUser(i,item._id)}}
                                 startIcon={<DeleteIcon />}
                             >
                                 Delete
@@ -159,7 +171,7 @@ console.log(item)
 }
 
 const mapStateToProps = (state) => ({
-    profile: state.profile
+    profile: state
 })
 
 export default connect(mapStateToProps, { DeleteUserprofile, getUsersProfiles,updataElement })(AllUser)

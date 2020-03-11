@@ -1,6 +1,7 @@
-import {GETUSER_PROFILE,USERPROFILE_LOADING} from '../../../action/types/types'
+import {GETUSER_PROFILE,USERPROFILE_LOADING,RemoveElemets} from '../../../action/types/types'
 
 const initialState={
+    name:"hassanhabib",
     loading:false,
     profiles:null,
     users:[]
@@ -13,12 +14,24 @@ export default function(state=initialState,action){
      
 
      case GETUSER_PROFILE:
-            return{
+     
+     return({
+                
                 ...newState,
-                   
-                profile:initialState.users.concat(action.payload),
+                // users: action.payload,
+                // array:state.users.concat([action.payload]),
+                users:initialState.users.concat(action.payload),
                 loading:false
-            }
+            })
+
+            case RemoveElemets:
+                console.log("reducerindex",action.payload)
+                return{
+                    users: [
+                        newState.users.splice(action.payload,1),
+                    ],
+                    ...newState,
+                }
 
             case USERPROFILE_LOADING:
                 return {
