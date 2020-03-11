@@ -32,7 +32,7 @@ import Admin from '../../components/adminpanal/admin'
       <Switch>
       <Route   exact path="/reset/:token"     component={Resetpassword}/>
       </Switch>
-                />
+        />
       <Switch>
       <ProvatieRoutes  exact path="/dashboard"  component={Dashboard} />
       </Switch>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GETUSER_PROFILE,USERPROFILE_LOADING,RemoveElemets} from '../../types/types';
+import {GETUSER_PROFILE,USERPROFILE_LOADING,RemoveElemets,UserVerfication} from '../../types/types';
 
 
 export const getUsersProfiles = ()=>dispatch=>{
@@ -41,7 +41,7 @@ export  const DeleteUserprofile=data=>dispatch=>{
 
 
 
-
+//second concept to get users
 
         // axios.get('/api/users/all')
         // .then(res=>
@@ -69,7 +69,15 @@ export  const DeleteUserprofile=data=>dispatch=>{
 export const updataElement=data=>dispatch=>{
     console.log(data)
     axios.put(`/api/users/updateUser/${data.id}`,data)
-    .then(res=>console.log(res.data))
+    .then((res)=>{
+
+        console.log(res.data)
+        dispatch({
+        type:UserVerfication,
+        payload:res.data
+        })
+
+    })
 
 
 

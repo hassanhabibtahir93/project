@@ -105,13 +105,13 @@ const Logout=(
 
         const loginFirtst=(
 <div className="auth" >
-          <div className="aut_svg" >      
+          <div className="aut_svg" >  
+          <h1>SignUp here</h1>    
       <MenuItem  onClick={this.handleClose}>
-          
-    <Link  className="links_auth"  to="/signup"> <span className="Icon_sign" ><SupervisorAccountIcon/></span> <Button  type="button">
+     <Link  className="links_auth"  to="/signup"> <span className="Icon_sign" ><SupervisorAccountIcon/></span> <Button  type="button">
      SignUp
 </Button></Link></MenuItem> 
-      <MenuItem  onClick={this.handleClose}> <Link className="links_auth"   to="/login"><span className="Icon_sign" ><LockOpenIcon/></span><Button>Login</Button></Link></MenuItem> 
+<MenuItem  onClick={this.handleClose}> <Link className="links_auth"   to="/login"><span className="Icon_sign" ><LockOpenIcon/></span><Button>Login</Button></Link></MenuItem> 
     
  </div>
           </div>

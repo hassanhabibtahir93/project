@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { getUsersProfiles, DeleteUserprofile ,updataElement} from '../../../store/action/adminActions/users/Allusers';
+import { getUsersProfiles, DeleteUserprofile, updataElement } from '../../../store/action/adminActions/users/Allusers';
 import './users.css'
 import { Checkbox, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -12,7 +12,7 @@ class AllUser extends Component {
         this.state = {
             typeAdmin: null,
             isVarified: false,
-            array:[]
+            array: []
 
         }
 
@@ -31,15 +31,15 @@ class AllUser extends Component {
         //    console.log(e.target.value)
         if (e.target) {
 
-            if(e.target.checked){
+            if (e.target.checked) {
 
                 this.setState({
                     isVarified: true
                 })
 
-            }else{
+            } else {
                 this.setState({
-                    isVarified:false
+                    isVarified: false
                 })
             }
 
@@ -49,40 +49,40 @@ class AllUser extends Component {
 
     }
 
-    UpdatadataElemt=(id)=>{
+    UpdatadataElemt = (id) => {
 
-       const updatation={
-           id:id,
-           isVarified:this.state.isVarified
-       }
+        const updatation = {
+            id: id,
+            isVarified: this.state.isVarified
+        }
 
         this.props.updataElement(updatation)
     }
 
 
-    DeleteUser=(i,id)=>{
+    DeleteUser = (i, id) => {
 
-           console.log(i,id)
-           const data = {
-               index:i,
-               id:id
-           }
+        console.log(i, id)
+        const data = {
+            index: i,
+            id: id
+        }
 
         this.props.DeleteUserprofile(data)
-       
+
     }
 
 
     render() {
-   
 
-    // console.log(this.props.profile.users)    
-            // this.props.profile.users.map((i)=>{
-            //     console.log("this is users",i)
-            //  })
+
+        // console.log(this.props.profile.users)    
+        // this.props.profile.users.map((i)=>{
+        //     console.log("this is users",i)
+        //  })
         const { profile, loading } = this.props.profile;
 
-        console.log("users",profile.users)
+        console.log("users", profile.users)
         // console.log(profile,loading)
         let profileItems;
         if (profile.users === null || loading) {
@@ -95,17 +95,17 @@ class AllUser extends Component {
             else {
 
 
-console.log(profile.users)
+                console.log(profile.users)
 
 
 
 
                 profileItems = profile.users.map((item, i) => {
                     console.log(item)
-             
 
 
-// // console.log(item)
+
+                    // // console.log(item)
 
                     return (
 
@@ -117,23 +117,23 @@ console.log(profile.users)
                             <td>{item.product}</td>
 
                             <td>
-                               
-                                <Checkbox 
-                            //    checked={this.state.isVarified==false?"checked":false}
-                               onChange={this.changedElement} value={this.state.isVarified}
-                               
-                    /><span>{this.state.isVarified}</span>
-                               
+
+                                <Checkbox
+                                    //    checked={this.state.isVarified==false?"checked":false}
+                                    onChange={this.changedElement} value={this.state.isVarified}
+
+                                /><span>{this.state.isVarified}</span>
+
                             </td>
                             <td>   <Button
                                 variant="contained"
                                 color="secondary"
-                               onClick={()=>{this.DeleteUser(i,item._id)}}
+                                onClick={() => { this.DeleteUser(i, item._id) }}
                                 startIcon={<DeleteIcon />}
                             >
                                 Delete
                             </Button></td>
-                            <td><Button   onClick={()=>{this.UpdatadataElemt(item._id)}}  color="primary" >SAVE</Button></td>
+                            <td><Button onClick={() => { this.UpdatadataElemt(item._id) }} color="primary" >SAVE</Button></td>
                         </tr>
 
 
@@ -174,4 +174,4 @@ const mapStateToProps = (state) => ({
     profile: state
 })
 
-export default connect(mapStateToProps, { DeleteUserprofile, getUsersProfiles,updataElement })(AllUser)
+export default connect(mapStateToProps, { DeleteUserprofile, getUsersProfiles, updataElement })(AllUser)

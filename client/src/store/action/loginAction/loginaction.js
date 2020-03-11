@@ -13,7 +13,7 @@ axios.post(`/api/users/login?token=${userData.token}`, userData)
             localStorage.setItem('jwtToken', token);
             //Set token to Auth header
             SetAuthToken(token);
-          //Decode token to get user data
+         //Decode token to get user data
           const decoded  = jwt_decode(token)
           //set Current user
           dispatch(SetCurrentUser(decoded))

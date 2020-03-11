@@ -4,3 +4,4 @@ export const GETUSER_PROFILE="GETUSER_PROFILE";
 export const USERPROFILE_LOADING="USERPROFILE_LOADING";
 export const TokenSetToUser="TokenSetToUser";
 export const RemoveElemets="RemoveElemets";
+export const UserVerfication ="UserVerfication";
