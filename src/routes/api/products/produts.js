@@ -20,10 +20,9 @@ const imageFilter = function (req, file, cb) {
     }
     cb(null, true);
 };
-
 //upload
 // fileFilter: imageFilter
-var upload = multer({ storage: storage,  })
+var upload = multer({ storage: storage,fileFilter: imageFilter  })
 ///api/product/upload
 router.post('/upload',
 passport.authenticate('jwt', { session: false }),
