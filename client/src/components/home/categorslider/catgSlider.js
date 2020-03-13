@@ -6,23 +6,23 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import zIndex from '@material-ui/core/styles/zIndex';
-// import '../css/cat_cards.css';
-// import QuickOrder from '../cat-cards/quick-order';
+import QuickOrder from '../categorslider/quickbox/quickbox';
 import { Button } from '@material-ui/core';
+import './quickbox/qhick.css'
 const Box = posed.div({
     hidden: { opacity: 0, delay: 3000 },
     visible: { opacity: 1, delayChildren: 3000 },
 });
 const imageStyle = {
-    width: "30%", height: "30vh",
-    // marginLeft: '1px'
+    width: "80%", height: "50vh",
+    marginLeft: '1px'
 }
 const styles = {
     card: {
-        maxWidth: 200,
+        maxWidth: 100,
     },
     media: {
-        height: 140,
+        height: 200
     },
 };
 export default class CatgSlider extends React.Component {
@@ -31,30 +31,33 @@ export default class CatgSlider extends React.Component {
         this.state = {
             items: [
                 {
-                    img1: "https://epicwoo.com/demo/wp-content/uploads/2018/05/product-60.jpg",
-                    price:"200"
+                    img1: "https://d30fs77zq6vq2v.cloudfront.net/category/Round Men t Shirt-959358642920.png",
+                    link:'/'
                 },
                 {
-                    img1: 'https://epicwoo.com/demo/wp-content/uploads/2018/05/product-32-1.jpg',
-                    price:"1000"
+                    img1: 'https://d30fs77zq6vq2v.cloudfront.net/category/Round men kurta-344094639405.png',
+                  
                 },
                 {
-                    img1: ' https://epicwoo.com/demo/wp-content/uploads/2018/05/product-80.jpg',
-                    price:"900"
+                    img1: ' https://d30fs77zq6vq2v.cloudfront.net/category/Round Topsa-703286853906.png',
+                  
                 },
                 {
-                    img1: 'https://epicwoo.com/demo/wp-content/uploads/2018/05/product-34-1-350x340.jpg',
-                    price:"700"
+                    img1: 'https://d30fs77zq6vq2v.cloudfront.net/category/Round Jeans-936614289225.png',
+                   
                 },
                 {
-                    img1: 'https://epicwoo.com/demo/wp-content/uploads/2018/05/product-34-1-350x340.jpg',
-                    price:"300"
+                    img1: 'https://d30fs77zq6vq2v.cloudfront.net/category/round dresses-1524719222883.png',
+                   
+                },
+                {
+                    img1: 'https://d30fs77zq6vq2v.cloudfront.net/category/boys-1505874350709.png',
+                  
                 }
 
 
             ],
 
-            // isHowering: false
         }
     }
     Click() {
@@ -65,7 +68,7 @@ export default class CatgSlider extends React.Component {
             <InfiniteCarousel
                 breakpoints={[
                     {
-                        breakpoint: 500,
+                        breakpoint: 200,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2,
@@ -79,16 +82,17 @@ export default class CatgSlider extends React.Component {
                         },
                     },
                 ]}
+                autoplay={true}
                 dots={false}
                 showSides={true}
-                sidesOpacity={.5}
+                sidesOpacity={.1}
                 sideSize={.1}
                 slidesToScroll={1}
                 slidesToShow={4}
                 scrollOnDevice={true}
             >
                 {this.state.items.map((item) => {
-                    return <div className="cards"><Card
+                    return <div className="cards"><div
                         className={styles.card + " cardManager"}
                     // onMouseEnter={() => {
 
@@ -103,16 +107,16 @@ export default class CatgSlider extends React.Component {
                     // }}
                     >
 
-                        <CardActionArea onClick={this.Click} >
+                        {/* <CardActionArea onClick={this.Click} > */}
                             <img style={imageStyle} className="image-list" src={item.img1} />
-                            <span className="price_tag">Price:${item.price}</span>
-                        </CardActionArea><br/>
-                        <a href="#" className="buyNowbtn">Buy Now</a>
+                           
+                        {/* </CardActionArea> */}
+                        <br/>
                         <div className="effects">
-                            {/* <span><QuickOrder/></span> */}
-                            <span className="add"> Add to Wishlist</span>
+                            <span ><QuickOrder/></span>
+                        
                         </div>
-                    </Card></div>
+                    </div></div>
                 })}
             </InfiniteCarousel>
         );

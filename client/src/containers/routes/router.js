@@ -12,7 +12,8 @@ import Product from '../../components/auth/product/product'
      Router,
   
     Route,
-    Switch
+    Switch,
+    Redirect
   
   } from "react-router-dom";
 import history from '../../components/history/history'
@@ -32,7 +33,9 @@ import Admin from '../../components/adminpanal/admin'
       <Switch>
       <Route   exact path="/reset/:token"     component={Resetpassword}/>
       </Switch>
-        
+        <Switch>
+          <Redirect to="/" />
+        </Switch>
       <Switch>
       <ProvatieRoutes  exact path="/dashboard"  component={Dashboard} />
       </Switch>

@@ -1,0 +1,60 @@
+
+
+ /* .buyData{
+    text-decoration: none;
+    display: inline-block;
+    padding: 15px;
+    width: 80%;
+    background: none;
+    border: 2px solid #333;
+    border-radius: 0px !important;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Oswald", serif;
+    font-weight: normal;
+    text-shadow: none;
+    font-size: 16px;
+    color: #333;
+    margin-top:20px; 
+
+
+} */
+
+  /* .imagesContaner {
+    display: "flex";
+    min-Width: 450
+}  */
+
+
+.effects span{
+    
+position: relative;
+bottom: 200px;
+padding: 10px; 
+color: #ee413a !important;
+font-size: 14px;
+/* margin: 5px 0px; */
+box-shadow: 0px 0px 3px #999999;
+background: #fff;
+display: inline-block;
+width: 70%; 
+ }
+
+
+.effects span{
+    visibility: hidden;
+}
+.cards:hover .effects span{
+visibility: visible;
+text-decoration: none;
+border-radius:4px; 
+}
+.effects span:hover{
+    background-color: #ee413a;
+    color:white !important;
+    cursor: pointer;
+}
+
+
+
+ 

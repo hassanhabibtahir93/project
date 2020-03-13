@@ -19,7 +19,7 @@ export default class MenuList extends Component {
       }));
     return (
       <div>
-        <Grid container spacing={3} >
+        <Grid container spacing={1} >
 
         <Grid   className="conter_list" item xs={2}>
           <div>
