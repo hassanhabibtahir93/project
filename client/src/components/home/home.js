@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Slidersimple from '../slider/slider';
 import Product from '../products/product';
 import MenuList from '../menueList/menulist';
-import CatgSlider from './categorslider/catgSlider'
+import CatgSlider from '../home/categorslider/quickbox/catgSlider'
 import Favouritcategory from './Favouritcategory/Favouritcategory'
 import Aux from '../../hoc/hoc'
 export default class Home extends Component {
@@ -18,7 +18,7 @@ export default class Home extends Component {
           <br/>
           <br/>
           <br/>
-          {/* <MenuList/> */}
+          <MenuList/>
           {/* <Product/> */}
         </div>
       </Aux>
