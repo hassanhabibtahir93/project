@@ -8,23 +8,89 @@ color: #463aee !important;
 font-size: 14px;
 /* margin: 5px 0px; */
 box-shadow: 0px 0px 3px #999999;
-background: #fff;
+background: rgb(57, 45, 126);
 display: inline-block;
 width: 70%; 
  }
 
 
+
+ @media (min-width: 500px) and (min-height: 600px) {
+    .cards_slider {
+        width: 100px; 
+        height: 20vh
+    }
+
+
+    .image_list{
+
+        width: 100px;
+        height: 30px;
+    }
+
+
+
+}
+
+@media (min-width: 500px) and (min-height: 401px) {
+    .cards_slider{
+        width: 140%;
+        height: 50vh;
+    }
+
+
+    .image_list{
+
+        width: 100%;
+        height: 50px;
+    }
+} 
+
+@media (min-width: 1000px) and (min-height: 700px) {
+    .cards_slider {
+        width: 90%; 
+        height: 40vh
+    }
+
+
+    .image_list{
+
+        width: 100%;
+        height: 6px;
+    }
+
+}
+
+
+ .image_list{
+
+
+
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+ }
+ .image_list:hover{
+    -webkit-transform: scale(1.1);
+	transform: scale(1.1);
+ }
+
 .effects span{
     visibility: hidden;
 }
 .cards_slider:hover .effects span{
+
+
+    
 visibility: visible;
 text-decoration: none;
 border-radius:4px; 
+
 }
 .effects span:hover{
     background-color: #1d347c;
-    color:white !important;
+    color:rgb(240, 231, 231) !important;
     cursor: pointer;
 }
 

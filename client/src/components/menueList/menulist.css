@@ -1,42 +1,37 @@
 .conter_list{
-width: 50%;
-height: 500px;
-background-color: rgb(122, 84, 226);
-color: red;
+width: 100%;
+
+
+
 }
 
-.items-body {
-    padding: 10px;
-    margin: 10px;
-    display: grid;
-    grid-gap: 10px;
-  }
+
   
   .items-body-content {
-    padding: 30px;
+    /* padding: 50px; */
     padding-right: 0px;
     display: grid;
     grid-template-columns: 10fr 1fr;
-     background-color: lightblue;
+     background-color: #B9E5E8;
     font-size: 20px;
-    grid-gap: 10px;
+    /* grid-gap: 10px; */
     border: 1px solid transparent;
     cursor: pointer;
-    
+     
+  }
+  .cate_img{
+    width: 20vh;
+    height: 6vh;
   }
   
-  .items-body-content:hover {
-    border-radius: 15px 10PX;
-    border: 1px solid  rgb(44, 44, 139);
+ 
+
+  .men_list{
+  
+   color: rgb(82, 82, 82); font-size: 25px; line-height: 55px; font-weight: 
+    normal; white-space: normal;
   }
   
-  .items-body-content i:hover {
-    align-self: center;
-    font-size: 15px;
-    color: gray;
-    font-weight: bold;
-    animation: icon 1.5s infinite forwards;
-  }
   
   @keyframes icon {
     0%,100%{

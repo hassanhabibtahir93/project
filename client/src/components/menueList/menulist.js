@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import './menulist.css';
+import img1 from  './images/men-906703245888-654537555048.png'
+import { Link } from '@material-ui/core';
 export default class MenuList extends Component {
   render() {
 
@@ -19,27 +21,18 @@ export default class MenuList extends Component {
       }));
     return (
       <div>
-        <Grid container spacing={1} >
+        <Grid container  >
 
-        <Grid   className="conter_list" item xs={2}>
+        <Grid    item xs={12}>
           <div>
         <div className="items-body">
       <div className="items-body-content">
-        <span>MEN</span>
-        <i className="fa fa-angle-right"></i>
-      </div>
-      <div className="items-body-content">
-        <span>WOMEN</span>
-        <i className="fa fa-angle-right"></i>
-      </div>
-      <div className="items-body-content">
-        <span>CHILD</span>
-        <i className="fa fa-angle-right"></i>
-      </div>
-      
-    </div>
+    <span className="men_list" ><Link>MEN</Link></span>
+      <span><img   className="cate_img" src={img1}/></span>
+     </div>
   </div>
-{/* </div> */}
+  </div> 
+{/* {/* </div> */}
         </Grid>
         </Grid>
       </div>

@@ -101,14 +101,15 @@ export default class CatgSlider extends React.Component {
 
                         <div>
 
-                            {/* <CardActionArea> */}
+                           
                             <img style={imageStyle} className="image_list" src={item.img1} />
-                            {/* </CardActionArea> */}
+                           
                                 
 
                             <br />
                             <span className="effects">
-                                <span >
+                                <span>
+                                Category 
                       <Link to={'/'+item.link}>{item.link}</Link>
                             </span>
 
