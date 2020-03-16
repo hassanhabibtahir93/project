@@ -3,7 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import './menulist.css';
-import img1 from './images/men-906703245888-654537555048.png'
+import imgShowCase from './images/men-906703245888-654537555048.png'
+import Shirt from './images/menShirt.jpg'
+import Pents from './images/menPents.jpg'
 import { Link } from '@material-ui/core';
 export default class MenuList extends Component {
   render() {
@@ -22,44 +24,53 @@ export default class MenuList extends Component {
     }));
     return (
       <div>
-      
-
-          <Grid item xs={12}>
 
 
-            <div>
-              <div className="items-body">
-                <span className="men_list" ><Link>MENs</Link></span>
-                <span><img className="cate_img" src={img1} /></span>
-              </div>
+        <Grid item xs={12}>
 
+
+          <div>
+            <div className="items-body">
+              <span className="men_list" ><Link>MENs</Link></span>
+              <span><img className="cate_img" src={imgShowCase} /></span>
             </div>
-
-
-          </Grid> 
-          
-          <div className="card" >
-          <div className="itesm-list">
-
-
-
-          <div className="items-body">
-                <span className="men_list" ><Link>MENs</Link></span>
-                <span><img className="cate_img" src={img1} /></span>
-              </div>
 
           </div>
-          <div style={{  flex:1}}></div>
+
+
+        </Grid>
+
+        <div className="card" >
           <div className="itesm-list">
 
-         </div>
+
+
+            <div className="items-body-lists">
+              <span className="men_list" ><Link>Shirt</Link></span>
+              <span><img className="cate_img_list" src={Shirt} /></span>
             </div>
-          
-          
-          
-          
-          
+
+          </div>
+          <div style={{ flex: 1 }}></div>
+      
+            <div className="itesm-list">
+
+
+
+              <div className="items-body-lists">
+                <span className="men_list"   ><Link>Pents</Link></span>
+                <span><img className="cate_img_list" src={Pents} /></span>
+              </div>
+
+            </div>
          
+        </div>
+
+
+
+
+
+
 
 
 

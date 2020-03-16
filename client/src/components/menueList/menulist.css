@@ -23,7 +23,11 @@ width: 100%;
     width: 20vh;
     height: 6vh;
   }
-  
+  .cate_img_list{
+    width: 11vh;
+    height: 8vh;
+    margin-top: 2px;
+  }
 
 
   .card{
@@ -37,13 +41,25 @@ width: 100%;
  .itesm-list{
    width: 50%;
   height: 30px;
-  background-color: red;
+  /* background-color: red; */
   /* padding: 1px; */
 } 
 
+.items-body-lists{
+  display: grid;
+    grid-template-columns: 10fr 1fr;
+     background-color:#ffffff;
+    font-size: 20px;
+    /* grid-gap: 10px; */
+    border: 1px solid transparent;
+    cursor: pointer;
+    border-bottom: 1px solid #CFCFCF;
+    border-right: 1px solid #CFCFCF;
+}
 
-
-
+.men_list a{
+  margin-top: 10px;
+}
 
 
   
