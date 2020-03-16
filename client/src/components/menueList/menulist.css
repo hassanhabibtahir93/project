@@ -37,10 +37,11 @@ width: 100%;
     padding: 1px;
     border: none !important;
     padding: 1px;
+    border-bottom: 1px solid #CFCFCF;
   }
  .itesm-list{
    width: 50%;
-  height: 30px;
+  height: 60px;
   /* background-color: red; */
   /* padding: 1px; */
 } 
@@ -50,17 +51,18 @@ width: 100%;
     grid-template-columns: 10fr 1fr;
      background-color:#ffffff;
     font-size: 20px;
-    /* grid-gap: 10px; */
     border: 1px solid transparent;
     cursor: pointer;
     border-bottom: 1px solid #CFCFCF;
     border-right: 1px solid #CFCFCF;
 }
 
-.men_list a{
-  margin-top: 10px;
-}
+.fist-list{
 
+  /* border-top: 2px solid red; */
+  width: 100%;
+  margin-top: 20px;
+}
 
   
 
