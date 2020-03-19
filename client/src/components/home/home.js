@@ -4,6 +4,9 @@ import MenuList from '../menueList/menulist';
 import CatgSlider from '../home/categorslider/quickbox/catgSlider'
 import Showcase from './shopImg/shop'
 import Details from './Details/details'
+ import Paralex from './paralelx/paralelx';
+ import Header from './paralelx/header/header';
+ import Scrool from './scrolUpBtn/ScrolUp'
 import Aux from '../../hoc/hoc'
 export default class Home extends Component {
   render() {
@@ -29,7 +32,10 @@ export default class Home extends Component {
 
 <br/>
         <div> <Showcase /></div>
-      </Aux>
+        <div> <Paralex/></div>
+        <div><Header/></div>   
+        <div><Scrool/></div>
+           </Aux>
     )
   }
 }

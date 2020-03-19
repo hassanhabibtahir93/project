@@ -1,0 +1,49 @@
+.lbwork-container{
+    display: flex;
+    width: 100%;
+    height: 350px !important;
+    background-image: url("./img//pictureWorks9a67.jpg");
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.lbwork-heading{
+    font-size: 36px;
+    font-weight: 300;
+}
+.lbwork-h2{
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+.lbwork-p{
+    text-align: center;
+}
+.lbwork-learn-more{
+    border-radius: 18px;
+    padding: 7px 15px ;
+    background-color: white;
+    color: #00a1e4;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+.lbwork-container2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 615px;
+    padding-top: 70px;
+}
+@media screen and (max-width: 650px) {
+    .lbwork-container2 {
+      width: 320px;
+    }
+    .lbwork-heading{
+        font-size: 30px;
+    }
+  }
