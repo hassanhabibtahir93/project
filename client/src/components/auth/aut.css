@@ -1,0 +1,45 @@
+.main_container{
+
+display: flex;
+   background: linear-gradient(90deg, rgba(38,17,130,1) 22%, rgba(19,190,108,0.8687850140056023) 50%, rgba(78,82,181,1) 85%);;
+height: 100vh;
+
+background-size: cover;
+width: 100%;
+text-align: center;
+justify-content: center;
+
+
+}
+
+
+.main_containerSignUp{
+
+    display: flex;
+       background: linear-gradient(90deg, rgba(38,17,130,1) 22%, rgba(19,190,108,0.8687850140056023) 50%, rgba(78,82,181,1) 85%);;
+    height: 130vh;
+    
+    background-size: cover;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    
+    
+    }
+
+
+.mainPaper_form{
+   
+    height: 60vh;
+    width: 100%;
+}
+
+.mainPaper_formSignUp{
+    
+    height: 100vh;
+    width: 100%;
+}
+.Link_text a{color: #0cd3f6;
+    text-decoration: none;
+    line-height: 50px;
+}

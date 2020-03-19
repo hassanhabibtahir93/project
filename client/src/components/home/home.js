@@ -19,13 +19,15 @@ export default class Home extends Component {
 
           <Details />
         </div>
-
+<br/>
         <div>
           <CatgSlider />
         </div>
 
+<br/>
         <div>     <MenuList /></div>
 
+<br/>
         <div> <Showcase /></div>
       </Aux>
     )

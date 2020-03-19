@@ -18,8 +18,9 @@ import { Link } from "react-router-dom";
 
 import { connect } from 'react-redux'; 
 import './toobar/toolbar.css'
-
-
+import './aut.css'
+import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
  class SignUp extends Component {
 constructor(){
   super();
@@ -97,10 +98,15 @@ handleSubmit=(e)=>{
       console.log(errors)
     return (
 
-      <div style={{ marginTop: "20vh" }} >
+      <div  className="main_containerSignUp"  >
+
+      <div  style={{ marginTop: "20vh" }} >
+      
+      <Paper  width="500vh"  variant="outlined" square >
     
         <Container component="main" maxWidth="xs">
-     
+    <br/>
+    <br/> 
           <div >
             <div className="Icon_signUp" >
               <div className=" aut_svg" >
@@ -230,9 +236,11 @@ handleSubmit=(e)=>{
           </Button>
               <Grid container justify="flex-end">
                 <Grid item>
+                <span className="Link_text" >
                   <Link to="/login" variant="body2">
                     Already have an account? Sign in
               </Link>
+              </span>
                 </Grid>
               </Grid>
             </ValidatorForm>
@@ -241,7 +249,9 @@ handleSubmit=(e)=>{
           <Box mt={5}>
           </Box>
         </Container>
-      </div>)
+      </Paper>
+      </div></div>
+      )
   }
 }
 

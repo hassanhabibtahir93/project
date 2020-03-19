@@ -21,7 +21,19 @@ import loginUser from '../../store/action/loginAction/loginaction'
 import { connect } from 'react-redux'; 
 import resetEmail from '../auth/reset/resetemail';
 // import axios from 'axios';
+import Paper from '@material-ui/core/Paper';
+// or
+// import { Paper } from '@material-ui/core';
 import Admin from '../adminpanal/admin';
+import './aut.css'
+
+
+
+
+
+
+
+
 class Login extends Component {
 
   state = {
@@ -95,92 +107,109 @@ console.log(userData)
 }
 
 
+
+
   render() {
 
   
 {console.log(this.state.errors)}
     return (
 
-      <div style={{ marginTop: "20vh" }} >
-                    
+     <div  className="main_container"  >
+
+<div  style={{ marginTop: "20vh" }} >
+
+<Paper   className="mainPaper_form"   variant="outlined" square >
+<br/>  
+<br/>                
     
-        <Container component="main" maxWidth="xs">
-       
-          <div >
-            <div className="Icon_signUp" >
-              <div className="aut_svg"><LockOutlinedIcon /></div>  
-              
-              
-              <h1>Log In</h1>
-              <h4 style={{color:"red"}} >{this.state.errors.message}</h4>
-            </div>
-
-            <ValidatorForm
-              ref="form"
-              onSubmit={this.onSubmit}
-              onError={errors => console.log(errors)}
-            >
-              <Grid container spacing={2}>
-               
-                <Grid item xs={12}>
-
-                  <TextValidator
-                    label="Email"
-                    onChange={this.handleChange}
-                    name="email"
-                    variant="outlined"
-                    // required
-                    fullWidth
-                    value={this.state.email}
-                    validators={['required', 'isEmail']}
-                    errorMessages={['this field is required', 'email is not valid']}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextValidator
-                    variant="outlined"
-                    // required
-                    fullWidth
-                    label="Password"
-                    onChange={this.handleChange}
-                    name="password"
-                    type="password"
-
-                    validators={['isTruthy']}
-                    errorMessages={['this field is required']}
-                    value={this.state.password}
-                  /></Grid>
-               
-
-              </Grid>
-
-
-              <Button
-              style={{marginTop:"20px"}}
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-              >
-                Log In
-          </Button>
-              <Grid container justify="flex-end">
-                <Grid item>
-                  <Link to="/getEmail/forgot">Forgot your password?
-              </Link>
-              </Grid>
-              <Grid item>
-              <Link to='/signup' variant="body2">
-                    if you have no account First SignUp
-              </Link>
-                </Grid>
-              </Grid>
-            </ValidatorForm>
-          </div>
-          <Box mt={5}>
-          </Box>
-        </Container>
-      </div>)
+                    <Container component="main" maxWidth="xs">
+                   
+                      <div >
+                        <div className="Icon_signUp" >
+                          <div className="aut_svg"><LockOutlinedIcon /></div>  
+                          
+                          
+                          <h1>Log In</h1>
+                          <h4 style={{color:"red"}} >{this.state.errors.message}</h4>
+                        </div>
+            
+                        <ValidatorForm
+                          ref="form"
+                          onSubmit={this.onSubmit}
+                          onError={errors => console.log(errors)}
+                        >
+                          <Grid container spacing={2}>
+                           
+                            <Grid item xs={12}>
+            
+                              <TextValidator
+                                label="Email"
+                                onChange={this.handleChange}
+                                name="email"
+                                variant="outlined"
+                                // required
+                                fullWidth
+                                value={this.state.email}
+                                validators={['required', 'isEmail']}
+                                errorMessages={['this field is required', 'email is not valid']}
+                              />
+                            </Grid>
+                            <Grid item xs={12}>
+                              <TextValidator
+                                variant="outlined"
+                                // required
+                                fullWidth
+                                label="Password"
+                                onChange={this.handleChange}
+                                name="password"
+                                type="password"
+            
+                                validators={['isTruthy']}
+                                errorMessages={['this field is required']}
+                                value={this.state.password}
+                              /></Grid>
+                           
+            
+                          </Grid>
+            
+            
+                          <Button
+                          style={{marginTop:"20px"}}
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                          >
+                            Log In
+                      </Button>
+                          <Grid container justify="flex-end">
+                          
+                          
+                            <Grid item>
+                             <div className="Link_text" > <Link to="/getEmail/forgot">Forgot your password?
+                          </Link></div>
+                          </Grid>
+                          
+                          </Grid>
+                          <Grid item>
+                          <div className="Link_text" >
+                          if  you have no account:
+                          <Link to='/signup' variant="body2">
+                                Create an account
+                          </Link>
+                          </div>
+                            </Grid>
+                        </ValidatorForm>
+                      </div>
+                      <Box mt={5}>
+                      </Box>
+                    </Container>
+                  </Paper>
+</div>
+     </div>
+      
+      )
   }
 }
 
