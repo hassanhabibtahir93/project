@@ -102,9 +102,9 @@ handleSubmit=(e)=>{
 
       <div  style={{ marginTop: "20vh" }} >
       
-      <Paper  width="500vh"  variant="outlined" square >
+      <Paper  maxWidth="lg"  variant="outlined" square >
     
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="sm">
     <br/>
     <br/> 
           <div >
