@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-
-export default class Dashboard extends Component {
+import { connect } from 'react-redux'; 
+ class Dashboard extends Component {
   render() {
+
+    console.log(this.props.products)
     return (
       <div style={{marginTop:'100px'}} >
         welcome
@@ -9,3 +11,12 @@ export default class Dashboard extends Component {
     )
   }
 }
+
+
+const mapStateToProps=(state)=>({
+  
+  products:state.Products
+
+})
+
+export default connect(mapStateToProps)(Dashboard)
