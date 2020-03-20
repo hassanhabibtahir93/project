@@ -12,7 +12,8 @@ const productControler = {
     //  producatData.imgSrc = []
 
     data.files.forEach((file)=>{
-        producatData.imgSrc.push('./files/'+file.originalname);
+        // './files/'+
+        producatData.imgSrc.push(file.originalname);
      });
      producatData.save(function(err,product){
             if(product){
