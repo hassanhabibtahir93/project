@@ -13,7 +13,8 @@ const productControler = {
 
     data.files.forEach((file)=>{
         // './files/'+
-        producatData.imgSrc.push(file.originalname);
+        console.log(file)
+        producatData.imgSrc.push(file.filename);
      });
      producatData.save(function(err,product){
             if(product){

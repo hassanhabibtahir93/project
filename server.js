@@ -12,7 +12,8 @@ const user = require('./src/routes/api/user/user');
 const product = require('./src/routes/api/products/produts')
 //cors is use to data send
 var cors = require('cors')
-
+//path is required
+var path = require("path");
 //bodyParsre
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,8 +33,9 @@ app.use('/api/users', user)
 app.use('/api/product',product)
 
 const port = process.env.PORT || 8080;
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use(express.static('./'));
+app.use(express.static('./public/file'));
 app.use(express.static('./client/build/'))
 app.listen(port, () => {
 

@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
+import path from 'path';
 import { connect } from 'react-redux'; 
+import './userDashbo.css'
  class Dashboard extends Component {
+
+
+
+
   render() {
 
     const {products} = this.props.Products
@@ -22,8 +28,34 @@ else {
 
 
         profileItems = products.map((item, i) => {
-console.log(item.imgSrc[0])
-             return <img src={item.imgSrc[0]}/>
+              return (
+                <div className="card_products">
+
+                <div className="top-section">
+                  
+                   <center> <img  className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
+
+
+<div className="nav">
+
+<img src={"http://localhost:8080/"+item.imgSrc[1]}/>
+<img src={"http://localhost:8080/"+item.imgSrc[2]}/>
+<img src={"http://localhost:8080/"+item.imgSrc[3]}/>
+
+</div>
+<div className="price">${item.price}</div>
+
+<div className="product_info">
+
+              <div  className="name_product">{item.productname}</div>
+<div className="dis">{item.discription}</div>
+</div>
+                </div>
+
+
+            </div>
+              )
+
         })
       }
     return (

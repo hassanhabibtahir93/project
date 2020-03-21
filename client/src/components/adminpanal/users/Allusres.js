@@ -122,8 +122,7 @@ class AllUser extends Component {
                                     //    checked={this.state.isVarified==false?"checked":false}
                                     onChange={this.changedElement} value={this.state.isVarified}
 
-                                /><span>{this.state.isVarified}</span>
-
+                                />
                             </td>
                             <td>   <Button
                                 variant="contained"

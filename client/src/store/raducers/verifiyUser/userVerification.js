@@ -29,6 +29,9 @@ switch(action.type){
          Userverified:action.payload
 
         }
+       
+            default:
+                return newState
 }
 
 

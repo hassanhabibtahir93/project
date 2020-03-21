@@ -4,14 +4,25 @@ const multer = require('multer');
 const Product = require('../../../module/products/product');
 const Productcontroler = require('../../../controler/product')
 const passport = require('passport');
+// var storage = multer.diskStorage({
+//     destination: function (req, file, callback) {
+//         callback(null, 'static/');
+//     },
+//     filename: function (req, file, callback) {
+//         callback(null, Date.now()+''+file.originalname);
+//     }
+// });
+
+
+
 var storage = multer.diskStorage({
-    destination: function (req, file, callback) {
-        callback(null, 'static/');
-    },
-    filename: function (req, file, callback) {
-        callback(null, Date.now()+''+file.originalname);
-    }
-});
+    destination: function (req, file, cb) {
+    cb(null, 'public/file')
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now()+Math.random() + '-' +file.originalname )
+  }
+})
 
 const imageFilter = function (req, file, cb) {
     //accept image files only
@@ -59,5 +70,19 @@ upload.array('files',7), (req, res) => {
 //         res.json("delete elemets successfull")
 //     })
 // })
+
+
+
+
+
+
+
+// router.get('/getproducts'()=>{
+
+// })
+
+
+
+
 
 module.exports = router

@@ -1,4 +1,4 @@
-.card{
+ .card_products{
     display: flex;
     flex-wrap: wrap;
     width: 400px;
@@ -11,8 +11,8 @@
     }
     .top-section{
     
-    /* height: 310px; */
-    overflow: hidden;
+    height: 310px;
+    /* overflow: hidden; */
     text-align: center;
     background: #fff;
     position: relative;
@@ -62,8 +62,8 @@
     .name_product{
         text-align: left;
     text-transform: uppercase;
-    /* background: #6ab04c; */
-    /* text-align: center; */
+    background: #6ab04c;
+    text-align: center;
     
     font-size: 20px;
     }
@@ -71,4 +71,4 @@
     
         font-size: 16px;
         opacity: 0.7;
-    }
+    } 
