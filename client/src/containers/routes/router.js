@@ -7,7 +7,8 @@ import Dashboard from '../../components/UserDashboard/userDashboard'
 import MainHeader from '../../containers/Header/header';
 import resetEmail from '../../components/auth/reset/resetemail'
 import Resetpassword from '../../components/auth/reset/resetpassword';
-import Product from '../../components/auth/product/product'
+import Product from '../../components/auth/product/product';
+import UserDashboard from '../../components/UserDashboard/userDashboard'
   import {
      Router,
   
@@ -43,6 +44,11 @@ import Admin from '../../components/adminpanal/admin'
       <Switch>
       <ProvatieRoutes   path="/Admin"  exact component={Admin} />
       </Switch>
+     
+      <Switch>
+      <ProvatieRoutes   path="/userproduct"  exact component={UserDashboard} />
+      </Switch>
+
 {/* <Route path="/users" component={Users} /> */}
      </Router>
           

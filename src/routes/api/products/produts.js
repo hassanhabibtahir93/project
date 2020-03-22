@@ -76,10 +76,21 @@ upload.array('files',7), (req, res) => {
 
 
 
+// /api/product/getallproducts
+router.post('/getallproducts',(req,res)=>{
 
-// router.get('/getproducts'()=>{
+  Product.find({user:req.body.user.id})
+  .then((res)=>{
+console.log(res)
+  })
+  
 
-// })
+})
+
+
+
+
+
 
 
 

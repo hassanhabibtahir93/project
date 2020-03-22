@@ -2,9 +2,21 @@ import React, { Component } from 'react'
 import path from 'path';
 import { connect } from 'react-redux'; 
 import './userDashbo.css'
- class Dashboard extends Component {
+import axios from 'axios'; 
+
+class Dashboard extends Component {
 
 
+  
+
+
+componentDidMount (){
+  axios.post('http://localhost:8080/api/product/getallproducts' ,{user:this.props.auth.user}).then((res)=>{
+
+    console.log(res)
+  })
+
+} 
 
 
   render() {
@@ -70,7 +82,8 @@ else {
  }
 const mapStateToProps=(state)=>({
   
-  Products:state.Products
+  Products:state.Products,
+  auth:state.auth
 
 })
 
