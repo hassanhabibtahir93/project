@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import path from 'path';
+import {getuserallproducts} from '../../store/action/products/productaction'
 import { connect } from 'react-redux'; 
 import './userDashbo.css'
 import axios from 'axios'; 
@@ -11,41 +12,35 @@ class Dashboard extends Component {
 
 
 componentDidMount (){
-  axios.post('http://localhost:8080/api/product/getallproducts' ,{user:this.props.auth.user}).then((res)=>{
-
-    console.log(res)
-  })
+  this.props.getuserallproducts({user:this.props.auth.user})
+ 
 
 } 
 
 
   render() {
 
-    const {products} = this.props.Products
+console.log(this.props.Products)
+
+  
    
-    let profileItems;
-if (products === null) {
-  profileItems = <h1>loading.............</h1>;
-}
-else {
-    if (products === undefined) {
-        profileItems = <h1>loading...........agin..</h1>;
-    }
-    else {
 
 
-        console.log(products)
+
+       
 
 
 
 
-        profileItems = products.map((item, i) => {
+      let   profileItems = this.props.Products.map((item, i) => {
               return (
-                <div className="card_products">
+               <div className="main">
 
-                <div className="top-section">
-                  
-                   <center> <img  className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
+<div className="card_products">
+
+<div className="top-section">
+  
+   <center> <img  className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
 
 
 <div className="nav">
@@ -59,19 +54,21 @@ else {
 
 <div className="product_info">
 
-              <div  className="name_product">{item.productname}</div>
+<div  className="name_product">{item.productname}</div>
 <div className="dis">{item.discription}</div>
 </div>
-                </div>
+</div>
 
 
-            </div>
+</div>
+
+               </div>
               )
 
         })
-      }
+      
     return (
-      <div style={{marginTop:'100px'}} >
+      <div className="mainvalue"  style={{marginTop:'100px'}} >
         welcome
         {profileItems}
       </div>
@@ -79,12 +76,16 @@ else {
   }
 }
 
- }
+ 
 const mapStateToProps=(state)=>({
   
-  Products:state.Products,
-  auth:state.auth
+  Products:state.getuserproducts.UserProducts
+ 
+  ,
+  auth:state.auth,
+  
+
 
 })
 
-export default connect(mapStateToProps)(Dashboard)
+export default connect(mapStateToProps,{getuserallproducts})(Dashboard)

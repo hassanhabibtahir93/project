@@ -5,4 +5,5 @@ export const USERPROFILE_LOADING="USERPROFILE_LOADING";
 export const TokenSetToUser="TokenSetToUser";
 export const RemoveElemets="RemoveElemets";
 export const UserVerfication ="UserVerfication";
-export const UserProducts = "UserProducts"
+export const UserProducts = "UserProducts";
+export const getUserProducts = "getUserProducts"

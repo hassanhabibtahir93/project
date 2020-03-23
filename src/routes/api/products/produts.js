@@ -80,8 +80,8 @@ upload.array('files',7), (req, res) => {
 router.post('/getallproducts',(req,res)=>{
 
   Product.find({user:req.body.user.id})
-  .then((res)=>{
-console.log(res)
+  .then((data)=>{
+    res.status(200).json(data)
   })
   
 

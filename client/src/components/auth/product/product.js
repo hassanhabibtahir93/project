@@ -18,7 +18,7 @@ import { DropzoneArea } from 'material-ui-dropzone'
 
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import addproducts from '../../../store/action/products/productaction'
+import {addproducts} from '../../../store/action/products/productaction'
 import Verification from './Verification';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";

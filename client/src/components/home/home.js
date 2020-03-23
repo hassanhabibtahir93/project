@@ -28,7 +28,7 @@ export default class Home extends Component {
         </div>
 
 <br/>
-        <div>     <MenuList /></div>
+        <div><MenuList/></div>
 
 <br/>
         <div> <Showcase /></div>
