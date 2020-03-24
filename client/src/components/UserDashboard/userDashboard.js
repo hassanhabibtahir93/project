@@ -39,6 +39,7 @@ console.log(this.props.Products)
 <div className="card_products">
 
 <div className="top-section">
+ <div className="price">${item.price}</div>
   
    <center> <img  className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
 
@@ -50,12 +51,11 @@ console.log(this.props.Products)
 <img src={"http://localhost:8080/"+item.imgSrc[3]}/>
 
 </div>
-<div className="price">${item.price}</div>
 
 <div className="product_info">
 
-<div  className="name_product">{item.productname}</div>
-<div className="dis">{item.discription}</div>
+<div  className="name_product"><h3>{item.productname}</h3></div>
+<div className="dis">Description:{item.discription}</div>
 </div>
 </div>
 
@@ -69,7 +69,7 @@ console.log(this.props.Products)
       
     return (
       <div className="mainvalue"  style={{marginTop:'100px'}} >
-        welcome
+        {/* welcome */}
         {profileItems}
       </div>
     )
