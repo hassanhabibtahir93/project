@@ -29,6 +29,10 @@ export const getuserallproducts=(user)=>dispatch=>{
 
    axios.post('http://localhost:8080/api/product/getallproducts',user).then((res)=>{
 
+
+
+
+
    dispatch({
             type:getUserProducts,
             payload:res.data

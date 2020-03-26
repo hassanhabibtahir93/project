@@ -59,14 +59,7 @@
     padding: 24px;
     background: #6ab04c;
     }
-    .name_product{
-        text-align: left;
-    text-transform: uppercase;
-    background: #6ab04c;
-    text-align: center;
-    
-    font-size: 20px;
-    }
+   name_productname_product
     .dis{
     
         font-size: 16px;
@@ -74,32 +67,43 @@
     }  */
 
 
+    .name_product{
+        color: white;
+    }
+
+
+    .top-section {
+        text-align: center;
+        justify-content: center;
+    }
     .top-section img{
     
-        height: 350px;
-        margin-right: 100px;
-  
-        justify-self: center;
+        height: 400px;
+        width: 502px;
+        justify-content: center;
         text-align: center;
         background: #fff;
-    
+    }
         
-        }
+      
 
         .main{
+            width: 500px;
             /* border: 1px solid red; */
             padding: 2px;
         }
     .mainvalue{
-        padding: 2px;
+        /* padding: 2px; */
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         /* width: 400px; */
         /* height: 400px; */
     }
 
 
     .nav{
+        
         display: flex;
     justify-content: center;
         
@@ -116,21 +120,45 @@
         }
         .price{
     
-            position: relative;
-            top: 40px;
-            right: 20px;
-            float: right;
-            color: #6ab04c;
-            font-size: 30px;
+           
+          
         
+            float: right;
+            color: #fbfbfb;
+     
+        
+
+
         }
+
+
+
         .product_info {
             text-align: left;
         padding: 24px;
-        background: #6ab04c;
+        background: #020D75;
+        }
+
+        .product_info h2{
+            color: white;
         }
         .dis{
     
             font-size: 16px;
-            opacity: 0.7;
+            /* opacity: 0.7; */
+            color: white;
         } 
+        .deleteButton{
+            text-align: right;
+            color: white    ;
+        }
+        /* deleteButton */
+        .icon_del{
+            color: rgb(230, 5, 5);
+            width: 50px;
+            height: 50px;
+        }
+        .buttondel{
+            color: rgb(39, 17, 119);
+           
+        }

@@ -15,21 +15,21 @@ class Header extends Component {
             const list=(
             <ul  className="toolbarsecond" >
 
-<li className="header_nav" ><a href="#"   >MENs</a>
+<li className="header_nav" ><Link to="/mens">MENs</Link>
 <ul className="list_show" >
 <li  ><a href="#">Shirt</a></li>
 <li><a href="#">Pents</a></li>
 <li><a href="#">Jeans</a></li>
 </ul>
 </li>
-<li><a href="#">Kids  </a>
+<li><Link to="/childred">CHILD</Link>
 <ul className="list_show" >
 <li><a href="#">Shirt</a></li>
 <li><a href="#">curta</a></li>
 <li><a href="#">logng shirt</a></li>
 </ul>
 </li>
-<li><a href="#">Women <i class="fas fa-care?t-down"></i> </a>
+<li><Link to="/women">WOMEN<i class="fas fa-care?t-down"></i> </Link>
 <ul className="list_show" >
 <li><a href="#">Shirt</a></li>
 <li><a href="#">logn shirt</a></li>

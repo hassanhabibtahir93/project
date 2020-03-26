@@ -20,7 +20,7 @@ import UserDashboard from '../../components/UserDashboard/userDashboard'
 import history from '../../components/history/history'
 import ProvatieRoutes from '../../components/privavte/private'
 import Admin from '../../components/adminpanal/admin'
- 
+import MEN from '../../components/Mens/menpage/men' 
   export default class Routes extends Component {
     render() {
       return (
@@ -34,6 +34,11 @@ import Admin from '../../components/adminpanal/admin'
       <Switch>
       <Route   exact path="/reset/:token"     component={Resetpassword}/>
       </Switch>
+
+      <Switch>
+      <Route   exact path="/mens"     component={MEN}/>
+      </Switch>
+
         <Switch>
           <Redirect to="/" />
         </Switch>
