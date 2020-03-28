@@ -22,6 +22,7 @@ import ProvatieRoutes from '../../components/privavte/private'
 import Admin from '../../components/adminpanal/admin'
 import MEN from '../../components/Mens/mens/men' 
 import Child from '../../components/Mens/child/child'
+import  Women from '../../components/Mens/women/women' 
   export default class Routes extends Component {
     render() {
       return (
@@ -42,6 +43,13 @@ import Child from '../../components/Mens/child/child'
       <Switch>
       <Route   exact path="/product/child"     component={Child}/>
       </Switch>
+     
+
+
+      <Switch>
+      <Route   exact path="/product/women"     component={Women}/>
+      </Switch>
+
         <Switch>
           <Redirect to="/" />
         </Switch>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Card from '@material-ui/core/Card';
  import {getAllMenProduts} from '../../../store/action/products/productaction'
-// import './men.css'
+
  import { connect } from 'react-redux'; 
 
- class MEN extends Component {
+ class Women extends Component {
 
 
 
@@ -16,15 +16,15 @@ import Card from '@material-ui/core/Card';
     
 
     render() {
-// console.log(this.props.Products)
+console.log(this.props.Products)
  const  MenProducts = this.props.Products
 
  let Prdouctsitems= MenProducts.filter(( item,index)=>{
   
-      return item.category ===  "CHILD"
+      return item.category === "WOMEN"
   
 })
-// console.log(Prdouctsitems)
+console.log(Prdouctsitems)
       let product= Prdouctsitems.map((item)=>{
 
 return    <Card className="main">
@@ -65,7 +65,7 @@ return    <Card className="main">
 
         return (
             <div style={{marginTop:"70px"}}>
-            <h1>hi asslamoalikum</h1>
+            <h1>hi women</h1>
             {product}
             </div>
         )
@@ -79,4 +79,4 @@ const mapStateToProps=(state)=>({
   
   })
 
-  export default connect(mapStateToProps,{getAllMenProduts})(MEN)
+  export default connect(mapStateToProps,{getAllMenProduts})(Women)

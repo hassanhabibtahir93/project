@@ -38,7 +38,7 @@ var upload = multer({ storage: storage,fileFilter: imageFilter  })
 router.post('/upload',
 passport.authenticate('jwt', { session: false }),
 upload.array('files',7), (req, res) => {
-      console.log(req.user)
+      // console.log(req.user)
     // if (!req.files) {
     //     return res.send('Please upload File')
 

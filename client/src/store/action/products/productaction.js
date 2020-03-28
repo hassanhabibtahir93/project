@@ -62,3 +62,22 @@ export const getAllMenProduts=()=>(dispatch)=>{
 })
 
 }
+
+
+// export const getAllProduts=()=>(dispatch)=>{
+
+//     axios.get('http://localhost:8080/api/product/allProduts').then((res)=>{
+
+//       console.log(res)
+
+//         dispatch({
+//             type:getAllProducts,
+//             payload:res.data
+
+
+//         })
+
+   
+// })
+
+// }

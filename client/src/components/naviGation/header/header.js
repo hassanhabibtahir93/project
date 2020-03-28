@@ -29,7 +29,7 @@ class Header extends Component {
 <li><a href="#">logng shirt</a></li>
 </ul>
 </li>
-<li><Link to="/women">WOMEN<i class="fas fa-care?t-down"></i> </Link>
+<li><Link to="/product/women">WOMEN<i class="fas fa-care?t-down"></i> </Link>
 <ul className="list_show" >
 <li><a href="#">Shirt</a></li>
 <li><a href="#">logn shirt</a></li>

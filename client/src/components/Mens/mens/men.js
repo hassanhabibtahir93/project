@@ -16,7 +16,7 @@ import './men.css'
     
 
     render() {
-console.log(this.props.Products)
+// console.log(this.props.Products)
  const  MenProducts = this.props.Products
 
  let Prdouctsitems= MenProducts.filter(( item,index)=>{
@@ -24,7 +24,7 @@ console.log(this.props.Products)
       return item.category ===  "gents"
   
 })
-console.log(Prdouctsitems)
+// console.log(Prdouctsitems)
       let product= Prdouctsitems.map((item)=>{
 
 return    <Card className="main">
