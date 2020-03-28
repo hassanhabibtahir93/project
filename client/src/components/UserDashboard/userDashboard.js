@@ -14,33 +14,23 @@ class Dashboard extends Component {
   
 
 
-// componentDidMount (){
-//   this.props.getuserallproducts({user:this.props.auth.user})
+componentDidMount (){
+  this.props.getuserallproducts({user:this.props.auth.user})
  
 
-// } 
+} 
 
 
   render() {
 
 console.log(this.props.Products)
 
-  
-   
-
-
-
-       
-
-
-
-
-      let   profileItems = this.props.Products===undefined||this.props.Products===null? <h1>show is noting</h1>:this.props.Products.map((item, i) => {
+let   profileItems = this.props.Products===undefined||this.props.Products===null? <h1>show is noting</h1>:this.props.Products.map((item, i) => {
               return (
                <Card className="main">
 
 <div className="card_products">
-  <div className="deleteButton"> <Button className="buttondel" > <DeleteIcon   className="icon_del" /></Button></div>
+  <div className="deleteButton"> <Button  onClick={this.deleteProduct}   className="buttondel" > <DeleteIcon   className="icon_del" /></Button></div>
 
 <div className="top-section">
   

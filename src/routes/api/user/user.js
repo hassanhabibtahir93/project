@@ -164,7 +164,7 @@ Tokenprofile.findOne({
       .then((isMatch) => {
         if (isMatch) {
 
-          const payload = { id: user.id, name: user.name ,Admin:user.typeAdmin }
+          const payload = { id: user.id, name: user.name ,Admin:user.typeAdmin ,isverified:user.isVarified}
           //using token
           jwt.sign(payload,
             keys.secretOrkey,

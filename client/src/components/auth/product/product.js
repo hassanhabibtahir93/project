@@ -96,6 +96,7 @@ class Product extends Component {
 
     render() {
 
+        console.log(this.props.auth.user.isverified)
     // if((typeof(this.props.Verifiy)===null)||(typeof(this.props.Verifiy)===undefined)){
 
     //     alert("this is null")
@@ -110,159 +111,158 @@ class Product extends Component {
 
 
 
-let ProductForm =(
-    <Container component="main" maxWidth="xs">
-
-    <div >
-        <div className="Icon_signUp" >
-            <div className=" aut_svg" >
-                <LockOutlinedIcon />
-            </div>
-
-            <h1>Your Product</h1>
-
-        </div>
-
-        <ValidatorForm
-            ref="form"
-            onSubmit={this.handleSubmit}
-            onError={errors => console.log(errors)}
-        >
-            <Grid container spacing={2}>
-                <Grid item xs={6} sm={6}>
-                    <TextValidator
-                        variant="outlined"
-
-
-                        label="Price"
-                        onChange={this.handleChange}
-                        name="price"
-                        type="Number"
-
-                        validators={['isTruthy']}
-                        errorMessages={['this field is required']}
-                        value={this.state.price}
-                    />
-                </Grid>
-                <Grid item xs={6} sm={6}>
-                    <TextValidator
-                        variant="outlined"
-
-
-                        label="Discount Value"
-                        onChange={this.handleChange}
-                        name="discount"
-                        type="Number"
-
-                        validators={['isTruthy']}
-                        errorMessages={['this field is required']}
-                        value={this.state.discount}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={12}>
-                    <TextValidator
-                        variant="outlined"
-
-
-                        fullWidth
-                        label="Product Name"
-                        onChange={this.handleChange}
-                        name="productname"
-                        type="text"
-
-                        validators={['isTruthy']}
-                        errorMessages={['this field is required']}
-                        value={this.state.productname}
-                    />
-                </Grid>
-
-
-                <Grid item xs={12} sm={12}>
-                    <TextValidator
-                        variant="outlined"
-
-
-                        fullWidth
-                        label="Discription"
-                        onChange={this.handleChange}
-                        name="discription"
-                        type="text"
-
-                        validators={['isTruthy']}
-                        errorMessages={['this field is required']}
-                        value={this.state.discription}
-                    />
-                </Grid>
-
-
-                <Grid item xs={12} sm={12}>
-
-
-                    <Select
-                        fullWidth
-                        required
-                        placeholder="selectcategory"
-                        // labelId="demo-simple-select-label"
-                        // id="demo-simple-select"
-                        value={this.state.category}
-                        onChange={this.handleSelectChange}
-                    >
-
-                        <MenuItem value="gents">gents</MenuItem>
-                        <MenuItem value="WOMEN">WOMEN</MenuItem>
-                        <MenuItem value="CHILD">CHILD</MenuItem>
-                    </Select>
-
-
-
-
-
-                </Grid>
-
-                <Grid>
-
-                    <DropzoneArea
-                            maxFileSize={5000000}
-                          acceptedFiles={['image/jpeg', 'image/png', 'image/bmp']}
-                      filesLimit={5}
-                        onChange={this.ImageshandleChange}
-                    />
-                </Grid>
-
-
-
-
-
-
-
-            </Grid>
-
-<br/>
-<br/>
-            <Button
-                style={{ marginTop: "20px" }}
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-            >
-                Submit  your Product
-</Button>
-
-        </ValidatorForm>
-    </div>
-
-    <Box mt={5}>
-    </Box>
-</Container>
-)
 
 
         return (
             <div style={{ marginTop: "20vh" }} >
                 <Grid item xs={false} sm={4} md={7} />
-                {ProductForm}
-               {/* {this .props.Verifiy.isVarified===false ?<Verification/>:{ProductForm}} */}
+                {  this.props.auth.user.isverified==true?
+                    <Container component="main" maxWidth="xs">
+
+                    <div >
+                        <div className="Icon_signUp" >
+                            <div className=" aut_svg" >
+                                <LockOutlinedIcon />
+                            </div>
+                    
+                            <h1>Your Product</h1>
+                    
+                        </div>
+                    
+                        <ValidatorForm
+                            ref="form"
+                            onSubmit={this.handleSubmit}
+                            onError={errors => console.log(errors)}
+                        >
+                            <Grid container spacing={2}>
+                                <Grid item xs={6} sm={6}>
+                                    <TextValidator
+                                        variant="outlined"
+                    
+                    
+                                        label="Price"
+                                        onChange={this.handleChange}
+                                        name="price"
+                                        type="Number"
+                    
+                                        validators={['isTruthy']}
+                                        errorMessages={['this field is required']}
+                                        value={this.state.price}
+                                    />
+                                </Grid>
+                                <Grid item xs={6} sm={6}>
+                                    <TextValidator
+                                        variant="outlined"
+                    
+                    
+                                        label="Discount Value"
+                                        onChange={this.handleChange}
+                                        name="discount"
+                                        type="Number"
+                    
+                                        validators={['isTruthy']}
+                                        errorMessages={['this field is required']}
+                                        value={this.state.discount}
+                                    />
+                                </Grid>
+                                <Grid item xs={12} sm={12}>
+                                    <TextValidator
+                                        variant="outlined"
+                    
+                    
+                                        fullWidth
+                                        label="Product Name"
+                                        onChange={this.handleChange}
+                                        name="productname"
+                                        type="text"
+                    
+                                        validators={['isTruthy']}
+                                        errorMessages={['this field is required']}
+                                        value={this.state.productname}
+                                    />
+                                </Grid>
+                    
+                    
+                                <Grid item xs={12} sm={12}>
+                                    <TextValidator
+                                        variant="outlined"
+                    
+                    
+                                        fullWidth
+                                        label="Discription"
+                                        onChange={this.handleChange}
+                                        name="discription"
+                                        type="text"
+                    
+                                        validators={['isTruthy']}
+                                        errorMessages={['this field is required']}
+                                        value={this.state.discription}
+                                    />
+                                </Grid>
+                    
+                    
+                                <Grid item xs={12} sm={12}>
+                    
+                    
+                                    <Select
+                                        fullWidth
+                                        required
+                                        placeholder="selectcategory"
+                                        // labelId="demo-simple-select-label"
+                                        // id="demo-simple-select"
+                                        value={this.state.category}
+                                        onChange={this.handleSelectChange}
+                                    >
+                    
+                                        <MenuItem value="gents">gents</MenuItem>
+                                        <MenuItem value="WOMEN">WOMEN</MenuItem>
+                                        <MenuItem value="CHILD">CHILD</MenuItem>
+                                    </Select>
+                    
+                    
+                    
+                    
+                    
+                                </Grid>
+                    
+                                <Grid>
+                    
+                                    <DropzoneArea
+                                            maxFileSize={5000000}
+                                          acceptedFiles={['image/jpeg', 'image/png', 'image/bmp']}
+                                      filesLimit={5}
+                                        onChange={this.ImageshandleChange}
+                                    />
+                                </Grid>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                            </Grid>
+                    
+                    <br/>
+                    <br/>
+                            <Button
+                                style={{ marginTop: "20px" }}
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                            >
+                                Submit  your Product
+                    </Button>
+                    
+                        </ValidatorForm>
+                    </div>
+                    
+                    <Box mt={5}>
+                    </Box>
+                    </Container>:<Verification/>
+                }
+             
             </div>
             
             
@@ -278,9 +278,9 @@ Product.propTypes = {
 };
 
  const mapStateToProps=(state)=>({
-    Verifiy:state.Verification.Userverified
-
+    Verifiy:state.Verification.Userverified,
+    auth:state.auth
 })
 
 
-export default connect(mapStateToProps,{addproducts})(Product)
+export default connect(mapStateToProps,{addproducts}  )(Product)

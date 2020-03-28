@@ -95,7 +95,7 @@ const Logout=(
 <div><img  src="https://img.icons8.com/nolan/64/user.png"/><span style={{marginTop:"100px"}} >{this.props.auth.user.name}</span></div>
    
 {this.props.auth.user.Admin===false?<Button onClick={this.handleClose} ><Link to="/addProduct" ><img src="https://img.icons8.com/nolan/64/edit-property.png"/> InsertProduct</Link></Button>:null}
-{this.props.auth.user.Admin===false?<Button onClick={this.handleClose} ><Link to="/userproduct" >UserProducts</Link></Button>:null}
+{this.props.auth.user.Admin===false?<Button onClick={this.handleClose} ><Link to="/userproduct" ><img src="https://img.icons8.com/ultraviolet/40/000000/user-male.png"/>UserProducts</Link></Button>:null}
 <p><Button 
     onClick={this.onLogoutClick}>
        <img src="https://img.icons8.com/nolan/64/logout-rounded.png"/>

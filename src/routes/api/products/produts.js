@@ -78,16 +78,31 @@ upload.array('files',7), (req, res) => {
 
 // /api/product/getallproducts
 router.post('/getallproducts',(req,res)=>{
-
+  passport.authenticate('jwt', { session: false }),
+  
   Product.find({user:req.body.user.id})
+  .populate('user', ['name','isVarified'])
   .then((data)=>{
     res.status(200).json(data)
   })
   
 
 })
+// allProduts
 
-
+router.get('/allProduts',(req,res)=>{
+  Product.find()
+  .populate('user', ['name' ,'isVarified' ])
+  .then(allproduts => {
+    if (!allproduts) {
+      errors = "there are no products";
+      return res.status(400).json(errors)
+    }
+// console.log(allusers)
+    res.json(allproduts);
+  })
+  .catch(err => res.status(404).json({ profile: 'There are no products' }));
+});
 
 
 

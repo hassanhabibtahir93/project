@@ -20,7 +20,8 @@ import UserDashboard from '../../components/UserDashboard/userDashboard'
 import history from '../../components/history/history'
 import ProvatieRoutes from '../../components/privavte/private'
 import Admin from '../../components/adminpanal/admin'
-import MEN from '../../components/Mens/menpage/men' 
+import MEN from '../../components/Mens/mens/men' 
+import Child from '../../components/Mens/child/child'
   export default class Routes extends Component {
     render() {
       return (
@@ -38,7 +39,9 @@ import MEN from '../../components/Mens/menpage/men'
       <Switch>
       <Route   exact path="/mens"     component={MEN}/>
       </Switch>
-
+      <Switch>
+      <Route   exact path="/product/child"     component={Child}/>
+      </Switch>
         <Switch>
           <Redirect to="/" />
         </Switch>

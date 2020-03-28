@@ -6,4 +6,5 @@ export const TokenSetToUser="TokenSetToUser";
 export const RemoveElemets="RemoveElemets";
 export const UserVerfication ="UserVerfication";
 export const UserProducts = "UserProducts";
-export const getUserProducts = "getUserProducts"
+export const getUserProducts = "getUserProducts";
+export const getAllProducts = "getAllProducts"
