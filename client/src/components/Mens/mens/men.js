@@ -3,7 +3,7 @@ import Card from '@material-ui/core/Card';
  import {getAllMenProduts} from '../../../store/action/products/productaction'
 import './men.css'
  import { connect } from 'react-redux'; 
-
+import {Link} from 'react-router-dom';
  class MEN extends Component {
 
 
@@ -34,14 +34,14 @@ return    <Card className="main">
 
 <div className="top-section">
   
-   <center> <img  className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
+   <center> <Link  to={`product/${item._id}`}><img  className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></Link></center>
 
 
 {/* <div className="nav"> */}
 
-{/* <img src={"http://localhost:8080/"+item.imgSrc[1]}/> */}
-{/* <img src={"http://localhost:8080/"+item.imgSrc[2]}/> */}
-{/* <img src={"http://localhost:8080/"+item.imgSrc[3]}/> */}
+{/* <img src={"http://localhost:8080/"+item.imgSrc[1]}/>
+<img src={"http://localhost:8080/"+item.imgSrc[2]}/>
+<img src={"http://localhost:8080/"+item.imgSrc[3]}/> */}
 
 {/* </div> */}
 
@@ -64,8 +64,8 @@ return    <Card className="main">
 
 
         return (
-            <div style={{marginTop:"70px"}}>
-            <h1>hi asslamoalikum</h1>
+            <div className="mainvalue"   >
+        
             {product}
             </div>
         )

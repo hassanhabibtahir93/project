@@ -64,8 +64,8 @@ return    <Card className="main">
 
 
         return (
-            <div style={{marginTop:"70px"}}>
-            <h1>hi women</h1>
+            <div  className="mainvalue"   style={{marginTop:"70px"}}>
+           
             {product}
             </div>
         )
