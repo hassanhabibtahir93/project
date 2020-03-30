@@ -16,9 +16,15 @@ class Dashboard extends Component {
 
 componentDidMount (){
   this.props.getuserallproducts({user:this.props.auth.user})
- 
+
 
 } 
+changedData=(img)=>{
+
+  // const containerSrc = this.refs.imageContainer.src
+  // this.refs.imageContainer.src=img
+  // console.log(img) 
+}
 
 
   render() {
@@ -34,14 +40,14 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
 
 <div className="top-section">
   
-   <center> <img  className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
+   <center> <img    onClick={()=>{this.changedData(item.imgSrc[0])}}    ref = 'imageContainer'    className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
 
 
 <div className="nav">
 
-<img src={"http://localhost:8080/"+item.imgSrc[1]}/>
-<img src={"http://localhost:8080/"+item.imgSrc[2]}/>
-<img src={"http://localhost:8080/"+item.imgSrc[3]}/>
+<img    onClick={()=>{this.changedData(item.imgSrc[1])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[1]}/>
+<img    onClick={()=>{this.changedData(item.imgSrc[2])}}    ref = 'image' src={"http://localhost:8080/"+item.imgSrc[2]}/>
+<img    onClick={()=>{this.changedData(item.imgSrc[3])}}    ref = 'image'  src={"http://localhost:8080/"+item.imgSrc[3]}/>
 
 </div>
 

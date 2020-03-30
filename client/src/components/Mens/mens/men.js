@@ -34,7 +34,7 @@ return    <Card className="main">
 
 <div className="top-section">
   
-   <center> <Link  to={`product/${item._id}`}><img  className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></Link></center>
+   <center> <Link  to={`productitems/${item._id}`}><img  className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></Link></center>
 
 
 {/* <div className="nav"> */}
