@@ -6,6 +6,7 @@ import userVerification from '../raducers/verifiyUser/userVerification';
 import UserProducts from '../raducers/Products/product';
 import getallproducts from '../raducers/getuserProducts/getuserproducts'
 import AllProducts from '../../store/raducers/getAllproduct/getallproduct'
+import ItempProduct from '../raducers/itemProduct/itemProduct'
 const rootReducer = combineReducers({
     erorr:errors,
     auth:Auth,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     Verification:userVerification,
     Products:UserProducts, 
     getuserproducts:getallproducts,
-    allProducts:AllProducts
+    allProducts:AllProducts,
+    ItempProduct:ItempProduct
     
 
 })

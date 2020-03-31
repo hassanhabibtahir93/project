@@ -7,4 +7,5 @@ export const RemoveElemets="RemoveElemets";
 export const UserVerfication ="UserVerfication";
 export const UserProducts = "UserProducts";
 export const getUserProducts = "getUserProducts";
-export const getAllProducts = "getAllProducts"
+export const getAllProducts = "getAllProducts";
+export const GetByIdProducts = "GetByIdProducts";

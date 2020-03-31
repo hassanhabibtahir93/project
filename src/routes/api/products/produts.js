@@ -73,7 +73,16 @@ upload.array('files',7), (req, res) => {
 
 
 
+router.get('/profilebyid/:id',(req,res)=>{
+  Product.findById({ _id: req.params.id }).then((profile) => {
 
+ 
+   
+      res.status(200).json(profile)
+ 
+
+  })
+})
 
 
 // /api/product/getallproducts

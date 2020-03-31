@@ -1,4 +1,4 @@
-import {UserProducts,getUserProducts,getAllProducts} from '../../action/types/types'
+import {UserProducts,getUserProducts,getAllProducts ,GetByIdProducts} from '../../action/types/types'
 import axios from 'axios';
 import history from '../../../components/history/history'
  export const addproducts=(productData)=>dispatch=>{
@@ -64,20 +64,19 @@ export const getAllMenProduts=()=>(dispatch)=>{
 }
 
 
-// export const getAllProduts=()=>(dispatch)=>{
+export const getProfilebyId=(id)=>(dispatch)=>{
 
-//     axios.get('http://localhost:8080/api/product/allProduts').then((res)=>{
-
-//       console.log(res)
-
-//         dispatch({
-//             type:getAllProducts,
-//             payload:res.data
+    axios.get(`http://localhost:8080/api/product/profilebyid/${id}`).then((res)=>{
 
 
-//         })
+        dispatch({
+            type:GetByIdProducts,
+            payload:res.data
+
+
+        })
 
    
-// })
+})
 
-// }
+}

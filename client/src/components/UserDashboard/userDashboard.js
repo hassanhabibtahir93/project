@@ -21,9 +21,10 @@ componentDidMount (){
 } 
 changedData=(img)=>{
 
-  // const containerSrc = this.refs.imageContainer.src
-  // this.refs.imageContainer.src=img
-  // console.log(img) 
+  const containerSrc = this.refs.imageContainer.src
+  console.log("this is second",containerSrc)
+  this.refs.imageContainer.src="http://localhost:8080/"+img
+  console.log(img) 
 }
 
 
@@ -40,7 +41,7 @@ let   profileItems = this.props.Products===undefined||this.props.Products===null
 
 <div className="top-section">
   
-   <center> <img    onClick={()=>{this.changedData(item.imgSrc[0])}}    ref = 'imageContainer'    className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
+   <center> <img    ref = 'imageContainer'    className="img_container" src={"http://localhost:8080/"+item.imgSrc[0]} alt="img1" /></center>
 
 
 <div className="nav">
