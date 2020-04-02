@@ -32,20 +32,23 @@ export default class Cart extends React.Component {
                     open={this.state.open}
                     onClose={this.handleClose}
                     aria-labelledby="form-dialog-title"
+                    // style={{backgroundColor:"black"}}
                 >
                 <div   className="cartimg" >  
                 <AddShoppingCartIcon />
                 </div>
-                    <DialogContent>
-                
+
+                    <DialogActions  >
+         
                    
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">
-                            Cancel
-            </Button>
-                   
-                    </DialogActions>
+<div style={{width:"30vw",height:"40vh" ,backgroundColor:"lightBlue"}}  >
+<h1>Order</h1>
+<div><h2>list</h2></div>
+
+</div>
+
+ </DialogActions>
+ <Button onClick={this.handleClose} bgColor="primary">Cancel </Button>
                 </Dialog>
             </div>
         );

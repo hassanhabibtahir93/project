@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import imgShow from '../../menueList/images/shopnow.jpg'
+import imgShow from './shpimg/shop.jpg'
 export default class shop extends Component {
     render() {
         return (

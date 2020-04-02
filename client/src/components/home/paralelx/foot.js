@@ -1,5 +1,6 @@
 import React from 'react';
-import "./parlalx.css"
+import {Link} from 'react-router-dom'
+import "./foot.css"
 function LabdorWork() {
   return (
     <div className="lbwork-container">
@@ -10,10 +11,11 @@ function LabdorWork() {
           More science, less marketing.
        </h2>
         <div className="lbwork-p">
-          We independently buy supplements from retail stores and test them in chemistry labs. Then we publish the results and expert reviews for free, so you can buy the right products for you.
+        While both are common terms in the fashion industry, a fashion line refers exclusively to all of the clothing a fashion designer produces for a specific category within her fashion company, while a collection refers to a seasonal 
+        production of different styles within a line for that same company.
        </div>
         <span className="lbwork-learn-more">
-          Learn More
+          <Link to="/details">Learn more</Link>
        </span>
       </div>
     </div>
