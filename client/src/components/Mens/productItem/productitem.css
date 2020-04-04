@@ -15,6 +15,8 @@ height: 60vh;
 /* background-color: white; */
 
 }
+
+
 .slide-item{
     /* height: 20vh; */
     /* margin: 10px; */
@@ -41,4 +43,64 @@ height: 70vh;
 
 .space-between{
     width: 30px;
+}
+
+.product_infomation{
+    width: 30vw;
+    height: 70vh;
+    /* background-color: white; */
+
+
+}
+.product_description{
+    
+    
+    margin-top: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgb(41, 38, 194);
+    text-align:  center ;
+}
+.product_price{
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: 2.8px;
+    font-weight: 900;
+    color: red;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.pr-discription{
+    width: 30vw;
+    height: 20vh;
+    background-color: white;
+
+}
+.pr-price {
+    width: 30vw;
+    height: 5vh;
+    background-color: white;
+    text-transform: uppercase;
+}
+.Deliverd{
+   
+    display: flex; 
+    flex-wrap: wrap;
+    height: 50px;
+    width: auto;
+    justify-content: center;
+     padding: 0px 10px;
+    
+}
+.delivery-product{
+    background: linear-gradient(87deg, rgb(214, 64, 251), rgb(114, 112, 218));
+margin-bottom: 100px;
+    height: 100px;
+    width: 100px;
+    justify-content: center;
+     /* padding: 10px 10px; */
+    
 }

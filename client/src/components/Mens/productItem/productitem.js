@@ -48,8 +48,24 @@ class Productitem extends Component {
                         </Card>
 
                     </div>
-                    <div className="categ-info" ></div>
-                    <div></div>
+                    <div className="space-between"></div>
+                    <div className="product_infomation" >
+                        
+                    <div className="pr-discription"  >
+                    <h1 className="product_description">   {item.discription}</h1>
+                    </div>
+                    <br/>
+                    <br/>
+                 <div className="pr-price">   <h1 className="product_price" > <span className="price-text" >price</span> {item.price}$  </h1></div>
+                 <br/>
+                    <br/>
+                 <div className="Deliverd"><h2 className="delivery-product" >Delived</h2> <p> khhhfjhghh jhghughjghgc jhgjhg jhgjhg jhghjhghjg jhghkjgjhg  </p></div>  
+                    </div>
+                  
+                
+                           
+                     
+
                 </div>
             )
         })
@@ -71,3 +87,7 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, { getProfilebyId })(Productitem)
+
+
+
+  

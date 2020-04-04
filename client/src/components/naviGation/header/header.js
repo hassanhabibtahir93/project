@@ -5,6 +5,8 @@ import DrawerToggle from '../sideBar/drawerToggleButon'
 import { Link } from "react-router-dom";
 import Serch from '../../serchNave/search/searchbar';
 import Cart from '../../serchNave/cart/cart';
+import Badge from '@material-ui/core/Badge';
+import IconButton from '@material-ui/core/IconButton';
 // import SimpleMenu from '../../auth/toolbar'
 import ToolBar from '../../auth/toobar/tolbar';
 import Aux from '../../../hoc/hoc';
@@ -76,7 +78,13 @@ const adminLinks=(
 {this.props.auth.user.Admin?null:<Serch/>}
 
 
-{this.props.auth.user.Admin?null:<div><Cart/></div>}
+{this.props.auth.user.Admin?null:<div>
+    <IconButton aria-label="show 4 new mails" color="inherit">
+    <Badge badgeContent={4} color="secondary">
+    <Cart/>
+              </Badge>
+              </IconButton>
+   </div>}
 
 <div><ToolBar/></div>
 </nav>
