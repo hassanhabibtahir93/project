@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import Card from '@material-ui/core/Card';
 import { connect } from 'react-redux'
 import './productitem.css'
-import { getProfilebyId } from '../../../store/action/products/productaction'
+import { getProfilebyId  } from '../../../store/action/products/productaction'
+import {addtoCartValue  } from '../../../store/action/cartAction/cartaction';
+// ,getAllProduts
+import { Button } from '@material-ui/core';
 class Productitem extends Component {
 
 
@@ -13,20 +16,34 @@ class Productitem extends Component {
         }
     }
 
+    
+    
+    addProductinCart=(id)=>{
+
+this.props.addtoCartValue(id)
+// this.props.getAllProduts()    
+    }
+    
+    
+    
     changedData = (img) => {
         const containerSrc = this.refs.imageContainer.src
-  console.log("this is second",containerSrc)
+
   this.refs.imageContainer.src="http://localhost:8080/"+img
-  console.log(img) 
+
     }
+
+
+
+
 
 
     render() {
 
-        // console.log(this.props.match.params.id)
+        console.log(this.props.unique)
 
         const Images = this.props.SingleProduct===undefined||this.props.SingleProduct===null? <h1>show is noting</h1>:this.props.SingleProduct.ItemProduct.map((item) => {
-            console.log(item)
+         
             return (
                 <div className="product-item">
                     <br />
@@ -35,10 +52,10 @@ class Productitem extends Component {
 
 
 
-                        <div className="slide-item"   > <img onClick={() => { this.changedData(item.imgSrc[0]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[0]} /></div>
+                       <div className="slide-item"   > <img onClick={() => { this.changedData(item.imgSrc[0]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[0]} /></div>
                         <div className="slide-item"   > <img onClick={() => { this.changedData(item.imgSrc[1]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[1]} /></div>
                         <div className="slide-item"   > <img onClick={() => { this.changedData(item.imgSrc[2]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[2]} /></div>
-                        <div className="slide-item"   > <img onClick={() => { this.changedData(item.imgSrc[3]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[3]} /></div>
+                        <div className="slide-item"   > <img onClick={() => { this.changedData(item.imgSrc[3]) }} ref='image' src={"http://localhost:8080/" + item.imgSrc[3]} /></div> 
                     </div>
                     <div className="space-between"></div>
                     <div className="big-card" >
@@ -50,7 +67,7 @@ class Productitem extends Component {
                     </div>
                     <div className="space-between"></div>
                     <div className="product_infomation" >
-                        
+                       
                     <div className="pr-discription"  >
                     <h1 className="product_description">   {item.discription}</h1>
                     </div>
@@ -59,7 +76,9 @@ class Productitem extends Component {
                  <div className="pr-price">   <h1 className="product_price" > <span className="price-text" >price</span> {item.price}$  </h1></div>
                  <br/>
                     <br/>
-                 <div className="Deliverd"><h2 className="delivery-product" >Delived</h2> <p> khhhfjhghh jhghughjghgc jhgjhg jhgjhg jhghjhghjg jhghkjgjhg  </p></div>  
+                 <div className="Deliverd"><h3 className="delivery-product" > Product Delikver after  the  complete satisfaction  </h3></div>
+                  <br/>
+                   <div className="addto_cart" ><Button size="large"  variant="text" variant="outlined"  fullWidth={true} color="primary"   onClick={()=>this.addProductinCart(item._id)}   >ADD TO CART</Button></div>
                     </div>
                   
                 
@@ -82,11 +101,11 @@ class Productitem extends Component {
 
 const mapStateToProps = (state) => ({
 
-    SingleProduct: state.ItempProduct
-
+    SingleProduct: state.ItempProduct,
+    unique:state.allProducts.addedItems
 })
 
-export default connect(mapStateToProps, { getProfilebyId })(Productitem)
+export default connect(mapStateToProps, { getProfilebyId , addtoCartValue })(Productitem)
 
 
 

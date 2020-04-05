@@ -64,6 +64,10 @@ export const getAllMenProduts=()=>(dispatch)=>{
 }
 
 
+
+
+
+
 export const getProfilebyId=(id)=>(dispatch)=>{
 
     axios.get(`http://localhost:8080/api/product/profilebyid/${id}`).then((res)=>{

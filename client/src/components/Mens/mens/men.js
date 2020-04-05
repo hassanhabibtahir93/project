@@ -16,7 +16,7 @@ import {Link} from 'react-router-dom';
     
 
     render() {
-// console.log(this.props.Products)
+console.log(this.props.unique)
  const  MenProducts = this.props.Products
 
  let Prdouctsitems= MenProducts.filter(( item,index)=>{
@@ -73,8 +73,8 @@ return    <Card className="main">
 }
 const mapStateToProps=(state)=>({
   
-    Products:state.allProducts.AllusersProducts
-   
+    Products:state.allProducts.AllusersProducts,
+    // unique:state.allProducts.UniqueItem
 
   
   })

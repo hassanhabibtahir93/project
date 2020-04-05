@@ -1,9 +1,11 @@
-import {getAllProducts} from '../../action/types/types'
+import {getAllProducts,ADDTOCARTITEMSS} from '../../action/types/types'
 
 
 const intialState = {
+    addedItems: [],
     prduct:"allproducs",
-    AllusersProducts:[]
+    AllusersProducts:[],
+    UniqueItem:[]
 }
 
 export default function ( state=intialState, action ) {
@@ -17,16 +19,34 @@ export default function ( state=intialState, action ) {
     
         case getAllProducts:
     
-        // console.log(action.payload)
-            return({
+            localStorage.setItem('cartItem', JSON.stringify(action.payload));  
+        return({
              ...newState,
+            
              AllusersProducts:intialState.AllusersProducts.concat(action.payload),
     
             })
 
+ 
+      case ADDTOCARTITEMSS:
+ 
+        let cartProduct=JSON.parse(localStorage.getItem('cartItem'));
+        let addedItem = cartProduct.find(item=>item._id===action.payload)
+        console.log(addedItem)
+
+          return{
+              ...newState,
+              addedItems: [...state.addedItems, addedItem],
+          }
+
 
             default:
-                return newState
+               
+             
+                return {
+                   ...newState,
+                    // products: cartProduct != null ? cartProduct : [] ,
+                }
     }
     
     

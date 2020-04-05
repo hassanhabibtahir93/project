@@ -9,3 +9,5 @@ export const UserProducts = "UserProducts";
 export const getUserProducts = "getUserProducts";
 export const getAllProducts = "getAllProducts";
 export const GetByIdProducts = "GetByIdProducts";
+export const ADDTOCARTITEMSS = "AddtoCartItems"
+export const GETALLPRODUCTS = "GETALLPRODUCTS"
