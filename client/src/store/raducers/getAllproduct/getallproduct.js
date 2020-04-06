@@ -1,11 +1,11 @@
-import {getAllProducts,ADDTOCARTITEMSS} from '../../action/types/types'
+import {getAllProducts,ADDTOCARTITEMSS,GETCARTPRODUCTS} from '../../action/types/types'
 
 
 const intialState = {
     addedItems: [],
     prduct:"allproducs",
     AllusersProducts:[],
-    UniqueItem:[]
+    cartitems:[]
 }
 
 export default function ( state=intialState, action ) {
@@ -19,7 +19,7 @@ export default function ( state=intialState, action ) {
     
         case getAllProducts:
     
-            localStorage.setItem('cartItem', JSON.stringify(action.payload));  
+            
         return({
              ...newState,
             
@@ -29,15 +29,35 @@ export default function ( state=intialState, action ) {
 
  
       case ADDTOCARTITEMSS:
- 
-        let cartProduct=JSON.parse(localStorage.getItem('cartItem'));
-        let addedItem = cartProduct.find(item=>item._id===action.payload)
-        console.log(addedItem)
+         var cartItem= localStorage.getItem('cartItem');
+         var items=[]
+    if(cartItem)
+    {
+items=JSON.parse(cartItem)
+   }
+   items.push(action.payload._id)
+        localStorage.setItem('cartItem', JSON.stringify(items)); 
+        // let cartProduct=JSON.parse(localStorage.getItem('cartItem'));
+        // let addedItem = cartProduct
+        // console.log(addedItem)
 
           return{
               ...newState,
-              addedItems: [...state.addedItems, addedItem],
+            //   addedItems: [...state.addedItems, addedItem],
           }
+
+
+
+       case GETCARTPRODUCTS:
+        console.log(action.payload) 
+        return({
+            ...newState,
+            cartitems: action.payload,
+      
+   
+           })
+
+
 
 
             default:

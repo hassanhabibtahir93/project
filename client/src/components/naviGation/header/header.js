@@ -4,7 +4,7 @@ import './header.css';
 import DrawerToggle from '../sideBar/drawerToggleButon'
 import { Link } from "react-router-dom";
 import Serch from '../../serchNave/search/searchbar';
-import Cart from '../../serchNave/cart/cart';
+import Cart from '../../serchNave/cart/cartlink';
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 // import SimpleMenu from '../../auth/toolbar'

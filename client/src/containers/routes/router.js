@@ -24,6 +24,7 @@ import MEN from '../../components/Mens/mens/men'
 import Child from '../../components/Mens/child/child'
 import  Women from '../../components/Mens/women/women' 
 import Productitem from '../../components/Mens/productItem/productitem'
+import Cart from '../../components/productCart/PCart';
   export default class Routes extends Component {
     render() {
       return (
@@ -52,6 +53,9 @@ import Productitem from '../../components/Mens/productItem/productitem'
       </Switch>
       <Switch>
       <Route   exact path="/productitems/:id"     component={Productitem}/>
+      </Switch>
+      <Switch>
+      <Route   exact path="/cart"     component={Cart}/>
       </Switch>
         <Switch>
           <Redirect to="/" />

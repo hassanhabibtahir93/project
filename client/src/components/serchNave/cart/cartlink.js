@@ -7,6 +7,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import {Link} from 'react-router-dom'
 import './cart.css'
 export default class Cart extends React.Component {
     state = {
@@ -24,33 +25,11 @@ export default class Cart extends React.Component {
     render() {
         return (
             <div>
-                <Button onClick={this.handleClickOpen}>
+                <Link  to="/cart" onClick={this.handleClickOpen}>
                     <AddShoppingCartIcon  fontSize="large"  style={{color:'white'}} />
                     
-        </Button>
-                <Dialog
-                    open={this.state.open}
-                    onClose={this.handleClose}
-                    aria-labelledby="form-dialog-title"
-                    // style={{backgroundColor:"black"}}
-                >
-                <div   className="cartimg" >  
-                <AddShoppingCartIcon />
-                </div>
-
-                    <DialogActions  >
-         
-                   
-<div style={{width:"30vw",height:"40vh" ,backgroundColor:"lightBlue"}}  >
-<h1>Order</h1>
-<div><h2>list</h2></div>
-
-</div>
-
- </DialogActions>
- <Button onClick={this.handleClose} bgColor="primary">Cancel </Button>
-                </Dialog>
-            </div>
+        </Link>
+         </div>
         );
     }
 }
