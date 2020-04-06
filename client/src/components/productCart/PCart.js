@@ -22,13 +22,17 @@ class PCart extends Component {
 
     var cartItems= JSON.parse(localStorage.getItem('cartItem'));
 
-    for(let x in cartItems ){
+    // for(let x in cartItems ){
+// if(x==0){
+//   localStorage.removeItem('cartItem');
+// }
+// let ie= cartItems.splice(i,1)
 
-let ie= cartItems.splice(x,1)
-
+let ie = cartItems.filter(item=>item!==id)
+console.log("filter",ie)
 localStorage.setItem('cartItem', JSON.stringify(ie)); 
 
-    }
+    //}
     const data = {
       index: i,
       id: id
