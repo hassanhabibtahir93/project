@@ -8,6 +8,7 @@ import Cart from '../../serchNave/cart/cartlink';
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 // import SimpleMenu from '../../auth/toolbar'
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ToolBar from '../../auth/toobar/tolbar';
 import Aux from '../../../hoc/hoc';
 import { connect } from 'react-redux'; 
@@ -79,11 +80,14 @@ const adminLinks=(
 
 
 {this.props.auth.user.Admin?null:<div>
-    <IconButton aria-label="show 4 new mails" color="inherit">
+  
+    <Link to="/cart" >  <IconButton aria-label="show 4 new mails" color="inherit">
     <Badge badgeContent={4} color="secondary">
-    <Cart/>
+   
+    <AddShoppingCartIcon  fontSize="large"  style={{color:'white'}} />
               </Badge>
               </IconButton>
+              </Link> 
    </div>}
 
 <div><ToolBar/></div>

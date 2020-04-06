@@ -1,4 +1,6 @@
-import {getAllProducts,ADDTOCARTITEMSS,GETCARTPRODUCTS} from '../../action/types/types'
+import {getAllProducts,ADDTOCARTITEMSS,
+    GETCARTPRODUCTS,
+    REMOVECARTPRODUCT} from '../../action/types/types'
 
 
 const intialState = {
@@ -57,8 +59,17 @@ items=JSON.parse(cartItem)
    
            })
 
-
-
+     case REMOVECARTPRODUCT:
+        console.log("reducerindex",action.payload.index)
+        
+        return{
+         
+            cartitems: [
+                newState.cartitems.splice(action.payload.index,1),
+            ],
+           
+            ...newState,
+        }
 
             default:
                

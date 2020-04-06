@@ -1,4 +1,4 @@
-import {ADDTOCARTITEMSS ,GETCARTPRODUCTS} from '../../action/types/types'
+import {ADDTOCARTITEMSS ,GETCARTPRODUCTS,REMOVECARTPRODUCT} from '../../action/types/types'
 import axios from 'axios';
 export const addtoCartValue=(id)=>dispatch=>{
 
@@ -22,5 +22,21 @@ export const getcartproducts=(data)=>(dispatch)=>{
     type:GETCARTPRODUCTS,
     payload:data
   })
+
+}
+
+export const  RemoveCartElement=(data)=>(dispatch)=>{
+ 
+    // let data = [];
+    // cartItems.filter(product => {
+    //     if (product._id !== data.id)
+    //       data.push(product)
+    //   })
+    //   localStorage.setItem('cartItem', JSON.stringify(data)); 
+dispatch({
+    type:REMOVECARTPRODUCT,
+    payload:data
+})
+
 
 }

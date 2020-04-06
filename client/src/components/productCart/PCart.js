@@ -7,36 +7,59 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import CardMedia from '@material-ui/core/CardMedia';
-import {getcartproducts} from '../../store/action/cartAction/cartaction'
+import { getcartproducts ,RemoveCartElement } from '../../store/action/cartAction/cartaction'
 import axios from 'axios';
 import { connect } from 'react-redux'
- class PCart extends Component {
-     constructor(props){
+import { Button } from '@material-ui/core';
+class PCart extends Component {
+  constructor(props) {
     super(props)
 
 
-     }
+  }
 
+  DeletedCartItem=(i,id)=>{
 
-componentDidMount(){
+    var cartItems= JSON.parse(localStorage.getItem('cartItem'));
 
-  let cartProduct=JSON.parse(localStorage.getItem('cartItem'));
-  let data=[];
-  axios.get('http://localhost:8080/api/product/allProduts').then((res)=>{
-   cartProduct.map(id=>{
+    for(let x in cartItems ){
 
-     res.data.filter(product=>{
-       if(product._id==id)
-      data.push(product)
+let ie= cartItems.splice(x,1)
+
+localStorage.setItem('cartItem', JSON.stringify(ie)); 
+
+    }
+    const data = {
+      index: i,
+      id: id
+  }
+        this.props.RemoveCartElement(data)
+
+  }
+  componentDidMount() {
+
+    let cartProduct = JSON.parse(localStorage.getItem('cartItem'));
+    let data = [];
+    axios.get('http://localhost:8080/api/product/allProduts').then((res) => {
+      cartProduct.map(id => {
+
+        res.data.filter(product => {
+          if (product._id == id)
+            data.push(product)
+        })
       })
     })
-  })
 
 
-this.props.getcartproducts(data)
+    this.props.getcartproducts(data)
 
-}
-render() {
+  }
+
+
+
+
+
+  render() {
 
 
     console.log(this.props.CartItems)
@@ -54,50 +77,52 @@ render() {
     //          console.log(profileItems)
     //     }
     //   }
-        let product =this.props.CartItems.map((item,i)=>{
-            console.log(item)
-            return(
-           
-                <TableRow key={item.id}>
-                <TableCell>
-                <img  height="100" src={"http://localhost:8080/"+item.imgSrc[0]}/>
-                </TableCell>
-                <TableCell align="right">{item.productname.toUpperCase()}</TableCell>
-                <TableCell align="right">{item.price}</TableCell>
-                <TableCell align="right">1</TableCell>
-                {/* <TableCell align="right">{row.protein}</TableCell> */}
+    let product = this.props.CartItems.map((item, i) => {
+
+      return (
+
+        <TableRow key={item.id}>
+          <TableCell>
+            <img height="50" src={"http://localhost:8080/" + item.imgSrc[0]} />
+          </TableCell>
+          <TableCell align="right">{item.productname.toUpperCase()}</TableCell>
+          <TableCell align="right">{item.price}</TableCell>
+          <TableCell align="right">1</TableCell>
+          <TableCell align="right">Discount</TableCell>
+          <TableCell align="right"><Button onClick={()=>{this.DeletedCartItem(i,item._id)}} >REMOVE</Button></TableCell>
+        </TableRow>
+
+      )
+    })
+    return (
+      <div style={{ marginTop: "vh" }}>
+        <h1>Shoping Cart</h1>
+
+        <TableContainer component={Paper}>
+          <Table aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Product</TableCell>
+                <TableCell align="right">Name</TableCell>
+                <TableCell align="right">Price</TableCell>
+                <TableCell align="right">Quantity</TableCell>
+                <TableCell align="right">Discount</TableCell>
+                <TableCell align="right">REMOVE</TableCell>
               </TableRow>
-                
-            )
-        })
-        return (
-            <div style={{marginTop:"vh"}}>
-                <h1>Shoping Cart</h1>
-       
-               <TableContainer component={Paper}>
-      <Table aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Product</TableCell>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Quantity</TableCell>
-            <TableCell align="right">Discount</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-         {product}
-        </TableBody>
-      </Table>
-    </TableContainer>
-            </div>
-        )
- }
- }
+            </TableHead>
+            <TableBody>
+              {product}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
+    )
+  }
+}
 const mapStateToProps = (state) => ({
 
-   
-    CartItems:state.allProducts.cartitems
+
+  CartItems: state.allProducts.cartitems
 })
 
-export default connect(mapStateToProps ,{getcartproducts} )(PCart)
+export default connect(mapStateToProps, { getcartproducts,RemoveCartElement })(PCart)

@@ -25,10 +25,10 @@ export default class Cart extends React.Component {
     render() {
         return (
             <div>
-                <Link  to="/cart" onClick={this.handleClickOpen}>
+                {/* <Link  to="/cart" onClick={this.handleClickOpen}>
                     <AddShoppingCartIcon  fontSize="large"  style={{color:'white'}} />
                     
-        </Link>
+        </Link> */}
          </div>
         );
     }
