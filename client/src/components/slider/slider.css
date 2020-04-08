@@ -53,25 +53,75 @@
 }
 
 
+/* .img_slids{
+    height: 80vh;
+    width: 100%;
+} */
 
 .slide1{
+    opacity: 1;
     height: 80vh;
     width: 100%;
     position: relative;
-    background-image: url('../../components/slider/images/img1.jpg');
-    height: 40rem;
+    background-image: url('../../components/slider/images/menBckgr.jpg');
+ 
     background-repeat: no-repeat;
     background-size: cover;
    
 }
-.slide2{
+
+.img1{
+    z-index: 100;
+    opacity: 0;
+    width: 100%;
+      height: 80vh;
+    animation-name: imges  0.5s ease 2.2s forwards;
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 10;
+    animation-play-state: paused;
+}
+@keyframes imges {
+    0% {
+       
+        opacity: 0.1;
+    }
+    100% {
+    
+        opacity: 1;
+    }
+}
+/* .slide2{
     position: relative;
-    background-image: url('../../components/slider/images/img2.jpg');
+    background-image: url('../../components/slider/images/menStylis.jpg');
     height: 40rem;
     background-repeat: no-repeat;
     background-size: cover;
+
    
+} */
+.img2{
+    z-index: 100;
+    opacity: 0;
+    width: 80%;
+    height: 80vh;
+    animation-name: imges2 0.5s ease 2.2s forwards;
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 10;
+    animation-play-state: paused;
 }
+@keyframes imges2 {
+    0% {
+       
+        opacity: 0;
+    }
+    100% {
+    
+        opacity: 1;
+    }
+}
+
 .slide3{
     position: relative;
     background-image: url('../../components/slider/images/img3.jpg');
@@ -80,6 +130,29 @@
     background-size: cover;
    
 }
+/* .img3{
+    z-index: 100;
+    opacity: 0;
+    width: 100%;
+   
+    animation-name: imges2 0.5s ease 2.2s forwards;
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: 10;
+    animation-play-state: paused;
+}
+@keyframes imges2 {
+    0% {
+       
+        opacity: 0;
+    }
+    100% {
+    
+        opacity: 1;
+    }
+} */
+
+
 .slide4{
     position: relative;
     background-image: url('../../components/slider/images/img4.jpg');
