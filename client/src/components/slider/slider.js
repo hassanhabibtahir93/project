@@ -26,7 +26,7 @@ class Slidersimple extends Component {
 
   render() {
     var settings = {
-      // autoplay:true,
+      autoplay:true,
       dots: true,
       fade: true,
       useTransform: true,

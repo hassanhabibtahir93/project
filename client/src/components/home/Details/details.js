@@ -6,7 +6,10 @@ import SaveProduct from './img/value.png'
 export default function details() {
     return (
         <div>
-            <div className="detail_container">
+
+
+<div className="detail_container" >
+           
            <div className="detail_card" > 
            <div className="product_img" ><img src={HomeDelivery}/>
            <h3>Home Delivery</h3>
@@ -35,9 +38,13 @@ export default function details() {
                
 
            </div>
+
             </div>
 
 
+         
+
         </div>
+    
     )
 }
