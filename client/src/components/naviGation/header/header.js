@@ -8,6 +8,7 @@ import Cart from '../../serchNave/cart/cartlink';
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 // import SimpleMenu from '../../auth/toolbar'
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ToolBar from '../../auth/toobar/tolbar';
 import Aux from '../../../hoc/hoc';
@@ -89,7 +90,11 @@ const adminLinks=(
               </IconButton>
               </Link> 
    </div>}
-
+   <div>
+{/* <div className="spacer"></div> */}
+  <Link to="/favourint"  >  <FavoriteIcon  className="fave_icon" fontSize="large" color="red" />
+  </Link>
+  </div>
 <div><ToolBar/></div>
 </nav>
 
