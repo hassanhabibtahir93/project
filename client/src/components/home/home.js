@@ -16,7 +16,7 @@ export default class Home extends Component {
 
       <div>
 
-      <div>
+      <div style={{ height: "auto" ,marginTop:"60px"}} >
           <Slidersimple />
         </div>
 
@@ -30,7 +30,7 @@ export default class Home extends Component {
         </div>
 
 <br/>
-        <div  style={{ height: "auto" ,marginTop:"60px"}} ><MenuList/></div>
+        <div   ><MenuList/></div>
 
 <br/>
         <div> <Showcase /></div>

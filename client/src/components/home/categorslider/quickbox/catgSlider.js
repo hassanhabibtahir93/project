@@ -15,7 +15,7 @@ const Box = posed.div({
     visible: { opacity: 1, delayChildren: 3000 },
 });
 const imageStyle = {
-    width: "80%", height: "40vh",
+    // width: "80%", height: "40vh",
     marginLeft: '1px'
 }
 
@@ -102,18 +102,18 @@ export default class CatgSlider extends React.Component {
                         <div>
 
                            
-                            <img style={imageStyle} className="image_list" src={item.img1} />
+                      <Link></Link>      <img style={imageStyle} className="image_list"   width="600" height="400"  src={item.img1} />
                            
                                 
 
                             <br />
-                            <span className="effects">
+                            {/* <span className="effects">
                                 <span>
                                 Category 
                       <Link to={'/'+item.link}>{item.link}</Link>
                             </span>
 
-                            </span>
+                            </span> */}
                         </div></div>
                 })}
             </InfiniteCarousel>
