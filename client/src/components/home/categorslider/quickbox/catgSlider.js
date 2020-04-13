@@ -30,26 +30,26 @@ export default class CatgSlider extends React.Component {
                 },
                 {
                     img1: 'https://d30fs77zq6vq2v.cloudfront.net/category/Round men kurta-344094639405.png',
-                    link: 'manjens'
+                    link: '/manjens'
                 },
                 {
                     img1:'https://d30fs77zq6vq2v.cloudfront.net/product/880x1000/20052019/b19b74d8a904d2aa8e78f71a2bd05f75-185186319607.JPEG',
-                    link: 'manshirt'
+                    link: '/manshirt'
                 },
                 {
                     img1: ' https://d30fs77zq6vq2v.cloudfront.net/category/Round Topsa-703286853906.png',
-                    link: 'womshirt'
+                    link: '/womshirt'
                 },
                 {
                     img1: 'https://d30fs77zq6vq2v.cloudfront.net/category/Round Jeans-936614289225.png',
-                    link: 'womenjens'
+                    link: '/womenjens'
                 },
                 {
                     img1: 'https://d30fs77zq6vq2v.cloudfront.net/category/round dresses-1524719222883.png',
-                    link: 'womenpent'
+                    link: '/womenpent'
                 },
                 { img1: "https://d30fs77zq6vq2v.cloudfront.net/product/880x1000/15052019/21ed6f7dcacd6cefd25963980a110098-450437341402.JPEG" 
-               , link: 'kidsshirt'
+               , link: '/kidsshirt'
             }
                 ,
                 {
@@ -102,9 +102,9 @@ export default class CatgSlider extends React.Component {
                         <div>
 
                            
-                      <Link></Link>      <img style={imageStyle} className="image_list"   width="600" height="400"  src={item.img1} />
+                         <img style={imageStyle} className="image_list"   width="600" height="400"  src={item.img1} />
                            
-                                
+            
 
                             <br />
                             {/* <span className="effects">

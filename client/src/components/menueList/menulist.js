@@ -10,7 +10,7 @@ import Pents from './images/menPents.jpg'
 import Suits from './images/suits.jpg'
 import Women from './images/women.png'
 import Child from './images/child.png'
-import { Link } from '@material-ui/core';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 export default class MenuList extends Component {
   render() {
 
@@ -35,7 +35,7 @@ export default class MenuList extends Component {
 
           <div>
             <div className="items-body-men">
-              <span className="men_list" ><Link>MENs</Link></span>
+              <span className="men_list" ><Link to="/mens">MENs</Link></span>
               <span><img className="cate_img" src={imgShowCase} /></span>
             </div>
 
@@ -107,7 +107,7 @@ export default class MenuList extends Component {
 <div>
 
   <div className="items-body-women">
-    <span className="men_list" ><Link>Women</Link></span>
+    <span className="men_list" ><Link to="/women" >Women</Link></span>
     <span><img className="cate_img"  style={{marginTop:"12px"}}  src={Women} /></span>
   </div>
 
