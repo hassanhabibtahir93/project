@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import Card from '@material-ui/core/Card';
- import {getAllMenProduts} from '../../../store/action/products/productaction'
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import Favorite from '@material-ui/icons/Favorite';
+import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
+ import {getAllMenProduts ,FavouritAdds} from '../../../store/action/products/productaction'
 import './men.css'
  import { connect } from 'react-redux'; 
 import {Link} from 'react-router-dom';
@@ -13,7 +19,9 @@ import {Link} from 'react-router-dom';
    
   
   } 
-    
+  addToFav=(fav)=>{
+   this.props.FavouritAdds(fav)
+  }
 
     render() {
 console.log(this.props.unique)
@@ -25,9 +33,19 @@ console.log(this.props.unique)
   
 })
 // console.log(Prdouctsitems)
-      let product= Prdouctsitems.map((item)=>{
+  let product= Prdouctsitems.map((item)=>{
 
 return    <Card className="main">
+
+<FormControlLabel
+fontSize="large"
+
+style={{float:"right"}}
+control={<Checkbox onClick = {()=>{this.addToFav(item)}}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
+    
+      />
+
+
 
 <div className="card_products">
   {/* <div className="deleteButton"> <Button className="buttondel" > <DeleteIcon   className="icon_del" /></Button></div> */}
@@ -79,4 +97,4 @@ const mapStateToProps=(state)=>({
   
   })
 
-  export default connect(mapStateToProps,{getAllMenProduts})(MEN)
+  export default connect(mapStateToProps,{getAllMenProduts,FavouritAdds})(MEN)

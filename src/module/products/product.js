@@ -24,8 +24,10 @@ const productSchema = new Schema({
         required: true
     },
 
-
-
+    fav:{
+        type:Boolean
+    }
+,
     imgSrc: []
     ,
     user: {

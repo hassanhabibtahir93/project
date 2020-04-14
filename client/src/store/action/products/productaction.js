@@ -84,3 +84,11 @@ export const getProfilebyId=(id)=>(dispatch)=>{
 })
 
 }
+export const FavouritAdds =(fav)=>(dispatch)=>{
+
+axios.post("http://localhost:8080/api/Favour/favaddChanged",fav)
+.then((res)=>{
+console.log(res)
+})
+
+}

@@ -10,8 +10,9 @@ const passport = require('passport');
 
 const user = require('./src/routes/api/user/user');
 const product = require('./src/routes/api/products/produts')
+const FavAdd = require('./src/routes/api/favourit/favourit')
 //cors is use to data send
-var cors = require('cors')
+var cors = require('cors');
 //path is required
 var path = require("path");
 //bodyParsre
@@ -31,6 +32,9 @@ require('./src/config/passport')(passport)
 app.use('/api/users', user)
 //porducts
 app.use('/api/product',product)
+//favourit
+app.use('/api/Favour',FavAdd)
+
 
 const port = process.env.PORT || 8080;
 app.use(express.static(path.join(__dirname, "public")));
