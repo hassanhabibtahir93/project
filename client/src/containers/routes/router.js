@@ -9,6 +9,7 @@ import resetEmail from '../../components/auth/reset/resetemail'
 import Resetpassword from '../../components/auth/reset/resetpassword';
 import Product from '../../components/auth/product/product';
 import UserDashboard from '../../components/UserDashboard/userDashboard'
+import Favproduct  from '../../components/favProduct/favproduct'
   import {
      Router,
   
@@ -56,6 +57,11 @@ import Cart from '../../components/productCart/PCart';
       </Switch>
       <Switch>
       <Route   exact path="/cart"     component={Cart}/>
+      </Switch>
+
+
+      <Switch>
+        <Route  exact path="/favourint" component={Favproduct} />
       </Switch>
         <Switch>
           <Redirect to="/" />

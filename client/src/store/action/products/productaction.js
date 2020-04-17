@@ -88,7 +88,30 @@ export const FavouritAdds =(fav)=>(dispatch)=>{
 
 axios.post("http://localhost:8080/api/Favour/favaddChanged",fav)
 .then((res)=>{
-console.log(res)
+  if(res){
+    axios.get('http://localhost:8080/api/product/allProduts').then((res)=>{
+
+      
+
+        dispatch({
+            type:getAllProducts,
+            payload:res.data
+
+
+        })
+
+   
+})
+  }
 })
 
 }
+
+export const GetFavourproducts=(id)=>(dispatch)=>{
+
+    axios.get("http://localhost:8080/api/Favour/getFavouritadd",id)
+    .then((res)=>{
+        console.log(res)
+    })
+}
+ 

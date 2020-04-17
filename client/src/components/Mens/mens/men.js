@@ -24,7 +24,7 @@ import {Link} from 'react-router-dom';
   }
 
     render() {
-console.log(this.props.unique)
+console.log(this.props.Products)
  const  MenProducts = this.props.Products
 
  let Prdouctsitems= MenProducts.filter(( item,index)=>{
@@ -41,7 +41,7 @@ return    <Card className="main">
 fontSize="large"
 
 style={{float:"right"}}
-control={<Checkbox onClick = {()=>{this.addToFav(item)}}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
+control={<Checkbox onClick = {()=>{this.addToFav(item)}} checked = {item.fav ? true : false}  icon={<FavoriteBorder fontSize="large"  />} checkedIcon={<Favorite  fontSize="large" />} name="checkedH" />}
     
       />
 

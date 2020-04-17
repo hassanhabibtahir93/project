@@ -1,26 +1,26 @@
-const Fav = require('../module/favourit/favritAd');
+const FavProducts = require('../module/favourit/favritAd');
 const Produts = require('../module/products/product')
 
 const favAdController = {
     favAdClicked:function(data,cb){
-console.log(data)
+// console.log(data)
 
         //Changing kerni hai app k check box k liye
-        Fav.findOne({user:data.body.user,adId:data.body._id},function(err,ad){
-            if(ad){
-                Produts.findByIdAndUpdate(data.body._id,{$set:{fav:false}},function(err,fav){
-                    // console.log(err||fav)
+        FavProducts.findOne({user:data.body.user,adId:data.body._id},function(err,prod){
+            if(prod){
+                Produts.findByIdAndUpdate(data.body._id,{$set:{fav:false}},function(err,favp){
+                    console.log(err||favp)
                 })
-                // console.log(Ads,Fav)
-                Fav.findByIdAndDelete(ad._id,function(data,res){
+                console.log(Produts,FavProducts)
+                FavProducts.findByIdAndDelete(prod._id,function(data,res){
                     cb(err,{found:true})
                 })
             }else{
                 Produts.findByIdAndUpdate(data.body._id,{$set:{fav:true}},function(err,fav){
-                    // console.log(err||fav)
+                    console.log(err||fav)
                 })
-                console.log(Produts,Fav)
-                let favAd = new Fav();
+                console.log(Produts,FavProducts)
+                let favAd = new FavProducts();
                 favAd.adId = data.body._id;
                 favAd.user = data.body.user ;
                 favAd.save(function(err,ad){
@@ -33,17 +33,17 @@ console.log(data)
         })
 
     },
-    // showFavAds:function(data,cb){
-    //     Fav.find({"user":data.user._id}).populate('adId').exec(function(err, fav){
+    showFavouritProduct:function(data,cb){
+        FavProducts.find({"user":data.user._id}).populate('adId').exec(function(err, fav){
 
 
-    //        let userFavads = fav.map(function(fav){
-    //                 return fav.adId;
-    //         });
+           let userFavads = fav.map(function(fav){
+                    return fav.adId;
+            });
 
-    //         cb(null, userFavads);
+            cb(null, userFavads);
             // if(ads.length > 0){
-            //     Ads.find({"user":ads[0].user,"_id":ads[0].adId},function(err,ad){
+            //     Produts.find({"user":ads[0].user,"_id":ads[0].adId},function(err,ad){
             //         if(ad.length > 0){
             //             console.log(ad)
             //             cb(err,ad)
@@ -54,8 +54,8 @@ console.log(data)
             // }else{
             //     cb(err,{success:false})
             // }
-    //     })
-    // }
+        })
+    }
 
 
 

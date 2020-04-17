@@ -4,9 +4,13 @@ const favRouter = express.Router();
 const Products = require('../products/produts');
 const Faourit = require('../../../module/favourit/favritAd')
 const favConroler = require('../../../controler/Favourit')
+const passport = require('passport');
 
+favRouter.post('/favaddChanged',
 
-favRouter.post('/favaddChanged',function(req,res){
+// passport.authenticate('jwt', { session: false }),
+
+function(req,res){
     // console.log(req.body)
     // req.body.user = req.user
     favConroler.favAdClicked(req,function(err,ad){
@@ -16,10 +20,12 @@ favRouter.post('/favaddChanged',function(req,res){
 
 
 
-favRouter.get('/get_fav_ads',function(req,res){
+favRouter.get('/getFavouritadd'
+,
+passport.authenticate('jwt', { session: false }),
+function(req,res){
 
-
-    favAdCtrl.showFavAds(req,function(err,ad){
+    favConroler.showFavouritProduct(req,function(err,ad){
         res.json(ad)
     })
 
