@@ -11,6 +11,7 @@ export const getAllProducts = "getAllProducts";
 export const GetByIdProducts = "GetByIdProducts";
 export const ADDTOCARTITEMSS = "AddtoCartItems";
 export const GETALLPRODUCTS = "GETALLPRODUCTS";
-export const GETCARTPRODUCTS = "GETCARTPRODUCTS"
-export const REMOVECARTPRODUCT = "REMOVECARTPRODUCT"
+export const GETCARTPRODUCTS = "GETCARTPRODUCTS";
+export const REMOVECARTPRODUCT = "REMOVECARTPRODUCT";
+export const FAVOURITPRODUCTBYID="FAVOURITPRODUCTBYID"
 

@@ -1,4 +1,4 @@
-import {UserProducts,getUserProducts,getAllProducts ,GetByIdProducts} from '../../action/types/types'
+import {UserProducts,getUserProducts,getAllProducts ,GetByIdProducts,FAVOURITPRODUCTBYID} from '../../action/types/types'
 import axios from 'axios';
 import history from '../../../components/history/history'
  export const addproducts=(productData)=>dispatch=>{
@@ -112,6 +112,10 @@ export const GetFavourproducts=(id)=>(dispatch)=>{
     axios.get("http://localhost:8080/api/Favour/getFavouritadd",id)
     .then((res)=>{
         console.log(res)
+        dispatch({
+ type:FAVOURITPRODUCTBYID,
+ payload:res.data
+        })
     })
 }
  

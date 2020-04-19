@@ -60,6 +60,7 @@ text-shadow: 2px 2px 8px rgb(43, 75, 219)
 }
 
 .spacer{
+    justify-content: space-between;
     flex:1;
     /* padding:3px; */
 

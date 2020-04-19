@@ -29,7 +29,7 @@ class PCart extends Component {
 // let ie= cartItems.splice(i,1)
 
 let ie = cartItems.filter(item=>item!==id)
-console.log("filter",ie)
+// console.log("filter",ie)
 localStorage.setItem('cartItem', JSON.stringify(ie)); 
 
     //}
@@ -60,13 +60,29 @@ localStorage.setItem('cartItem', JSON.stringify(ie));
   }
 
 
-
-
+   product = (cartItems)=>cartItems.map((item, i) => {
+    console.log(item)
+          return (
+    
+            <TableRow key={item.id}>
+              <TableCell>
+                <img height="50" src={"http://localhost:8080/" + item.imgSrc[0]} />
+              </TableCell>
+              <TableCell align="right">{item.productname.toUpperCase()}</TableCell>
+              <TableCell align="right">{item.price}</TableCell>
+              <TableCell align="right">1</TableCell>
+              <TableCell align="right">Discount</TableCell>
+              <TableCell align="right"><Button onClick={()=>{this.DeletedCartItem(i,item._id)}} >REMOVE</Button></TableCell>
+            </TableRow>
+    
+          )
+        })
+  
 
   render() {
 
 
-    console.log(this.props.CartItems)
+ 
     //    const product = cartProduct
     //   let profileItems;
     //   if (cartProduct === null) {
@@ -81,23 +97,8 @@ localStorage.setItem('cartItem', JSON.stringify(ie));
     //          console.log(profileItems)
     //     }
     //   }
-    let product = this.props.CartItems.map((item, i) => {
-
-      return (
-
-        <TableRow key={item.id}>
-          <TableCell>
-            <img height="50" src={"http://localhost:8080/" + item.imgSrc[0]} />
-          </TableCell>
-          <TableCell align="right">{item.productname.toUpperCase()}</TableCell>
-          <TableCell align="right">{item.price}</TableCell>
-          <TableCell align="right">1</TableCell>
-          <TableCell align="right">Discount</TableCell>
-          <TableCell align="right"><Button onClick={()=>{this.DeletedCartItem(i,item._id)}} >REMOVE</Button></TableCell>
-        </TableRow>
-
-      )
-    })
+    
+ 
     return (
       <div style={{ marginTop: "vh" }}>
         <h1>Shoping Cart</h1>
@@ -115,7 +116,10 @@ localStorage.setItem('cartItem', JSON.stringify(ie));
               </TableRow>
             </TableHead>
             <TableBody>
-              {product}
+              {this.props.CartItems.map(item=>{
+                return <p>i=e</p>
+              })}
+              {this.product(this.props.CartItems)}
             </TableBody>
           </Table>
         </TableContainer>
