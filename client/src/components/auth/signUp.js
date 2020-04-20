@@ -12,7 +12,10 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { render } from '@testing-library/react';
+import {AccountCircle,Email,Lock,Send,StarHalf,LocationCity,Phone,Add} from '@material-ui/icons';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import registerUser from '../../store/action/userProfile/userPAction'
+import Map from './map/mapapi/mapapi'
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
@@ -124,7 +127,10 @@ handleSubmit=(e)=>{
               onError={errors => console.log(errors)}
             >
               <Grid container spacing={2}>
+
+            
                 <Grid item xs={12} sm={12}>
+          
                   <TextValidator
                     variant="outlined"
                     // required
@@ -133,7 +139,7 @@ handleSubmit=(e)=>{
                     onChange={this.handleChange}
                     name="name"
                     type="text"
-
+                
                     validators={['required']}
                     errorMessages={['this field is required']}
                     value={this.state.name}
@@ -186,7 +192,9 @@ handleSubmit=(e)=>{
                     {/* {this.state.password!==this.state.repeatPassword&&<p style={{color:'red'}}>password did not match </p>} */}
                 </Grid>
          
-
+                <Grid item xs={12} md={12} className="paddingTop">
+                      <Map underline={false} sendAddress={this.getAddress}/>
+                    </Grid>
 
                 <Grid item xs={12} sm={12}>
                   <TextValidator

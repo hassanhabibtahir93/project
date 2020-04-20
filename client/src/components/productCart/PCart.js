@@ -116,9 +116,9 @@ localStorage.setItem('cartItem', JSON.stringify(ie));
               </TableRow>
             </TableHead>
             <TableBody>
-              {this.props.CartItems.map(item=>{
+              {/* {this.props.CartItems.map(item=>{
                 return <p>i=e</p>
-              })}
+              })} */}
               {this.product(this.props.CartItems)}
             </TableBody>
           </Table>
